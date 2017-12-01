@@ -6,84 +6,26 @@ set nocompatible
 filetype plugin on
 syntax on
 
+set noswapfile
+
+" tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " encodings
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
 
-" Code folding
-set foldenable
-set foldmethod=syntax
-au FileType vim setlocal foldmethod=marker
-au FileType conf setlocal foldmethod=marker
+" title for bash
+set title
+set titlestring=Vim\ -\ %t%(\ %M%)
+set titleold=Terminal
 
 " }}} (general)
 
-" Mappings {{{
-
-" New map leader
-let mapleader=","
-let maplocalleader="-"
-
-" Do not wait for the esc key
-set noesckeys
-
-" Mouse
-set mouse=nv
-
-" Toggle paste mode
-set pastetoggle=<F10>
-
-" fuck shift+;
-nnoremap - :
-vnoremap - :
-nnoremap ; :
-vnoremap ; :
-
-" force learning hjkl
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-"imap ^[OA <nop>
-"imap ^[OB <nop>
-"imap ^[OC <nop>
-"imap ^[OD <nop>
-
-" Clear a line
-nmap <silent> <Leader>c 0d$
-
-" Turn hilighting off
-nnoremap <silent> <Leader>s :nohls<CR>
-
-" Move to the next "empty set symbol" (alt-o)
-nnoremap <C-a><C-a> /ø<Enter>:nohls<Enter>"_cl
-inoremap <C-a><C-a> <Esc>/ø<Enter>:nohls<Enter>"_cl
-
-" tslime {{{
-let g:tslime_ensure_trailing_newlines = 1
-"let g:tslime_normal_mapping = '<localleader>t'
-"let g:tslime_visual_mapping = '<localleader>t'
-"let g:tslime_vars_mapping = '<localleader>T'
-" }}} (tslime)
-
-" Vimux {{{
-function! VimuxSlime() " Send selection to the vimux pane
-    call VimuxSendText(@v)
-    "call VimuxSendKeys("Enter")
-endfunction
-
-" Send selection to repl
-vmap <Leader>vs "vy :call VimuxSlime()<CR>
-" Send paragraph to repl
-nmap <Leader>vs vip<LocalLeader>vs<CR>
-" }}}
-
-" }}}
+" ----------------------------------------------------------------------------
 
 " Plugins {{{
 
@@ -133,8 +75,31 @@ call plug#end()
 
 " Plugin config
 
-" ctrlp
-nnoremap <C-b> :CtrlPBuffer<CR>
+" }}} (Plugins)
+
+" ----------------------------------------------------------------------------
+
+" Navigation {{{
+
+" Search
+set ignorecase
+set hlsearch
+
+" Scrolling
+set scrolloff=8
+
+" Splits
+" simple split switching
+noremap <C-j> <C-w><C-w>
+noremap <C-k> <C-w>W
+set splitright " split always to the right
+
+" Code folding
+set foldenable
+set foldmethod=syntax
+set foldminlines=1
+au FileType vim setlocal foldmethod=marker
+au FileType conf setlocal foldmethod=marker
 
 " nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -145,10 +110,80 @@ set hidden
 " undo tree
 nnoremap <Leader>u :UndotreeToggle<cr>:UndotreeFocus<cr>
 
+" ctrlp
 " ignores for nerdtree and ctrlp
 "set wildignore+=*/static/*
 
-" }}} (Plugins)
+" }}} (Navigation)
+
+" ----------------------------------------------------------------------------
+
+" Mappings {{{
+
+" New map leader
+let mapleader=","
+let maplocalleader="-"
+
+" ESC
+set noesckeys " Do not wait for the esc key
+map <C-space> <Esc>
+imap <C-space> <Esc>
+vmap <C-space> <Esc>
+
+" Mouse
+set mouse=nv
+
+" Toggle paste mode
+set pastetoggle=<F10>
+
+" fuck shift+;
+nnoremap - :
+vnoremap - :
+nnoremap ; :
+vnoremap ; :
+
+" force learning hjkl
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+"imap ^[OA <nop>
+"imap ^[OB <nop>
+"imap ^[OC <nop>
+"imap ^[OD <nop>
+
+" Clear a line
+nmap <silent> <Leader>c 0d$
+
+" Turn hilighting off
+nnoremap <silent> <Leader>s :nohls<CR>
+
+" tslime {{{
+let g:tslime_ensure_trailing_newlines = 1
+"let g:tslime_normal_mapping = '<localleader>t'
+"let g:tslime_visual_mapping = '<localleader>t'
+"let g:tslime_vars_mapping = '<localleader>T'
+" }}} (tslime)
+
+" Vimux {{{
+function! VimuxSlime() " Send selection to the vimux pane
+    call VimuxSendText(@v)
+    "call VimuxSendKeys("Enter")
+endfunction
+
+" Send selection to repl
+vmap <Leader>vs "vy :call VimuxSlime()<CR>
+" Send paragraph to repl
+nmap <Leader>vs vip<LocalLeader>vs<CR>
+" }}}
+
+" }}}
+
+" ----------------------------------------------------------------------------
 
 " Style {{{
 
@@ -156,6 +191,10 @@ nnoremap <Leader>u :UndotreeToggle<cr>:UndotreeFocus<cr>
 set t_Co=256 " Fix colors
 set bg=dark
 colorscheme dracula
+
+" No bells
+set t_vb=
+set vb
 
 " hilight current line
 set cursorline
@@ -166,6 +205,10 @@ set nu " Show the absolute line number instead of 0
 
 " Highlight the column after textwidth
 set colorcolumn=+1
+
+" display invisible characters
+exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
+set list " See spaces
 
 " Airline
 set laststatus=2
@@ -186,6 +229,8 @@ let g:niji_dark_colours = [
 
 " }}} (style)
 
+" ----------------------------------------------------------------------------
+
 " Programming language specific {{{
 
 " Scheme
@@ -202,24 +247,9 @@ let g:tsuquyomi_completion_detail = 1 " Show signature on completion
 
 " }}}
 
+" ----------------------------------------------------------------------------
+
 " Legacy {{{
-set ignorecase
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set scrolloff=8
-set noswapfile
-set foldminlines=4
-set splitright " split always to the right
-
-set t_vb=
-set vb
-set hlsearch
-
-" the mappings
-map <C-space> <Esc>
-imap <C-space> <Esc>
-vmap <C-space> <Esc>
 
 "nmap <tab> :tabnext<CR>
 "nmap <S-tab> :tabprevious<CR>
@@ -232,24 +262,10 @@ nmap <silent> <Leader>h :s/á\\|é\\|í\\|ó\\|ú\\|¡\\|ñ/\={"á": "&aacute;",
 "super diff para cuando cambia el archivo
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-" displays invisible characters
-exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
-set list
-nnoremap <silent> <Leader>p :set list!<CR>
-
-
-" title for bash
-set title
-set titlestring=Vim\ -\ %t%(\ %M%)
-set titleold=Terminal
 
 " easy macroing
 "nnoremap Q @q
 "vnoremap Q :norm @q<cr>
-
-" simple split switching
-"noremap <C-j> <C-w><C-w>
-"noremap <C-k> <C-w>W
 
 " simple yank to common buffers
 vnoremap <silent> <Leader>y "*y
@@ -269,3 +285,5 @@ vnoremap <silent> <Leader>Y "+y
 " let g:syntastic_check_on_wq = 0
 
 " }}}
+
+" ----------------------------------------------------------------------------
