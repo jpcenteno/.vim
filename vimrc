@@ -71,6 +71,18 @@ let g:tslime_ensure_trailing_newlines = 1
 "let g:tslime_vars_mapping = '<localleader>T'
 " }}} (tslime)
 
+" Vimux {{{
+function! VimuxSlime() " Send selection to the vimux pane
+    call VimuxSendText(@v)
+    "call VimuxSendKeys("Enter")
+endfunction
+
+" Send selection to repl
+vmap <Leader>vs "vy :call VimuxSlime()<CR>
+" Send paragraph to repl
+nmap <Leader>vs vip<LocalLeader>vs<CR>
+" }}}
+
 " }}}
 
 " Plugins {{{
@@ -96,7 +108,10 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plug 'bhurlow/vim-parinfer', { 'for': ['clojure', 'scheme'] }
 Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
+
+" Tmux integration
 Plug 'sjl/tslime.vim'
+Plug 'benmills/vimux'
 
 " Python
 "Plug 'vim-scripts/python.vim', { 'for': 'python' }
