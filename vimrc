@@ -128,7 +128,6 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 " Style
 Plug 'dracula/vim' " Dracula theme
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -165,20 +164,13 @@ set cursorline
 set relativenumber
 set nu " Show the absolute line number instead of 0
 
-" GUI Options (Ezequiel wrote it. I don't use it)
-"au GUIEnter * simalt ~x
-"set guifont=Source_Code_Pro_Light:h10:cANSI
-"set guioptions=egrLt
+" Highlight the column after textwidth
+set colorcolumn=+1
 
-" Highlight chars after column 80
-match ErrorMsg '\%>80v.\+'
-
-" Airline {{{
-" I don't use the powerline symbols because I want my vim config to be
-" compatible with every terminal that does not have them.
+" Airline
 set laststatus=2
-let g:airline_theme='base16_default'
-" }}}
+" I prefer not to use powerline symbols in order to make the setup nicer on
+" terminals with horrible fonts.
 
 " Rainbow parens (With vim-niji) {{{
 let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
