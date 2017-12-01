@@ -1,8 +1,8 @@
 
 " General {{{
 
+" Basics
 set nocompatible
-
 filetype plugin on
 syntax on
 
@@ -41,7 +41,6 @@ nnoremap ; :
 vnoremap ; :
 
 " force learning hjkl
-set nocompatible
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
