@@ -5,7 +5,6 @@
 set nocompatible
 filetype plugin on
 syntax on
-
 set noswapfile
 
 " tabs
@@ -233,15 +232,15 @@ let g:niji_dark_colours = [
 
 " Programming language specific {{{
 
-" Scheme
+""" Scheme
 " see http://crash.net.nz/posts/2014/08/configuring-vim-for-sicp/
 " see https://ds26gte.github.io/scmindent/index.html
 " autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
 
-" Clojure
-au BufNewFile,BufRead *.boot setlocal ft=clojure " Boot config files are clojure
+""" Clojure
+au BufNewFile,BufRead *.boot setlocal ft=clojure
 
-" Typescript
+""" Typescript
 au BufNewFile,BufRead *.ts setlocal ft=typescript " Typescript
 let g:tsuquyomi_completion_detail = 1 " Show signature on completion
 
