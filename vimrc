@@ -169,11 +169,12 @@ match ErrorMsg '\%>80v.\+'
 " I don't use the powerline symbols because I want my vim config to be
 " compatible with every terminal that does not have them.
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16_default'
 " }}}
 
 " Rainbow parens (With vim-niji) {{{
+let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
+
 let g:niji_dark_colours = [
     \ [ '81', '#ee4035'],
     \ [ '99', '#f37736'],
