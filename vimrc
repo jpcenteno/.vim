@@ -89,9 +89,9 @@ nmap <Leader>vs vip<LocalLeader>vs<CR>
 call plug#begin('~/.vim/plugged')
 
 " Coding
-Plug 'vim-syntastic/syntastic' " Syntax Checking
+"Plug 'vim-syntastic/syntastic' " Syntax Checking
 Plug 'vim-scripts/vim-niji' " Rainbow parens
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " Web dev
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
