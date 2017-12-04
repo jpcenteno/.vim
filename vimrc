@@ -38,7 +38,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Coding
-"Plug 'vim-syntastic/syntastic' " Syntax Checking
+Plug 'vim-syntastic/syntastic' " Syntax Checking
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
@@ -184,6 +184,23 @@ nmap <Leader>vs vip<LocalLeader>vs<CR>
 
 " ----------------------------------------------------------------------------
 
+" Coding {{{
+
+" Syntastic
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" }}}
+
+" ----------------------------------------------------------------------------
+
 " Style {{{
 
 " Color scheme
@@ -272,16 +289,6 @@ vnoremap <silent> <Leader>Y "+y
 
 " python dbg
 " nnoremap <silent> <Leader>d Oimport ipdb;ipdb.set_trace()<Esc>
-
-" Syntastic settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 
 " }}}
 
