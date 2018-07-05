@@ -144,6 +144,10 @@ vnoremap - :
 nnoremap ; :
 vnoremap ; :
 
+" easy macroing
+nmap Q @q
+vmap Q :norm @q<cr>
+
 " force learning hjkl
 map <up> <nop>
 map <down> <nop>
@@ -287,10 +291,6 @@ nmap <silent> <Leader>h :s/á\\|é\\|í\\|ó\\|ú\\|¡\\|ñ/\={"á": "&aacute;",
 "super diff para cuando cambia el archivo
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-
-" easy macroing
-"nnoremap Q @q
-"vnoremap Q :norm @q<cr>
 
 " simple yank to common buffers
 vnoremap <silent> <Leader>y "*y
