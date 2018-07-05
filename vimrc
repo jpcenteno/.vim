@@ -55,8 +55,7 @@ Plug 'mbbill/undotree'
 
 " Lisp
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"Plug 'bhurlow/vim-parinfer', { 'for': ['clojure', 'scheme'] }
-Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux integration
 Plug 'sjl/tslime.vim'
