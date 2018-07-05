@@ -280,16 +280,10 @@ let g:tsuquyomi_completion_detail = 1 " Show signature on completion
 
 " Legacy {{{
 
-"nmap <tab> :tabnext<CR>
-"nmap <S-tab> :tabprevious<CR>
-"nmap <F8> :TagbarToggle<CR>
 nnoremap Y y$
-"noremap º ^
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 vmap <silent> <Leader>h :s/á\\|é\\|í\\|ó\\|ú\\|¡\\|ñ/\={"á": "&aacute;", "é": "&eacute;", "í": "&iacute;", "ó": "&oacute;", "ú": "&uacute;", "¡": "&iexcl;", "ñ": "&ntilde;"}[submatch(0)]/g<CR>
 nmap <silent> <Leader>h :s/á\\|é\\|í\\|ó\\|ú\\|¡\\|ñ/\={"á": "&aacute;", "é": "&eacute;", "í": "&iacute;", "ó": "&oacute;", "ú": "&uacute;", "¡": "&iexcl;", "ñ": "&ntilde;"}[submatch(0)]/g<CR>
-"super diff para cuando cambia el archivo
-command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 
 " simple yank to common buffers
