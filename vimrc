@@ -296,9 +296,6 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 vnoremap <silent> <Leader>y "*y
 vnoremap <silent> <Leader>Y "+y
 
-" python dbg
-" nnoremap <silent> <Leader>d Oimport ipdb;ipdb.set_trace()<Esc>
-
 " }}}
 
 " ----------------------------------------------------------------------------
