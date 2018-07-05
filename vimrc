@@ -70,7 +70,7 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Style
-Plug 'dracula/vim' " Dracula theme
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
