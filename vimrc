@@ -42,11 +42,17 @@ Plug 'vim-syntastic/syntastic' " Syntax Checking
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-" Web dev
+" Web dev {{{
+
+" Emmet: tools for easier web dev.
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
+
+" Typescript:
 Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Req for typescript
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
+
+" }}}
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
