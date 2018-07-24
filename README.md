@@ -11,6 +11,12 @@ Prerequisites
 Cheatsheet:
 -----------
 
+### Syntastic
+
+Syntastic is on by default. To toggle it on and off, use:
+
+    :SyntasticToggleMode
+
 ### Web development:
 
 **Emmet** is available for web development. The emmet leader key it's still the
