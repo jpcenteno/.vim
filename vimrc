@@ -238,7 +238,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme dracula
+" colorscheme dracula
 
 " No bells
 set t_vb=
