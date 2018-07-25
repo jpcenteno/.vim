@@ -47,6 +47,9 @@ Plug 'vim-scripts/vim-niji' " Rainbow parens
 " Emmet: tools for easier web dev.
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
 
+" Javascript:
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
 " Typescript:
 Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Req for typescript
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
@@ -198,6 +201,16 @@ nmap <Leader>vs vip<LocalLeader>vs<CR>
 " ----------------------------------------------------------------------------
 
 " Coding {{{
+
+" Web Dev {{{
+
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+    au FileType javascript syntax on
+augroup END
+
+" / Web Dev }}}
 
 " Syntastic {{{
 
