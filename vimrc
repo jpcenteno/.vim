@@ -84,6 +84,7 @@ Plug 'lifepillar/pgsql.vim.git'
 
 " Style
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'j-tom/vim-old-hope'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
@@ -249,7 +250,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-" colorscheme dracula
+colorscheme old-hope
 
 " No bells
 set t_vb=
