@@ -78,6 +78,10 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
+" SQL {{{
+Plug 'lifepillar/pgsql.vim.git'
+" }}}
+
 " Style
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
@@ -211,6 +215,13 @@ augroup javascript_folding
 augroup END
 
 " / Web Dev }}}
+
+" SQL {{{
+
+" Use PgSQL as the default SQL dialect
+let g:sql_type_default = 'pgsql'
+
+" }}}
 
 " Syntastic {{{
 
