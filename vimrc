@@ -141,7 +141,9 @@ let mapleader=","
 let maplocalleader="-"
 
 " ESC
-set noesckeys " Do not wait for the esc key
+if !has('nvim')
+    set noesckeys " Do not wait for the esc key
+endif
 map <C-space> <Esc>
 imap <C-space> <Esc>
 vmap <C-space> <Esc>
