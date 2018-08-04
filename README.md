@@ -8,14 +8,16 @@ Prerequisites
 
 - `cargo` is required to build `eraserhd/parinfer-rust`
 
+Plugins and Tools:
+------------------
+
+### ALE: Asynchronous Lint Engine
+
+I'm trying on switching to ALE from Syntastic because I was getting the editor
+blocked by slow linters.
+
 Cheatsheet:
 -----------
-
-### Syntastic
-
-Syntastic is on by default. To toggle it on and off, use:
-
-    :SyntasticToggleMode
 
 ### Web development:
 

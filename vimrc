@@ -38,7 +38,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Coding
-Plug 'vim-syntastic/syntastic' " Syntax Checking
+" Plug 'vim-syntastic/syntastic' " Syntax Checking
+Plug 'w0rp/ale'
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
