@@ -1,4 +1,3 @@
-
 " General {{{
 
 " Basics
@@ -28,13 +27,36 @@ set titleold=Terminal
 
 " Plugins {{{
 
-" Install Plug.vim if not present
-if empty(glob('~/.vim/autoload/plug.vim'))
+" Autoinstall Plug on Vim or Neovim:
+" {{{
+
+" Autoinstall on NeoVim
+if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))
+
+    echo "Installing vim-plug..."
+
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+endif
+
+" Autoinstall on Vim
+if !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))
+
+    echo "Installing vim-plug..."
+
+    " Autoinstall on Vim
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
 endif
 
+" }}}
+
+" Plugin declarations:
+" {{{
 call plug#begin('~/.vim/plugged')
 
 " Coding
@@ -89,6 +111,7 @@ Plug 'j-tom/vim-old-hope'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
+" }}}
 
 " Plugin config
 
