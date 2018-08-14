@@ -227,6 +227,24 @@ vmap <Leader>vs "vy :call VimuxSlime()<CR>
 nmap <Leader>vs vip<LocalLeader>vs<CR>
 " }}}
 
+" Spell Check {{{
+
+" Check English
+nmap <Leader>ce :setlocal spell spelllang=en_us<CR>
+
+" Check Spanish
+nmap <Leader>cs :setlocal spell spelllang=es_ar,en_us<CR>
+nmap <Leader>cS :setlocal spell spelllang=es_ar<CR>
+
+" Check Deutsch
+nmap <Leader>cd :setlocal spell spelllang=de_de,en_us<CR>
+nmap <Leader>cD :setlocal spell spelllang=de_de<CR>
+
+" Disable spell checking
+nmap <Leader>c0 :setlocal nospell<CR>
+
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
