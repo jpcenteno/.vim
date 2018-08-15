@@ -285,6 +285,13 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " / Syntastic }}}
 
+" YAML {{{
+
+" 2chars tabs for yaml
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
