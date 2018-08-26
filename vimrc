@@ -292,6 +292,13 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " }}}
 
+" LaTeX {{{
+
+autocmd Filetype plaintex setlocal foldmethod=marker
+autocmd Filetype tex setlocal foldmethod=marker
+
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
