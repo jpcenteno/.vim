@@ -251,6 +251,13 @@ nmap <Leader>c0 :setlocal nospell<CR>
 
 " Coding {{{
 
+" ASM {{{
+
+" 2chars tabs for ASM
+autocmd Filetype asm setlocal ts=2 sw=2 expandtab
+
+" }}}
+
 " Web Dev {{{
 
 augroup javascript_folding
