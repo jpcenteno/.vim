@@ -299,6 +299,10 @@ autocmd Filetype tex setlocal foldmethod=marker
 
 " }}}
 
+" Zsh conf files {{{
+autocmd Filetype zsh setlocal foldmethod=marker
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
