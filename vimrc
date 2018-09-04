@@ -256,6 +256,9 @@ nmap <Leader>c0 :setlocal nospell<CR>
 " 2chars tabs for ASM
 autocmd Filetype asm setlocal ts=2 sw=2 expandtab
 
+" Marker folds
+autocmd Filetype asm setlocal foldmethod=marker
+
 " }}}
 
 " Web Dev {{{
