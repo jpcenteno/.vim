@@ -322,7 +322,7 @@ autocmd Filetype zsh setlocal foldmethod=marker
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme old-hope
+colorscheme dracula
 
 " No bells
 set t_vb=
