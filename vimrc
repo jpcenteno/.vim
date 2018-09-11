@@ -323,6 +323,7 @@ autocmd Filetype zsh setlocal foldmethod=marker
 set t_Co=256 " Fix colors
 set bg=dark
 colorscheme dracula
+hi Normal ctermbg=none " Black Background
 
 " No bells
 set t_vb=
