@@ -331,6 +331,7 @@ set vb
 
 " hilight current line
 set cursorline
+hi cursorline cterm=underline ctermbg=none " Black bg, white underline
 
 " Relative line numbers.
 set relativenumber
