@@ -304,6 +304,10 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " LaTeX {{{
 
+" Use "latex" as default flavor for `.tex` files
+let g:tex_flavor = "latex"
+
+" Use marker folds
 autocmd Filetype plaintex setlocal foldmethod=marker
 autocmd Filetype tex setlocal foldmethod=marker
 
