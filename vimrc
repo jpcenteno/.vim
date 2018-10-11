@@ -98,6 +98,9 @@ Plug 'benmills/vimux'
 "Plug 'vim-scripts/python.vim', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 
+" Processing
+Plug 'sophacles/vim-processing'
+
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
