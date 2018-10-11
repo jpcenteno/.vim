@@ -112,6 +112,7 @@ Plug 'lifepillar/pgsql.vim.git'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'j-tom/vim-old-hope'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 " }}}
@@ -331,6 +332,15 @@ set t_Co=256 " Fix colors
 set bg=dark
 colorscheme dracula
 hi Normal ctermbg=none " Black Background
+
+" Limelight {{{
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_paragraph_span = 1
+" Highlighting priority (default: 10). Set it to -1 not to overrule hlsearch:
+let g:limelight_priority = -1
+" Key bindings
+nmap <Leader>l :Limelight!!<CR>
+" }}}
 
 " No bells
 set t_vb=
