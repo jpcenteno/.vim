@@ -111,6 +111,7 @@ Plug 'lifepillar/pgsql.vim.git'
 " Style
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'j-tom/vim-old-hope'
+Plug 'nightsense/stellarized'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
@@ -331,7 +332,7 @@ autocmd Filetype zsh setlocal foldmethod=marker
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme dracula
+colorscheme stellarized
 hi Normal ctermbg=none " Black Background
 
 " Distraction free with Goyo and Limelight {{{
