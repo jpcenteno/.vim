@@ -206,7 +206,7 @@ imap <right> <nop>
 "imap ^[OD <nop>
 
 " Clear unwanted whitespace.
-nmap <silent> <Leader>c :%s/\s\+$//e<CR>
+nmap <silent> <Leader>c :%s/\s\+$//e<CR>,s
 
 " Turn hilighting off
 nnoremap <silent> <Leader>s :nohls<CR>
