@@ -332,7 +332,7 @@ autocmd Filetype zsh setlocal foldmethod=marker
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme stellarized
+colorscheme dracula
 hi Normal ctermbg=none " Black Background
 
 " Distraction free with Goyo and Limelight {{{
