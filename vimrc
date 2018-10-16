@@ -333,7 +333,23 @@ autocmd Filetype zsh setlocal foldmethod=marker
 set t_Co=256 " Fix colors
 set bg=dark
 colorscheme dracula
-hi Normal ctermbg=none " Black Background
+
+" Colorscheme modifications {{{
+
+function s:myColorSchemeMods()
+    " Black Background
+    hi Normal ctermbg=none
+    " underline current line
+    set cursorline
+    hi cursorline cterm=underline ctermbg=none " Black bg, white underline
+    " display invisible characters
+    exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
+    set list " See spaces
+endfunction
+
+call s:myColorSchemeMods()
+
+" }}}
 
 " Distraction free with Goyo and Limelight {{{
 
@@ -346,17 +362,12 @@ nmap <Leader>l :Limelight!!<CR>
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
+autocmd! User GoyoLeave call s:myColorSchemeMods()
 " }}}
-
 
 " No bells
 set t_vb=
 set vb
-
-" hilight current line
-set cursorline
-hi cursorline cterm=underline ctermbg=none " Black bg, white underline
 
 " Relative line numbers.
 set relativenumber
@@ -364,10 +375,6 @@ set nu " Show the absolute line number instead of 0
 
 " Highlight the column after textwidth
 set colorcolumn=+1
-
-" display invisible characters
-exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
-set list " See spaces
 
 " Airline
 set laststatus=2
