@@ -80,6 +80,9 @@ Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 
 " }}}
 
+" Markdown
+Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
+
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -336,6 +339,20 @@ autocmd Filetype tex setlocal foldmethod=marker
 autocmd Filetype zsh setlocal foldmethod=marker
 " }}}
 
+" Markdown {{{
+
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+
+" }}}
 " }}}
 
 " ----------------------------------------------------------------------------
