@@ -260,7 +260,7 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <Leader>P :call <SID>SynStack()<CR>
 
 " }}}
 
