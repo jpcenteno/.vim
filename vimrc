@@ -341,6 +341,11 @@ autocmd Filetype zsh setlocal foldmethod=marker
 
 " Markdown {{{
 
+" Enable markdown folding
+let g:markdown_folding = 1
+au FileType markdown :set foldlevel=1 " Fold subsections
+
+
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
   let mapping_pattern = '\V' . escape(a:mapping, '\')
