@@ -113,6 +113,7 @@ Plug 'lifepillar/pgsql.vim.git'
 
 " Style
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-scripts/less.vim'
 Plug 'j-tom/vim-old-hope'
 Plug 'nightsense/stellarized'
 "Plug 'vim-airline/vim-airline'
@@ -368,7 +369,7 @@ inoreabbrev <expr> <bar><bar>
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme dracula
+colorscheme less
 
 " Colorscheme modifications {{{
 
@@ -381,6 +382,8 @@ function s:myColorSchemeMods()
     " display invisible characters
     exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
     set list " See spaces
+    " Gray out Line Numbers
+    hi LineNr ctermfg=DarkGray
 endfunction
 
 call s:myColorSchemeMods()
@@ -410,7 +413,7 @@ set relativenumber
 set nu " Show the absolute line number instead of 0
 
 " Highlight the column after textwidth
-set colorcolumn=+1
+"set colorcolumn=+1
 
 " Airline
 "set laststatus=2
