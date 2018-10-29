@@ -115,7 +115,7 @@ Plug 'lifepillar/pgsql.vim.git'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'j-tom/vim-old-hope'
 Plug 'nightsense/stellarized'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 
@@ -303,9 +303,9 @@ let g:sql_type_default = 'pgsql'
 
 " Syntastic {{{
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -413,7 +413,7 @@ set nu " Show the absolute line number instead of 0
 set colorcolumn=+1
 
 " Airline
-set laststatus=2
+"set laststatus=2
 " I prefer not to use powerline symbols in order to make the setup nicer on
 " terminals with horrible fonts.
 
