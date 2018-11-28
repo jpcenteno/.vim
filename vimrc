@@ -299,7 +299,7 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 " }}}
 
 " Fix latex copypaste {{{
-function FixLayexPasteNormal()
+function! FixLayexPasteNormal()
 
     let l:save = winsaveview() " Save cursor position
 
@@ -419,7 +419,7 @@ set bg=dark
 colorscheme stellarized
 
 " Colorscheme rotator
-function MyClockRotateColorscheme()
+function! MyClockRotateColorscheme()
 
     if strftime('%H') >= 9 && strftime('%H') < 19
         set bg=light
@@ -437,7 +437,7 @@ endfunction
 
 " Colorscheme modifications {{{
 
-function s:myColorSchemeMods()
+function! s:myColorSchemeMods()
     " Black Background
     "hi Normal ctermbg=none
     " underline current line
