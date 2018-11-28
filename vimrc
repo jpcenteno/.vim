@@ -89,6 +89,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 
 " Lisp
+Plug 'tpope/vim-classpath', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release',
                                \ 'for': ['clojure', 'lisp', 'scheme']}
