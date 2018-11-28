@@ -68,6 +68,29 @@ Plug 'w0rp/ale'
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
+" Text Editing {{{
+
+" Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML
+" tags, and more. The plugin provides mappings to easily delete, change and
+" add such surroundings in pairs.
+Plug 'tpope/vim-surround'
+
+" Paredit performs structured editing of Lisp S-expressions in Vim. Paredit
+" Mode tries to maintain the balanced state of matched characters (parenthesis
+" marks, square and curly braces, double quotes).
+Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'lisp', 'scheme']}
+
+" A full-featured, super fast implementation of Shaun Lebron's parinfer. This
+" repo comes with Vim plugin files that work with Vim8 and Neovim. The Rust
+" library can be called from other editors that can load dynamic libraries.
+" This plugin, unlike others available for Vim, implements "smart" mode.
+" Rather than switching between "paren" mode and "indent" mode, parinfer uses
+" information about how the user is changing the file to decide what to do.
+"Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release',
+"                               \ 'for': ['clojure', 'lisp', 'scheme']}
+
+" }}}
+
 " Web dev {{{
 
 " Emmet: tools for easier web dev.
@@ -91,11 +114,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 
-" Lisp
+" Clojure {{{
 Plug 'tpope/vim-classpath', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release',
-                               \ 'for': ['clojure', 'lisp', 'scheme']}
+" }}}
 
 " Tmux integration
 Plug 'sjl/tslime.vim'
