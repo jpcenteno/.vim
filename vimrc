@@ -273,6 +273,24 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " }}}
 
+" Fix latex copypaste {{{
+function FixLayexPasteNormal()
+
+    let l:save = winsaveview() " Save cursor position
+
+    " Spanish:
+    silent! %s/a ́/á/g
+    silent! %s/e ́/é/g
+    silent! %s/i ́/í/g
+    silent! %s/o ́/ó/g
+    silent! %s/u ́/ú/g
+    silent! %s/n ̃/ñ/g
+
+    call winrestview(l:save) " Restore cursor position
+
+endfunction
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
