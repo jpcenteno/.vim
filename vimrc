@@ -116,7 +116,10 @@ Plug 'lifepillar/pgsql.vim.git'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-scripts/less.vim'
 Plug 'j-tom/vim-old-hope'
+Plug 'pgdouyon/vim-yin-yang'
 Plug 'nightsense/stellarized'
+Plug 'nielsmadan/harlequin'
+
 "Plug 'vim-airline/vim-airline'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
@@ -370,21 +373,38 @@ inoreabbrev <expr> <bar><bar>
 " Color scheme
 set t_Co=256 " Fix colors
 set bg=dark
-colorscheme less
+colorscheme stellarized
+
+" Colorscheme rotator
+function MyClockRotateColorscheme()
+
+    if strftime('%H') >= 9 && strftime('%H') < 19
+        set bg=light
+        colorscheme yang
+    else
+        set bg=dark
+        colorscheme stellarized
+
+    endif
+
+endfunction
+
+"let s:rotatorTimer = timer_start(60 * 1000, 'MyClockRotateColorscheme')
+"call MyClockRotateColorscheme()
 
 " Colorscheme modifications {{{
 
 function s:myColorSchemeMods()
     " Black Background
-    hi Normal ctermbg=none
+    "hi Normal ctermbg=none
     " underline current line
     set cursorline
-    hi cursorline cterm=underline ctermbg=none " Black bg, white underline
+    "hi cursorline cterm=underline ctermbg=none " Black bg, white underline
     " display invisible characters
     exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
     set list " See spaces
     " Gray out Line Numbers
-    hi LineNr ctermfg=DarkGray
+    hi LineNr ctermfg=DarkGray ctermbg=none
 endfunction
 
 call s:myColorSchemeMods()
