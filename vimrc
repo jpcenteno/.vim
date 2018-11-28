@@ -59,6 +59,9 @@ endif
 " {{{
 call plug#begin('~/.vim/plugged')
 
+" Register `vim-plug` as a plugin in order to get its documentation.
+Plug 'junegunn/vim-plug'
+
 " Coding
 " Plug 'vim-syntastic/syntastic' " Syntax Checking
 Plug 'w0rp/ale'
