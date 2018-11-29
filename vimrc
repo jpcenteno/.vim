@@ -89,6 +89,14 @@ Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'lisp', 'scheme']}
 "Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release',
 "                               \ 'for': ['clojure', 'lisp', 'scheme']}
 
+" Commentary: Comment stuff out. Use gcc to comment out a line (takes a
+" count), gc to comment out the target of a motion (for example, gcap to
+" comment out a paragraph), gc in visual mode to comment out the selection,
+" and gc in operator pending mode to target a comment. You can also use it as
+" a command, either with a range like :7,17Commentary, or as part of a :global
+" invocation like with :g/TODO/Commentary. That's it.
+Plug 'tpope/vim-commentary'
+
 " }}}
 
 " Web dev {{{
@@ -111,8 +119,19 @@ Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Nerdtree: The NERDTree is a file system explorer for the Vim editor. Using
+" this plugin, users can visually browse complex directory hierarchies,
+" quickly open files for reading or editing, and perform basic file system
+" operations.
 Plug 'scrooloose/nerdtree'
+nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
+set hidden
+
+" Undotree:
 Plug 'mbbill/undotree'
+nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<cr>
 
 " Clojure {{{
 Plug 'tpope/vim-classpath', { 'for': 'clojure' }
@@ -180,15 +199,6 @@ set foldminlines=1
 au FileType vim setlocal foldmethod=marker
 au FileType conf setlocal foldmethod=marker
 set foldlevel=99 " unfold by default
-
-" nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen=1
-set hidden
-
-" undo tree
-nnoremap <Leader>u :UndotreeToggle<cr>:UndotreeFocus<cr>
 
 " ctrlp
 " ignores for nerdtree and ctrlp
