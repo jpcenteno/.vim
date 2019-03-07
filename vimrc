@@ -70,6 +70,12 @@ Plug 'vim-scripts/vim-niji' " Rainbow parens
 
 " Text Editing {{{
 
+" Repeat: If you've ever tried using the . command after a plugin map, you
+" were likely disappointed to discover it only repeated the last native
+" command inside that map, rather than the map as a whole. That disappointment
+" ends today. Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'tpope/vim-repeat'
+
 " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML
 " tags, and more. The plugin provides mappings to easily delete, change and
 " add such surroundings in pairs.
