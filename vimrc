@@ -93,7 +93,16 @@ let g:NERDTrimTrailingWhitespace = 1
 " Paredit performs structured editing of Lisp S-expressions in Vim. Paredit
 " Mode tries to maintain the balanced state of matched characters (parenthesis
 " marks, square and curly braces, double quotes).
-Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'lisp', 'scheme']}
+"Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'lisp', 'scheme']}
+
+" Sexp: Vim-sexp brings the Vim philosophy of precision editing to
+" S-expressions.
+Plug 'guns/vim-sexp', { 'for': ['clojure', 'lisp', 'scheme'] }
+" Better mappings by Tpope
+Plug 'tpope/vim-sexp-mappings-for-regular-people',
+   \ { 'for': ['clojure', 'lisp', 'scheme'] }
+" Cheatsheet at: https://github.com/tpope/vim-sexp-mappings-for-regular-people
+
 
 " A full-featured, super fast implementation of Shaun Lebron's parinfer. This
 " repo comes with Vim plugin files that work with Vim8 and Neovim. The Rust
