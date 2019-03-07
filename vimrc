@@ -81,6 +81,15 @@ Plug 'tpope/vim-repeat'
 " add such surroundings in pairs.
 Plug 'tpope/vim-surround'
 
+" NERD Commenter: Comment functions so powerful—no comment necessary
+Plug 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
 " Paredit performs structured editing of Lisp S-expressions in Vim. Paredit
 " Mode tries to maintain the balanced state of matched characters (parenthesis
 " marks, square and curly braces, double quotes).
