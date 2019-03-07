@@ -208,6 +208,11 @@ Plug 'j-tom/vim-old-hope'
 Plug 'pgdouyon/vim-yin-yang'
 Plug 'nightsense/stellarized'
 Plug 'nielsmadan/harlequin'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'junegunn/seoul256.vim'
+Plug 'rakr/vim-two-firewatch'
+Plug 'rakr/vim-one'
+
 
 "Plug 'vim-airline/vim-airline'
 Plug 'junegunn/limelight.vim'
@@ -470,8 +475,8 @@ inoreabbrev <expr> <bar><bar>
 
 " Color scheme
 set t_Co=256 " Fix colors
-set bg=dark
-colorscheme stellarized
+set background=light
+colorscheme seoul256
 
 " Colorscheme rotator
 function! MyClockRotateColorscheme()
