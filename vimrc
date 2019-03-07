@@ -462,9 +462,10 @@ function! s:isAtStartOfLine(mapping)
   return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
 
-inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+" FIXME use an autocmd!
+" inoreabbrev <expr> <bar><bar>
+"           \ <SID>isAtStartOfLine('\|\|') ?
+"           \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 
 " }}}
 " }}}
