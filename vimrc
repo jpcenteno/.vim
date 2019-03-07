@@ -359,7 +359,7 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 " }}}
 
 " Fix latex copypaste {{{
-function! FixLayexPasteNormal()
+function! FixLatexPasteNormal()
 
     let l:save = winsaveview() " Save cursor position
 
