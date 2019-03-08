@@ -6,7 +6,7 @@ Just my **Vim** setup.
 Prerequisites
 -------------
 
-- `cargo` is required to build `eraserhd/parinfer-rust`
+- `cargo` is required to build `eraserhd/parinfer-rust` (Not being used at this time)
 
 Plugins and Tools:
 ------------------
