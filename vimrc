@@ -152,6 +152,18 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
 "let g:vimwiki_list = [
 "    \ {'path': '~/Documents/notes', 'index': 'index.md'}]
 
+" LaTeX {{{
+
+" Vimtex: IDE like features for LaTeX.
+Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+
+autocmd Filetype tex,latex,context,plaintex setlocal foldmethod=marker
+
+" }}}
+
+
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -435,12 +447,6 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " LaTeX {{{
 
-" Use "latex" as default flavor for `.tex` files
-let g:tex_flavor = "latex"
-
-" Use marker folds
-autocmd Filetype plaintex setlocal foldmethod=marker
-autocmd Filetype tex setlocal foldmethod=marker
 
 " }}}
 
