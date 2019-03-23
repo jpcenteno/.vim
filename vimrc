@@ -162,8 +162,6 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_fold_enabled=1
 "autocmd Filetype tex,latex,context,plaintex setlocal foldmethod=marker
 
-au FileType *.tex VimtexCompile " set compiler in continous mode
-
 " }}}
 
 
