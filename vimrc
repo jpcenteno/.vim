@@ -301,20 +301,6 @@ vnoremap ; :
 nmap Q @q
 vmap Q :norm @q<cr>
 
-" force learning hjkl
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-"imap ^[OA <nop>
-"imap ^[OB <nop>
-"imap ^[OC <nop>
-"imap ^[OD <nop>
-
 " Clear unwanted whitespace.
 nmap <silent> <Leader>c :%s/\s\+$//e<CR>,s
 
