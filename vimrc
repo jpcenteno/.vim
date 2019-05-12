@@ -568,6 +568,9 @@ au BufNewFile,BufRead *.boot setlocal ft=clojure
 au BufNewFile,BufRead *.ts setlocal ft=typescript " Typescript
 let g:tsuquyomi_completion_detail = 1 " Show signature on completion
 
+""" TOML
+au BufNewFile,BufRead *.toml setlocal ft=dosini
+
 " }}}
 
 " ----------------------------------------------------------------------------
