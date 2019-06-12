@@ -57,7 +57,8 @@ endif
 
 " Plugin declarations:
 " {{{
-call plug#begin('~/.vim/plugged')
+
+call plug#begin('~/.config/nvim/plugged/')
 
 " Register `vim-plug` as a plugin in order to get its documentation.
 Plug 'junegunn/vim-plug'
