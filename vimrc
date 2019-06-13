@@ -389,7 +389,7 @@ endfunction
 " Coding {{{
 
 " ASM {{{
-au BufNewFile,BufRead *.asm set ft=nasm " Use nasm syntax
+au BufNewFile,BufRead *.asm,*.mac set ft=nasm " Use nasm syntax
 autocmd Filetype nasm setlocal foldmethod=marker
 " }}}
 
