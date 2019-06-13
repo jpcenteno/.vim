@@ -122,6 +122,12 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people',
 " invocation like with :g/TODO/Commentary. That's it.
 Plug 'tpope/vim-commentary'
 
+" Snippets
+if has('python') || has('python3')
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+endif
+
 " }}}
 
 " Web dev {{{
