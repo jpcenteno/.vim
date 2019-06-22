@@ -566,6 +566,9 @@ let g:niji_dark_colours = [
 """ Clojure
 au BufNewFile,BufRead *.boot setlocal ft=clojure
 
+""" Go
+autocmd FileType go setlocal expandtab!
+
 """ Typescript
 au BufNewFile,BufRead *.ts setlocal ft=typescript " Typescript
 let g:tsuquyomi_completion_detail = 1 " Show signature on completion
