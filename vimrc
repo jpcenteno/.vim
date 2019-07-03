@@ -210,6 +210,9 @@ Plug 'benmills/vimux'
 " Python
 "Plug 'vim-scripts/python.vim', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+let g:SimpylFold_docstring_preview=1
+let g:SimpylFold_fold_docstring=0
+let g:SimpylFold_fold_import=0
 
 " Processing
 Plug 'sophacles/vim-processing'
