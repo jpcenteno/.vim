@@ -204,8 +204,10 @@ endif
 " }}}
 
 " Tmux integration
-Plug 'sjl/tslime.vim'
-Plug 'benmills/vimux'
+if executable('tmux')
+    Plug 'sjl/tslime.vim'
+    Plug 'benmills/vimux'
+endif
 
 " Python
 "Plug 'vim-scripts/python.vim', { 'for': 'python' }
