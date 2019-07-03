@@ -237,7 +237,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'rakr/vim-one'
 
 
-"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 
@@ -525,7 +525,7 @@ nmap <Leader>l :Limelight!!<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 autocmd! User GoyoLeave call s:myColorSchemeMods()
-" }}}
+" }}
 
 " No bells
 set t_vb=
@@ -538,10 +538,49 @@ set nu " Show the absolute line number instead of 0
 " Highlight the column after textwidth
 "set colorcolumn=+1
 
-" Airline
-"set laststatus=2
-" I prefer not to use powerline symbols in order to make the setup nicer on
-" terminals with horrible fonts.
+" Airline config {{{
+
+" Cool symbols
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+
+" Diminish mode names
+let g:airline_mode_map = {
+  \ '__'     : '-',
+  \ 'c'      : 'C',
+  \ 'i'      : 'I',
+  \ 'ic'     : 'I',
+  \ 'ix'     : 'I',
+  \ 'n'      : 'N',
+  \ 'multi'  : 'M',
+  \ 'ni'     : 'N',
+  \ 'no'     : 'N',
+  \ 'R'      : 'R',
+  \ 'Rv'     : 'R',
+  \ 's'      : 'S',
+  \ 'S'      : 'S',
+  \ ''     : 'S',
+  \ 't'      : 'T',
+  \ 'v'      : 'V',
+  \ 'V'      : 'V',
+  \ ''     : 'V',
+  \ }
+
+" Minimal cursor `line:char` coordinates
+let g:airline_section_z = airline#section#create(['%l', ':', '%v'])
+
+" }}}
 
 " Rainbow parens (With vim-niji) {{{
 let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
