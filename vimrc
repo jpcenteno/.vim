@@ -82,6 +82,9 @@ Plug 'tpope/vim-repeat'
 " add such surroundings in pairs.
 Plug 'tpope/vim-surround'
 
+" Auto Pairs: Insert or delete brackets, parens, quotes in pair.
+Plug 'jiangmiao/auto-pairs'
+
 " NERD Commenter: Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
