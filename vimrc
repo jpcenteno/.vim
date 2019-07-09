@@ -235,11 +235,12 @@ Plug 'vim-scripts/less.vim'
 Plug 'j-tom/vim-old-hope'
 Plug 'pgdouyon/vim-yin-yang'
 Plug 'nightsense/stellarized'
-Plug 'nielsmadan/harlequin'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'junegunn/seoul256.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'rakr/vim-one'
+Plug 'sjl/badwolf'
+Plug 'NLKNguyen/papercolor-theme'
 
 
 Plug 'vim-airline/vim-airline'
@@ -479,8 +480,8 @@ endfunction
 
 " Color scheme
 set t_Co=256 " Fix colors
-set background=light
-colorscheme seoul256
+set termguicolors " get truecolor
+colorscheme PaperColor
 
 " Colorscheme rotator
 function! MyClockRotateColorscheme()
