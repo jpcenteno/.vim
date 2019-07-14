@@ -462,6 +462,9 @@ let g:markdown_syntax_conceal = 3 " Hide all
 
 " }}}
 
+" VimScript {{{
+
+au FileType vim setlocal foldmethod=marker foldlevel=0
 
 " }}}
 
