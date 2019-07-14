@@ -458,20 +458,13 @@ autocmd Filetype zsh setlocal foldmethod=marker
 let g:markdown_folding = 1
 au FileType markdown :set foldlevel=1 " Fold subsections
 
-
-function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
-endfunction
-
-" FIXME use an autocmd!
-" inoreabbrev <expr> <bar><bar>
-"           \ <SID>isAtStartOfLine('\|\|') ?
-"           \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+let g:markdown_syntax_conceal = 3 " Hide all
 
 " }}}
+
+
+" }}}
+
 " }}}
 
 " ----------------------------------------------------------------------------
