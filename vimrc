@@ -478,10 +478,18 @@ endfunction
 
 " Style {{{
 
-" Color scheme
+" Fix terminal colors.
 set t_Co=256 " Fix colors
-set termguicolors " get truecolor
+if (has("termguicolors")) " Enable truecolor
+    set termguicolors " get truecolor
+endif
+
 colorscheme PaperColor
+
+" Highlight issues with whitespace.
+" A tab: "	"
+" Trailing space:    
+set list lcs=trail:·,tab:»\ ,extends:▶,precedes:◀
 
 " Colorscheme rotator
 function! MyClockRotateColorscheme()
@@ -506,16 +514,13 @@ function! s:myColorSchemeMods()
     " Black Background
     "hi Normal ctermbg=none
     " underline current line
-    set cursorline
-    "hi cursorline cterm=underline ctermbg=none " Black bg, white underline
-    " display invisible characters
-    exec "set listchars=tab:>\\ ,trail:\uB7,nbsp:~"
-    set list " See spaces
+    " set cursorline
+    " hi cursorLine cterm=underline ctermbg=none " Black bg, white underline
     " Gray out Line Numbers
     hi LineNr ctermfg=DarkGray ctermbg=none
 endfunction
 
-call s:myColorSchemeMods()
+" call s:myColorSchemeMods()
 
 " }}}
 
