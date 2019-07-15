@@ -402,6 +402,14 @@ au BufNewFile,BufRead *.asm,*.mac set ft=nasm " Use nasm syntax
 autocmd Filetype nasm setlocal foldmethod=marker
 " }}}
 
+" Go {{{
+
+autocmd FileType go setlocal expandtab!
+" No need for tab alerts
+autocmd FileType go setlocal lcs=trail:·,tab:\ \ ,extends:▶,precedes:◀
+
+" }}}
+
 " Web Dev {{{
 
 augroup javascript_folding
@@ -614,9 +622,6 @@ let g:niji_dark_colours = [
 
 """ Clojure
 au BufNewFile,BufRead *.boot setlocal ft=clojure
-
-""" Go
-autocmd FileType go setlocal expandtab!
 
 """ Typescript
 au BufNewFile,BufRead *.ts setlocal ft=typescript " Typescript
