@@ -407,6 +407,7 @@ autocmd Filetype nasm setlocal foldmethod=marker
 autocmd FileType go setlocal expandtab!
 " No need for tab alerts
 autocmd FileType go setlocal lcs=trail:·,tab:\ \ ,extends:▶,precedes:◀
+autocmd FileType go setlocal ignorecase!
 
 " }}}
 
