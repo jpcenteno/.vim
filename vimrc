@@ -217,7 +217,7 @@ Plug 'sophacles/vim-processing'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " SQL {{{
-Plug 'lifepillar/pgsql.vim.git'
+Plug 'lifepillar/pgsql.vim'
 " }}}
 
 " Style
