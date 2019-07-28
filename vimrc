@@ -148,19 +148,10 @@ Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 
 " }}}
 
-" Markdown
+" Markdown {{{
 Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
-
-" VimWiki: Vimwiki is a personal wiki for Vim – interlinked, plain text files
-" written in a markup language
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_ext2syntax = {'.md': 'markdown',
-                          \ '.mkd': 'markdown',
-                          \ '.wiki': 'media'}
-"let g:vimwiki_list = [
-"    \ {'path': '~/Documents/notes', 'path_html': '~/Documents/.notes_html'}]
-"let g:vimwiki_list = [
-"    \ {'path': '~/Documents/notes', 'index': 'index.md'}]
+Plug 'tpope/vim-markdown', {'for': 'markdown'}
+" }}}
 
 " LaTeX {{{
 
