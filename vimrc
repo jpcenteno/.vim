@@ -540,11 +540,11 @@ set t_vb=
 set vb
 
 " Relative line numbers.
-set relativenumber
-set nu " Show the absolute line number instead of 0
+" set relativenumber
+" set nu " Show the absolute line number instead of 0
 
 " Highlight the column after textwidth
-"set colorcolumn=+1
+set colorcolumn=+1
 
 " Airline config {{{
 
