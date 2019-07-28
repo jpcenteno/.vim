@@ -241,6 +241,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'rakr/vim-one'
 Plug 'sjl/badwolf'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'srcery-colors/srcery-vim'
 
 
 Plug 'vim-airline/vim-airline'
@@ -489,7 +490,7 @@ if (has("termguicolors")) " Enable truecolor
     set termguicolors " get truecolor
 endif
 
-colorscheme PaperColor
+colorscheme srcery
 
 " Highlight issues with whitespace.
 " A tab: "	"
