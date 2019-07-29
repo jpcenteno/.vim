@@ -475,13 +475,14 @@ au FileType vim setlocal foldmethod=marker foldlevel=0
 
 " Style {{{
 
-" Fix terminal colors.
-set t_Co=256 " Fix colors
-if (has("termguicolors")) " Enable truecolor
+" Select colorscheme based on `truecolor` support.
+if ($COLORTERM ==# 'truecolor' || $COLORTERM ==# '24bit') && has("termguicolors")
     set termguicolors " get truecolor
+    colorscheme srcery
+else
+    set t_Co=256 " Fix colors
+    colorscheme stellarized
 endif
-
-colorscheme srcery
 
 " Highlight issues with whitespace.
 " A tab: "	"
