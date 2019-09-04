@@ -129,6 +129,9 @@ Plug 'tpope/vim-commentary'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+
+    let g:ultisnips_python_quoting_style = 'single'
+    let g:ultisnips_python_style = 'numpy'
 endif
 
 " }}}
