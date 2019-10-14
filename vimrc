@@ -616,6 +616,10 @@ let g:tsuquyomi_completion_detail = 1 " Show signature on completion
 """ TOML
 au BufNewFile,BufRead *.toml setlocal ft=dosini
 
+""" .Xresources
+" Run xrdb whenever Xdefaults or Xresources are updated.
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
 " }}}
 
 " ----------------------------------------------------------------------------
