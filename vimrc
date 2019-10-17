@@ -222,24 +222,9 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lifepillar/pgsql.vim'
 " }}}
 
-" Style
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'vim-scripts/less.vim'
-Plug 'j-tom/vim-old-hope'
-Plug 'pgdouyon/vim-yin-yang'
-Plug 'nightsense/stellarized'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'junegunn/seoul256.vim'
-Plug 'rakr/vim-two-firewatch'
-Plug 'rakr/vim-one'
-Plug 'sjl/badwolf'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'srcery-colors/srcery-vim'
-
-
+" Aesthetic
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
 
 call plug#end()
 " }}}
@@ -465,94 +450,42 @@ au FileType vim setlocal foldmethod=marker foldlevel=0
 
 " ----------------------------------------------------------------------------
 
-" Style {{{
+" Aesthetic {{{
 
-" Select colorscheme based on `truecolor` support.
-if ($COLORTERM ==# 'truecolor' || $COLORTERM ==# '24bit') && has("termguicolors")
-    set termguicolors " get truecolor
-    colorscheme srcery
-else
-    set t_Co=256 " Fix colors
-    colorscheme stellarized
-endif
+" Use terminal colorscheme.
+set t_Co=0 " Fix colors
+colorscheme dim
+" Use this to enable truecolor. I'm using the terminal defaults for now.
+"if (has("termguicolors")) " Enable truecolor
+"    set termguicolors " get truecolor
+"endif
 
 " Highlight issues with whitespace.
 " A tab: "	"
 " Trailing space:    
 set list lcs=trail:·,tab:»\ ,extends:▶,precedes:◀
 
-" Colorscheme rotator
-function! MyClockRotateColorscheme()
-
-    if strftime('%H') >= 9 && strftime('%H') < 19
-        set bg=light
-        colorscheme yang
-    else
-        set bg=dark
-        colorscheme stellarized
-
-    endif
-
-endfunction
-
-"let s:rotatorTimer = timer_start(60 * 1000, 'MyClockRotateColorscheme')
-"call MyClockRotateColorscheme()
-
-" Colorscheme modifications {{{
-
-function! s:myColorSchemeMods()
-    " Black Background
-    "hi Normal ctermbg=none
-    " underline current line
-    " set cursorline
-    " hi cursorLine cterm=underline ctermbg=none " Black bg, white underline
-    " Gray out Line Numbers
-    hi LineNr ctermfg=DarkGray ctermbg=none
-endfunction
-
-" call s:myColorSchemeMods()
-
-" }}}
-
-" Distraction free with Goyo and Limelight {{{
-
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_paragraph_span = 1
-" Highlighting priority (default: 10). Set it to -1 not to overrule hlsearch:
-let g:limelight_priority = -1
-" Key bindings
-nmap <Leader>l :Limelight!!<CR>
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-autocmd! User GoyoLeave call s:myColorSchemeMods()
-" }}
-
 " No bells
 set t_vb=
 set vb
-
-" Relative line numbers.
-" set relativenumber
-" set nu " Show the absolute line number instead of 0
 
 " Highlight the column after textwidth
 set colorcolumn=+1
 
 " Airline config {{{
 
-" Cool symbols
+" Airline symbols symbols
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
