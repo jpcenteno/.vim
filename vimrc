@@ -152,8 +152,7 @@ Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 " }}}
 
 " Markdown {{{
-Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
-Plug 'tpope/vim-markdown', {'for': 'markdown'}
+Plug 'dhruvasagar/vim-table-mode' ", {'for': 'markdown'}
 " }}}
 
 " LaTeX {{{
@@ -454,16 +453,6 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " Zsh conf files {{{
 autocmd Filetype zsh setlocal foldmethod=marker
-" }}}
-
-" Markdown {{{
-
-" Enable markdown folding
-let g:markdown_folding = 1
-au FileType markdown :set foldlevel=1 " Fold subsections
-
-let g:markdown_syntax_conceal = 3 " Hide all
-
 " }}}
 
 " VimScript {{{
