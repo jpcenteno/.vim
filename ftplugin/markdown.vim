@@ -12,3 +12,23 @@ setlocal foldlevel=1
 
 " Enable table mode
 au FileType markdown :TableModeEnable
+
+" Insert a link in reference style. It will prompt for link name (the text to
+" be read), reference name and the link location.
+function! MDAddReferenceLink()
+
+    call inputsave()
+    let l:name = input('Enter link text: ')
+    let l:ref = input('Enter reference name: ')
+    let l:loc = input('Enter link location: ')
+    call inputrestore()
+
+    " Insert the referenced link URL at the end of the document.
+    call append(line('$'), '[' . l:ref . ']: ' . l:loc)
+
+    " Insert the link with a reference at cursor position
+    execute 'normal a' . '[' . l:name . '](' . l:ref . ')'
+
+endfunction
+
+imap <C-l> <esc>:call MDAddReferenceLink()<cr>a
