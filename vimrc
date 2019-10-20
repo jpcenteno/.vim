@@ -224,7 +224,6 @@ Plug 'lifepillar/pgsql.vim'
 
 " Aesthetic
 Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'vim-airline/vim-airline'
 
 call plug#end()
 " }}}
@@ -472,49 +471,6 @@ set vb
 " Highlight the column after textwidth
 set colorcolumn=+1
 
-" Airline config {{{
-
-" Airline symbols symbols
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-
-" Diminish mode names
-let g:airline_mode_map = {
-  \ '__'     : '-',
-  \ 'c'      : 'C',
-  \ 'i'      : 'I',
-  \ 'ic'     : 'I',
-  \ 'ix'     : 'I',
-  \ 'n'      : 'N',
-  \ 'multi'  : 'M',
-  \ 'ni'     : 'N',
-  \ 'no'     : 'N',
-  \ 'R'      : 'R',
-  \ 'Rv'     : 'R',
-  \ 's'      : 'S',
-  \ 'S'      : 'S',
-  \ ''     : 'S',
-  \ 't'      : 'T',
-  \ 'v'      : 'V',
-  \ 'V'      : 'V',
-  \ ''     : 'V',
-  \ }
-
-" Minimal cursor `line:char` coordinates
-let g:airline_section_z = airline#section#create(['%l', ':', '%v'])
-
-" }}}
 
 " Rainbow parens (With vim-niji) {{{
 let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
