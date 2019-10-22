@@ -275,9 +275,6 @@ let maplocalleader="-"
 if !has('nvim')
     set noesckeys " Do not wait for the esc key
 endif
-map <C-space> <Esc>
-imap <C-space> <Esc>
-vmap <C-space> <Esc>
 
 " Mouse
 set mouse=nv
@@ -286,20 +283,12 @@ set mouse=nv
 set pastetoggle=<F10>
 
 " fuck shift+;
-nnoremap - :
-vnoremap - :
 nnoremap ; :
 vnoremap ; :
 
 " easy macroing
 nmap Q @q
 vmap Q :norm @q<cr>
-
-" Clear unwanted whitespace.
-nmap <silent> <Leader>c :%s/\s\+$//e<CR>,s
-
-" Turn hilighting off
-nnoremap <silent> <Leader>s :nohls<CR>
 
 " tslime {{{
 let g:tslime_ensure_trailing_newlines = 1
@@ -351,22 +340,6 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " }}}
 
-" Fix latex copypaste {{{
-function! FixLatexPasteNormal()
-
-    let l:save = winsaveview() " Save cursor position
-
-    " Spanish:
-    silent! %s/a ́/á/g
-    silent! %s/e ́/é/g
-    silent! %s/i ́/í/g
-    silent! %s/o ́/ó/g
-    silent! %s/u ́/ú/g
-    silent! %s/n ̃/ñ/g
-
-    call winrestview(l:save) " Restore cursor position
-
-endfunction
 " }}}
 
 " }}}
