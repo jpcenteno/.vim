@@ -342,8 +342,6 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " }}}
 
-" }}}
-
 " ----------------------------------------------------------------------------
 
 " Coding {{{
@@ -423,6 +421,27 @@ au FileType vim setlocal foldmethod=marker foldlevel=0
 " ----------------------------------------------------------------------------
 
 " Aesthetic {{{
+
+" Spell checking: red fg and underlined.
+augroup SpellUnderline
+
+    hi clear SpellBad
+    autocmd ColorScheme *
+        \ hi SpellBad cterm=underline ctermfg=red ctermbg=NONE
+
+    hi clear SpellCap
+    autocmd ColorScheme *
+        \ hi SpellCap cterm=underline ctermfg=blue ctermbg=NONE
+
+    hi clear SpellRare
+    autocmd ColorScheme *
+        \ hi SpellRare cterm=underline ctermfg=magenta ctermbg=NONE
+
+    hi clear SpellLocal
+    autocmd ColorScheme *
+        \ hi SpellLocal cterm=underline ctermfg=magenta ctermbg=NONE
+
+augroup END
 
 " Use terminal colorscheme.
 set t_Co=0 " Fix colors
