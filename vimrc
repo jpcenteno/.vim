@@ -126,10 +126,8 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people',
 Plug 'tpope/vim-commentary'
 
 " Snippets
-if has('python') || has('python3')
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-endif
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " }}}
 
