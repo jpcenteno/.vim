@@ -129,9 +129,6 @@ Plug 'tpope/vim-commentary'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-
-    let g:ultisnips_python_quoting_style = 'single'
-    let g:ultisnips_python_style = 'numpy'
 endif
 
 " }}}
@@ -208,9 +205,6 @@ endif
 " Python
 "Plug 'vim-scripts/python.vim', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-let g:SimpylFold_docstring_preview=1
-let g:SimpylFold_fold_docstring=0
-let g:SimpylFold_fold_import=0
 
 " Processing
 Plug 'sophacles/vim-processing'
