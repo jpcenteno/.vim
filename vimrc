@@ -152,17 +152,9 @@ Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 Plug 'dhruvasagar/vim-table-mode' ", {'for': 'markdown'}
 " }}}
 
-" LaTeX {{{
-
+" LaTeX
 " Vimtex: IDE like features for LaTeX.
 Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-
-let g:vimtex_fold_enabled=1
-"autocmd Filetype tex,latex,context,plaintex setlocal foldmethod=marker
-
-" }}}
 
 
 " Navigation
