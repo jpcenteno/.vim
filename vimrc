@@ -21,6 +21,11 @@ set title
 set titlestring=Vim\ -\ %t%(\ %M%)
 set titleold=Terminal
 
+" Add support for python plugins.
+" Python packages pynvim and neovim must be installed.
+let g:python2_host_prog = exepath('python2')
+let g:python3_host_prog = exepath('python3')
+
 " }}} (general)
 
 " ----------------------------------------------------------------------------
