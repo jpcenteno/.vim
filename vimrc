@@ -390,14 +390,6 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " }}}
 
-" LaTeX {{{
-
-
-" }}}
-
-" Zsh conf files {{{
-autocmd Filetype zsh setlocal foldmethod=marker
-" }}}
 
 " VimScript {{{
 
