@@ -279,6 +279,13 @@ vnoremap ; :
 nmap Q @q
 vmap Q :norm @q<cr>
 
+fun! s:ClearWhitespace()
+    let l:save_cursor = getcurpos()
+    execute "%s/\\s\\s*$//g"
+    call setpos('.', l:save_cursor)
+endfunction
+command! ClearWhitespace call s:ClearWhitespace()
+
 " tslime {{{
 let g:tslime_ensure_trailing_newlines = 1
 "let g:tslime_normal_mapping = '<localleader>t'
@@ -432,9 +439,7 @@ colorscheme dim
 "    set termguicolors " get truecolor
 "endif
 
-" Highlight issues with whitespace.
-" A tab: "	"
-" Trailing space:    
+" Highlight tabs and trailing spaces.
 set list lcs=trail:·,tab:»\ ,extends:▶,precedes:◀
 
 " No bells
