@@ -347,15 +347,6 @@ au BufNewFile,BufRead *.asm,*.mac set ft=nasm " Use nasm syntax
 autocmd Filetype nasm setlocal foldmethod=marker
 " }}}
 
-" Go {{{
-
-autocmd FileType go setlocal expandtab!
-" No need for tab alerts
-autocmd FileType go setlocal lcs=trail:·,tab:\ \ ,extends:▶,precedes:◀
-autocmd FileType go setlocal ignorecase!
-
-" }}}
-
 " Web Dev {{{
 
 augroup javascript_folding
