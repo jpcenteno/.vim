@@ -70,7 +70,10 @@ Plug 'junegunn/vim-plug'
 
 " Coding
 " Plug 'vim-syntastic/syntastic' " Syntax Checking
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+" FIXME Come back to 'w0rp/ale' once
+" https://github.com/dense-analysis/ale/pull/2963 is merged.
+Plug 'unc0/ale', { 'branch': 'python-support-poetry', 'commit': '04553d34e1423da02f1e9e7ef2f7a903dcaa4f68' }
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
