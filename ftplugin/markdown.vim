@@ -1,7 +1,7 @@
 let g:markdown_syntax_conceal = 3 " Hide all
 
 " Enable syntax highlighting on code blocks.
-let g:markdown_fenced_languages = ['c', 'cpp', 'python', 'sh']
+let g:markdown_fenced_languages = ['c', 'cpp', 'python', 'sh', 'clojure']
 
 " Prevents buggy highlighting on large syntax blocks.
 let g:markdown_minlines = 100
