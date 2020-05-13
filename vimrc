@@ -368,13 +368,6 @@ augroup END
 
 " / Web Dev }}}
 
-" SQL {{{
-
-" Use PgSQL as the default SQL dialect
-let g:sql_type_default = 'pgsql'
-
-" }}}
-
 " Syntastic {{{
 
 "set statusline+=%#warningmsg#
