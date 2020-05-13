@@ -282,12 +282,12 @@ vnoremap ; :
 nmap Q @q
 vmap Q :norm @q<cr>
 
-fun! s:ClearWhitespace()
+fun! s:WhitespaceClear()
     let l:save_cursor = getcurpos()
     execute "%s/\\s\\s*$//g"
     call setpos('.', l:save_cursor)
 endfunction
-command! ClearWhitespace call s:ClearWhitespace()
+command! WhitespaceClear call s:WhitespaceClear()
 
 " tslime {{{
 let g:tslime_ensure_trailing_newlines = 1
