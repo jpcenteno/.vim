@@ -158,9 +158,11 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 " Typescript:
-Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Req for typescript
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
+if executable('tsc')
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Req for typescript
+    Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+    Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
+endif
 
 " }}}
 
@@ -169,8 +171,9 @@ Plug 'dhruvasagar/vim-table-mode' ", {'for': 'markdown'}
 " }}}
 
 " LaTeX
-" Vimtex: IDE like features for LaTeX.
-Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
+if s:AnyExecutable(['pdflatex', 'tectonic'])
+    Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
+endif
 
 
 " Navigation
@@ -215,10 +218,14 @@ endif
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 
 " Processing
-Plug 'sophacles/vim-processing'
+if executable('processing-java')
+    Plug 'sophacles/vim-processing'
+endif
 
 " Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+if s:AnyExecutable(['rustc', 'cargo'])
+    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+endif
 
 " SQL {{{
 Plug 'lifepillar/pgsql.vim'
