@@ -355,7 +355,6 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " ASM {{{
 au BufNewFile,BufRead *.asm,*.mac set ft=nasm " Use nasm syntax
-autocmd Filetype nasm setlocal foldmethod=marker
 " }}}
 
 " Web Dev {{{
