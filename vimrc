@@ -245,7 +245,6 @@ set splitright " split always to the right
 set foldenable
 set foldmethod=syntax
 set foldminlines=1
-au FileType vim setlocal foldmethod=marker
 au FileType conf setlocal foldmethod=marker
 set foldlevel=99 " unfold by default
 
