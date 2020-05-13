@@ -168,6 +168,7 @@ endif
 
 " Markdown {{{
 Plug 'dhruvasagar/vim-table-mode' ", {'for': 'markdown'}
+Plug 'jpcenteno/checkbox.vim', {'for': 'markdown'}
 " }}}
 
 " LaTeX
