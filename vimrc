@@ -189,7 +189,7 @@ Plug 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<cr>
 
 " Clojure {{{
-if executable('lein') || executable('boot') || executable('lumo')
+if s:AnyExecutable(['clj', 'lein', 'boot', 'lumo'])
 
     " This plugin sets the 'path' for JVM languages to match the class path of
     " your current Java project. This lets commands like :find and gf work as
