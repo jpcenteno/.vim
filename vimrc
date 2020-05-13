@@ -6,6 +6,8 @@ filetype plugin on
 syntax on
 set noswapfile
 
+set wildignorecase " Case insensitive files
+
 " tabs
 set tabstop=4
 set shiftwidth=4
