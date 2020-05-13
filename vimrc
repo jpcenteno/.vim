@@ -78,7 +78,6 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'junegunn/vim-plug'
 
 " Coding
-" Plug 'vim-syntastic/syntastic' " Syntax Checking
 " Plug 'w0rp/ale'
 " FIXME Come back to 'w0rp/ale' once
 " https://github.com/dense-analysis/ale/pull/2963 is merged.
@@ -351,36 +350,8 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " ----------------------------------------------------------------------------
 
-" Coding {{{
-
 " ASM {{{
 au BufNewFile,BufRead *.asm,*.mac set ft=nasm " Use nasm syntax
-" }}}
-
-" Web Dev {{{
-
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-    au FileType javascript syntax on
-augroup END
-
-" / Web Dev }}}
-
-" Syntastic {{{
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" / Syntastic }}}
-
-
 " }}}
 
 " ----------------------------------------------------------------------------
@@ -422,10 +393,6 @@ set list lcs=trail:·,tab:»\ ,extends:▶,precedes:◀
 " No bells
 set t_vb=
 set vb
-
-" Highlight the column after textwidth
-set colorcolumn=+1
-
 
 " Rainbow parens (With vim-niji) {{{
 let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
