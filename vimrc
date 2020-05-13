@@ -32,31 +32,40 @@ let g:python3_host_prog = exepath('python3')
 
 " Plugins {{{
 
-" Autoinstall Plug on Vim or Neovim:
-" {{{
+" Autoinstall Plug on Vim or Neovim: {{{
+function! s:InstallPlug() abort
 
-" Autoinstall on NeoVim
-if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))
+    let l:url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-    echo "Installing vim-plug..."
+    let l:dest = ''
+    if has ('nvim')
+        let l:dest = '~/.config/nvim/autoload/plug.vim'
+    else
+        let l:dest = '~/.vim/autoload/plug.vim'
+    endif
 
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent exec "curl -fLo " . l:dest . " --create-dirs " . l:url
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 
+endfunction
+
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    call s:InstallPlug()
 endif
+" }}}
 
-" Autoinstall on Vim
-if !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))
+" Aux functions for plugin declarations {{{
 
-    echo "Installing vim-plug..."
-
-    " Autoinstall on Vim
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-
-endif
+" Take a list of program names and return true if any of them exists in $PATH.
+" I like to install only the plugins necesary for the workstation I drop this
+" vimrc on.
+function! s:AnyExecutable(executables) abort
+    for l:exe in a:executables
+        if executable(l:exe)
+            return 1
+        endif
+    endfor
+endfunction
 
 " }}}
 
