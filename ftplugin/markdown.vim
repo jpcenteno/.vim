@@ -23,10 +23,9 @@ let g:markdown_fenced_languages = [
     \ 'python',
     \ 'rust',
     \ 'sh',
-    \ 'st', " (Smalltalk)
+    \ 'st',
     \ 'tex',
     \ 'tex',
-    \ 'toml',
     \ 'typescript',
     \ 'vim',
     \ 'yaml',
