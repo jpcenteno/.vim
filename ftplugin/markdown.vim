@@ -3,17 +3,34 @@ setlocal tabstop=2 shiftwidth=2
 let g:markdown_syntax_conceal = 3 " Hide all
 
 " Enable syntax highlighting on code blocks.
+" - There is no option to enable everything, so I made my best effort to keep
+"   a comprehensive list of the languages I coded in the recent past.
+" - Use `:'<,'>sort` to keep it organized.
 let g:markdown_fenced_languages = [
     \ 'c',
     \ 'clojure',
     \ 'cmake',
     \ 'cpp',
     \ 'glsl',
+    \ 'go',
     \ 'haskell',
+    \ 'html',
+    \ 'javascript',
+    \ 'json',
+    \ 'make',
+    \ 'nasm',
+    \ 'perl',
     \ 'python',
     \ 'rust',
     \ 'sh',
+    \ 'st', " (Smalltalk)
+    \ 'tex',
+    \ 'tex',
+    \ 'toml',
+    \ 'typescript',
     \ 'vim',
+    \ 'yaml',
+    \ 'zsh',
 \]
 
 " Prevents buggy highlighting on large syntax blocks.
