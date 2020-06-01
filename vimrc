@@ -397,6 +397,10 @@ colorscheme dim
 "    set termguicolors " get truecolor
 "endif
 
+" Underline cursor line
+set cursorline
+
+
 " Highlight tabs and trailing spaces.
 set list lcs=trail:·,tab:»\ ,extends:▶,precedes:◀
 
