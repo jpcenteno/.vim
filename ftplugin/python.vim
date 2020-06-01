@@ -22,3 +22,7 @@ let g:ale_python_pylama_auto_poetry=1
 let g:ale_python_pylint_auto_poetry=1
 let g:ale_python_pyls_auto_poetry=1
 let g:ale_python_pyre_auto_poetry=1
+
+" Fixers
+let b:ale_fixers = ['black', 'isort']
+let b:ale_fix_on_save = 1
