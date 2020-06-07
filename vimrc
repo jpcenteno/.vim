@@ -133,9 +133,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 " Typescript:
 if executable('tsc')
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Req for typescript
     Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-    Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 endif
 
 " }}}
