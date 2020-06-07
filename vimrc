@@ -1,6 +1,3 @@
-" General {{{
-
-" Basics
 set nocompatible
 filetype plugin on
 syntax on
@@ -16,45 +13,21 @@ set expandtab
 " encodings
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,utf8,prc
-
-" title for bash
-set title
-set titlestring=Vim\ -\ %t%(\ %M%)
-set titleold=Terminal
 
 " Add support for python plugins.
 " Python packages pynvim and neovim must be installed.
 let g:python2_host_prog = exepath('python2')
 let g:python3_host_prog = exepath('python3')
 
-" }}} (general)
+" Open help pane to the bottom.
+autocmd FileType help,man wincmd J
 
 " ----------------------------------------------------------------------------
 
-" Plugins {{{
 
-" Autoinstall Plug on Vim or Neovim: {{{
-function! s:InstallPlug() abort
-
-    let l:url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-    let l:dest = ''
-    if has ('nvim')
-        let l:dest = '~/.config/nvim/autoload/plug.vim'
-    else
-        let l:dest = '~/.vim/autoload/plug.vim'
-    endif
-
-    silent exec "curl -fLo " . l:dest . " --create-dirs " . l:url
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-
-endfunction
-
+" FIXME Abort or something like that when plug is not installed.
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    call s:InstallPlug()
 endif
-" }}}
 
 " Aux functions for plugin declarations {{{
 
@@ -83,7 +56,8 @@ Plug 'junegunn/vim-plug'
 " Plug 'w0rp/ale'
 " FIXME Come back to 'w0rp/ale' once
 " https://github.com/dense-analysis/ale/pull/2963 is merged.
-Plug 'unc0/ale', { 'branch': 'python-support-poetry', 'commit': '04553d34e1423da02f1e9e7ef2f7a903dcaa4f68' }
+Plug 'unc0/ale', { 'branch': 'python-support-poetry',
+                 \ 'commit': '04553d34e1423da02f1e9e7ef2f7a903dcaa4f68' }
 Plug 'vim-scripts/vim-niji' " Rainbow parens
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
@@ -265,10 +239,6 @@ set foldmethod=syntax
 set foldminlines=1
 au FileType conf setlocal foldmethod=marker
 set foldlevel=99 " unfold by default
-
-" ctrlp
-" ignores for nerdtree and ctrlp
-"set wildignore+=*/static/*
 
 " }}} (Navigation)
 
