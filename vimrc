@@ -164,9 +164,14 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 set hidden
 
+
 " Undotree:
 Plug 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<cr>
+
+if has('mac')
+    Plug 'rizzatti/dash.vim'
+endif
 
 " Clojure {{{
 if s:AnyExecutable(['clj', 'lein', 'boot', 'lumo'])
