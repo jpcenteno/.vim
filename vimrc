@@ -74,6 +74,9 @@ Plug 'tpope/vim-repeat'
 " add such surroundings in pairs.
 Plug 'tpope/vim-surround'
 
+" Alignment
+Plug 'junegunn/vim-easy-align'
+
 " Auto Pairs: Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
 
