@@ -116,6 +116,9 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " LaTeX
 Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
 
+" Liquid
+Plug 'tpope/vim-liquid'
+
 " Markdown
 Plug 'jpcenteno/checkbox.vim', {'for': 'markdown'}
 
