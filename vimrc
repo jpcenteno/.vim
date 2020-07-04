@@ -116,6 +116,9 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " LaTeX
 Plug 'lervag/vimtex/', {'for': ['tex', 'plaintex']}
 
+" Ledger (Plaintext accounting)
+Plug 'ledger/vim-ledger'
+
 " Liquid
 Plug 'tpope/vim-liquid'
 
