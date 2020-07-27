@@ -66,6 +66,9 @@ Plug 'dhruvasagar/vim-table-mode'
 
 " IDE-like features {{{
 
+" Inellisense
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Linter
 Plug 'unc0/ale', { 'branch': 'python-support-poetry',
                  \ 'commit': '04553d34e1423da02f1e9e7ef2f7a903dcaa4f68' }
