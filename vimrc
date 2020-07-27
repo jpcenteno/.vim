@@ -104,6 +104,10 @@ if s:AnyExecutable(['clj', 'lein', 'boot', 'lumo'])
 
 endif
 
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
+
 " GLSL (OpenGL)
 Plug 'tikhomirov/vim-glsl'
 
