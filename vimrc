@@ -290,33 +290,38 @@ nmap <Leader>P :call <SID>SynStack()<CR>
 
 " Aesthetic {{{
 
-set termguicolors
-colorscheme solarized8
+" set termguicolors
+" colorscheme solarized8
+" set bg=light
+
+set t_Co=16
+colorscheme dim
+
 
 " Better highlights for the spell checker. {{{
-augroup SpellUnderline
-
-    hi clear SpellBad
-    autocmd ColorScheme *
-        \ hi SpellBad cterm=underline ctermfg=red ctermbg=NONE
-
-    hi clear SpellCap
-    autocmd ColorScheme *
-        \ hi SpellCap cterm=underline ctermfg=blue ctermbg=NONE
-
-    hi clear SpellRare
-    autocmd ColorScheme *
-        \ hi SpellRare cterm=underline ctermfg=magenta ctermbg=NONE
-
-    hi clear SpellLocal
-    autocmd ColorScheme *
-        \ hi SpellLocal cterm=underline ctermfg=magenta ctermbg=NONE
-
-augroup END
+" augroup SpellUnderline
+"
+"     hi clear SpellBad
+"     autocmd ColorScheme *
+"         \ hi SpellBad cterm=underline ctermfg=red ctermbg=NONE
+"
+"     hi clear SpellCap
+"     autocmd ColorScheme *
+"         \ hi SpellCap cterm=underline ctermfg=blue ctermbg=NONE
+"
+"     hi clear SpellRare
+"     autocmd ColorScheme *
+"         \ hi SpellRare cterm=underline ctermfg=magenta ctermbg=NONE
+"
+"     hi clear SpellLocal
+"     autocmd ColorScheme *
+"         \ hi SpellLocal cterm=underline ctermfg=magenta ctermbg=NONE
+"
+" augroup END
 
 " Underline cursor line
-hi clear CursorLine
-hi CursorLine gui=underline cterm=underline
+" hi clear CursorLine
+" hi CursorLine gui=underline cterm=underline
 set cursorline
 
 " Highlight tabs and trailing spaces.
