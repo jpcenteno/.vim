@@ -160,7 +160,9 @@ endif
 " To be sorted out: {{{
 
 " Navigation {{{
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 " }}}
