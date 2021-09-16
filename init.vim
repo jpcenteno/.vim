@@ -28,6 +28,15 @@ let mapleader=" "
 nnoremap ; :
 vnoremap ; :
 
+nnoremap Q @q
+vnoremap Q @q
+
+" Buffer bindings
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bD :bd!<CR>
+
 " ------------------------------------------------------------------------------
 " Plugin Declarations:
 " ------------------------------------------------------------------------------
