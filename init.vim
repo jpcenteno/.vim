@@ -54,8 +54,14 @@ call plug#begin()
   Plug 'elixir-editors/vim-elixir'
   Plug 'slashmili/alchemist.vim'
 
+  " Lang -> Ledger
+  Plug 'ledger/vim-ledger'
+
   " Lang -> Rust
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+
+  " Lang -> TOML
+  Plug 'cespare/vim-toml', { 'for': 'toml' }
 
   " Themes
   Plug 'jeffkreeftmeijer/vim-dim'
