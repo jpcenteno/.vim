@@ -41,6 +41,11 @@ nnoremap <Leader>bD :bd!<CR>
 " Plugin Declarations:
 " ------------------------------------------------------------------------------
 
+" Add support for python plugins.
+" Python packages pynvim and neovim must be installed.
+let g:python2_host_prog = exepath('python2')
+let g:python3_host_prog = exepath('python3')
+
 call plug#begin()
 
   " Register `vim-plug` as a plugin in order to get its documentation.
