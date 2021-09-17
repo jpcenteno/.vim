@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------------------
+# Debugging snippets:
+# ------------------------------------------------------------------------------
+
+snippet >il
+|> IO.inspect(label: "${1}")
+endsnippet
+
+# ------------------------------------------------------------------------------
+# Jason snippets:
+# ------------------------------------------------------------------------------
+
+snippet jd
+Jason.decode(${1})
+endsnippet
+
+snippet jd!
+Jason.decode!(${1})
+endsnippet
+
+snippet >jd
+|> Jason.decode()
+endsnippet
+
+snippet >jd!
+|> Jason.decode!()
+endsnippet
