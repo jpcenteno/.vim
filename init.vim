@@ -111,9 +111,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
+Plug 'itchyny/lightline.vim'
 
 " Navigation
 
@@ -151,7 +149,5 @@ if (empty($TMUX))
 endif
 
 "let g:one_allow_italics = 1
-"let g:airline_theme='one'
 set bg=dark
 colorscheme nord
-let g:airline_theme='solarized'
