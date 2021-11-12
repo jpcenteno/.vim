@@ -74,57 +74,57 @@ call plug#begin()
 " - ⚠️  `vim-jack-in` depends on this package.
 Plug 'tpope/vim-dispatch'
 
-  " Register `vim-plug` as a plugin in order to get its documentation.
-  Plug 'junegunn/vim-plug'
+" Register `vim-plug` as a plugin in order to get its documentation.
+Plug 'junegunn/vim-plug'
 
-  " Symbol pair manipulation:
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'tpope/vim-surround'
+" Symbol pair manipulation:
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
-  " Align
-  Plug 'junegunn/vim-easy-align'
+" Align
+Plug 'junegunn/vim-easy-align'
 
-  " Lang -> Clojure
-  Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
+" Lang -> Clojure
+Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 
-  " Lang -> Elixir
-  Plug 'elixir-editors/vim-elixir'
-  "Plug 'slashmili/alchemist.vim'
+" Lang -> Elixir
+Plug 'elixir-editors/vim-elixir'
+"Plug 'slashmili/alchemist.vim'
 
-  " Lang -> Ledger
-  Plug 'ledger/vim-ledger'
+" Lang -> Ledger
+Plug 'ledger/vim-ledger'
 
-  " Lang -> LISP (Regardles of wich dialect)
-  Plug 'Olical/conjure', {'tag': 'v4.23.0'}
-  Plug 'guns/vim-sexp'
-  Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Lang -> LISP (Regardles of wich dialect)
+Plug 'Olical/conjure', {'tag': 'v4.23.0'}
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
-  " Lang -> Rust
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+" Lang -> Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-  " Lang -> TOML
-  Plug 'cespare/vim-toml', { 'for': 'toml' }
+" Lang -> TOML
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-  " Themes
-  Plug 'jeffkreeftmeijer/vim-dim'
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'rakr/vim-one'
-  Plug 'altercation/vim-colors-solarized'
+" Themes
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-one'
+Plug 'altercation/vim-colors-solarized'
 
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
-  " Navigation
+" Navigation
 
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-  Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
-  " Snippets
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
