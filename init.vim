@@ -94,7 +94,10 @@ Plug 'elixir-editors/vim-elixir'
 " Lang -> Ledger
 Plug 'ledger/vim-ledger'
 
-" Lang -> LISP (Regardles of wich dialect)
+" Lang -> Liquid (Jekyll Templates)
+Plug 'tpope/vim-liquid'
+
+" Lang -> Lisp (Regardles of wich dialect)
 Plug 'Olical/conjure', {'tag': 'v4.23.0'}
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
