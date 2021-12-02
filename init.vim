@@ -109,6 +109,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Themes
+Plug 'rose-pine/neovim'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
@@ -152,5 +153,5 @@ if (empty($TMUX))
 endif
 
 "let g:one_allow_italics = 1
-set bg=dark
-colorscheme nord
+set bg=light
+colorscheme rose-pine
