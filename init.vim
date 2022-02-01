@@ -120,6 +120,8 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'itchyny/lightline.vim'
 
+Plug 'ryanoasis/vim-devicons'
+
 " Navigation
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
