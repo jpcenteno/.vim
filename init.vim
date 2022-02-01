@@ -87,6 +87,10 @@ Plug 'tpope/vim-surround'
 " Align
 Plug 'junegunn/vim-easy-align'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
 " Lang -> Clojure
 Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 
@@ -134,6 +138,14 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 call plug#end()
+
+" ------------------------------------------------------------------------------
+" LSP:
+" ------------------------------------------------------------------------------
+
+lua << EOF
+require("lsp")
+EOF
 
 " ------------------------------------------------------------------------------
 " Aesthetics:
