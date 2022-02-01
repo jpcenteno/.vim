@@ -21,6 +21,8 @@ set smartcase
 " Enable spellcheck
 setlocal spell spelllang=en_us
 
+set completeopt=menu,menuone,noselect
+
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
@@ -90,6 +92,14 @@ Plug 'junegunn/vim-easy-align'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+
+" Completion
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/nvim-cmp'
 
 " Lang -> Clojure
 Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
