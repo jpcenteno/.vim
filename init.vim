@@ -18,6 +18,9 @@ set hidden
 " characters.
 set smartcase
 
+" Enable spellcheck
+setlocal spell spelllang=en_us
+
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
