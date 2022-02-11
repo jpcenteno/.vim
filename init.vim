@@ -119,6 +119,9 @@ Plug 'Olical/conjure', {'tag': 'v4.23.0'}
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
+" Lang -> Nix
+Plug 'LnL7/vim-nix'
+
 " Lang -> Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
