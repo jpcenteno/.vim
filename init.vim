@@ -71,6 +71,18 @@ command! InsertDateTime call s:insertDateTime()
 let g:python2_host_prog = exepath('python2')
 let g:python3_host_prog = exepath('python3')
 
+" Automatically install Vim-Plug if missing:
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Automatically install missing plugins on startup:
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
 call plug#begin()
 
 " Utilities:
