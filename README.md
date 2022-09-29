@@ -1,5 +1,12 @@
 # Vim Dotfiles
 
+## Cloning
+
+```sh
+cd "${HOME}/.config"
+git clone git@github.com:jpcenteno/.vim.git nvim
+```
+
 ## Configuration files:
 
 | Path                        | Description                              |
