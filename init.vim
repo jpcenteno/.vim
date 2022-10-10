@@ -146,6 +146,7 @@ Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
 
 Plug 'itchyny/lightline.vim'
 
@@ -176,8 +177,13 @@ EOF
 " Aesthetics:
 " ------------------------------------------------------------------------------
 
+function! s:customize_seoul256()
+  hi CursorLine ctermbg=235
+endfunction
+autocmd! ColorScheme seoul256 call s:customize_seoul256()
 set bg=dark
-colorscheme dim
+let g:seoul256_background = 233
+colorscheme seoul256
 
 function! SynGroup()                                                            
     let l:s = synID(line('.'), col('.'), 1)                                       
