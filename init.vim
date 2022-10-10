@@ -124,8 +124,8 @@ Plug 'tpope/vim-liquid'
 
 " Lang -> Lisp (Regardles of wich dialect)
 Plug 'Olical/conjure', {'tag': 'v4.23.0'}
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-sexp', { 'for' : [ 'clojure' ] }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : [ 'clojure' ] }
 
 " Lang -> Nix
 Plug 'LnL7/vim-nix'
