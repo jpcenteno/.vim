@@ -92,6 +92,8 @@ Plug 'junegunn/vim-plug'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-commentary'
+
 " Align
 Plug 'junegunn/vim-easy-align'
 
