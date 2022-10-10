@@ -43,12 +43,6 @@ vnoremap Q @q
 
 nnoremap Y y$
 
-" Buffer bindings
-nnoremap <Leader>bn :bn<CR>
-nnoremap <Leader>bp :bp<CR>
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>bD :bd!<CR>
-
 function! s:insertDate()
   execute ':normal! i ' . strftime('%Y-%m-%d')
 endfun
@@ -158,6 +152,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/nerdtree'
+
+Plug 'liuchengxu/vim-which-key'
 
 " Snippets
 Plug 'SirVer/ultisnips'
