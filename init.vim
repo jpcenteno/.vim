@@ -143,6 +143,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
+Plug 'sainnhe/everforest'
 
 Plug 'itchyny/lightline.vim'
 
@@ -175,13 +176,18 @@ EOF
 " Aesthetics:
 " ------------------------------------------------------------------------------
 
-function! s:customize_seoul256()
-  hi CursorLine ctermbg=235
-endfunction
-autocmd! ColorScheme seoul256 call s:customize_seoul256()
-set bg=dark
-let g:seoul256_background = 233
-colorscheme seoul256
+set t_Co=256
+if has('termguicolors')
+  set termguicolors
+endif
+
+set background=dark
+let g:everforest_background = 'medium'
+let g:everforest_better_performance = 1
+let g:airline_theme = 'everforest'
+colorscheme everforest
+
+hi CursorLine ctermbg=374247
 
 function! SynGroup()                                                            
     let l:s = synID(line('.'), col('.'), 1)                                       
