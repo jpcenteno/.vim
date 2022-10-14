@@ -123,7 +123,7 @@ Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-liquid'
 
 " Lang -> Lisp (Regardles of wich dialect)
-Plug 'Olical/conjure', {'tag': 'v4.23.0'}
+Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : [ 'clojure' ] }
 Plug 'guns/vim-sexp', { 'for' : [ 'clojure' ] }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : [ 'clojure' ] }
 
