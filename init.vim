@@ -98,8 +98,9 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
 " LSP
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 
 " Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -168,9 +169,7 @@ call plug#end()
 " LSP:
 " ------------------------------------------------------------------------------
 
-lua << EOF
-require("lsp")
-EOF
+lua require("lsp")
 
 " ------------------------------------------------------------------------------
 " Aesthetics:
