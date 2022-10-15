@@ -101,6 +101,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+
+" LSP -> Diagnostics (Errors, Warnings, etc)
 Plug 'kyazdani42/nvim-web-devicons' " Required by `Trouble`.
 Plug 'folke/trouble.nvim'
 
