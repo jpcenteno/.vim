@@ -106,7 +106,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kyazdani42/nvim-web-devicons' " Required by `Trouble`.
 Plug 'folke/trouble.nvim'
 
-" Completion
+" LSP -> Auto complete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
