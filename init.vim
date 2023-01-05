@@ -132,6 +132,9 @@ Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : [ 'clojure' ] }
 Plug 'guns/vim-sexp', { 'for' : [ 'clojure' ] }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : [ 'clojure' ] }
 
+" Lang -> Mermaid
+Plug 'mracos/mermaid.vim'
+
 " Lang -> Nix
 Plug 'LnL7/vim-nix'
 
