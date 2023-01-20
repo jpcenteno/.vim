@@ -119,6 +119,7 @@ Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 
 " Lang -> Elixir
 Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
 
 " Lang -> Ledger
