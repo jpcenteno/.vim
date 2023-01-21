@@ -102,6 +102,10 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 
+" LSP -> LSP Wrapper for non-lsp tools
+Plug 'nvim-lua/plenary.nvim' " Required by null-ls
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
 " LSP -> Diagnostics (Errors, Warnings, etc)
 Plug 'kyazdani42/nvim-web-devicons' " Required by `Trouble`.
 Plug 'folke/trouble.nvim'

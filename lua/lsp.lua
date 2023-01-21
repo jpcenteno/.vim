@@ -3,13 +3,21 @@ local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require('lspconfig')
 local trouble = require("trouble")
 
+--------------------------------------------------------------------------------
+-- Mason: LSP Installer
+--------------------------------------------------------------------------------
+
 mason.setup()
 
 -- What value is `mason-lspconfig` providing here?
 mason_lspconfig.setup({
-    ensure_installed = { "rust_analyzer" },
+    ensure_installed = { "rust_analyzer", "shellcheck", "elixirls" },
     automatic_installation = true,
 })
+
+--------------------------------------------------------------------------------
+-- Configure LSPs
+--------------------------------------------------------------------------------
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
@@ -37,13 +45,27 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'rust_analyzer' }
+local servers = { 'rust_analyzer', "elixirls" }
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup {
         on_attach = on_attach
     }
 end
+
+--------------------------------------------------------------------------------
+-- NULL-LS
+--------------------------------------------------------------------------------
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.code_actions.shellcheck,
+        null_ls.builtins.diagnostics.shellcheck
+    },
+})
+
 
 --------------------------------------------------------------------------------
 -- Error display                                                              --
