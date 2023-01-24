@@ -133,9 +133,10 @@ Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-liquid'
 
 " Lang -> Lisp (Regardles of wich dialect)
-Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : [ 'clojure' ] }
-Plug 'guns/vim-sexp', { 'for' : [ 'clojure' ] }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : [ 'clojure' ] }
+let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
+Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : g:lisp_fts }
+Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : g:lisp_fts }
 
 " Lang -> Mermaid
 Plug 'mracos/mermaid.vim'
