@@ -84,6 +84,7 @@ call plug#begin()
 " This plugin provides tools for running async commands from vim.
 " - ⚠️  `vim-jack-in` depends on this package.
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
 
 " Register `vim-plug` as a plugin in order to get its documentation.
 Plug 'junegunn/vim-plug'
