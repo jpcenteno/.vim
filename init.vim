@@ -210,7 +210,8 @@ let g:everforest_better_performance = 1
 let g:airline_theme = 'everforest'
 colorscheme everforest
 
-hi CursorLine ctermbg=374247
+set cursorline
+
 
 function! SynGroup()                                                            
     let l:s = synID(line('.'), col('.'), 1)                                       
