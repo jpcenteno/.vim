@@ -122,37 +122,20 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'hrsh7th/nvim-cmp'
 
-" Lang -> Clojure
+" Programming Language specific:
 Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
-
-" Lang -> Elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-"Plug 'slashmili/alchemist.vim'
-
-" Lang -> Ledger
-Plug 'ledger/vim-ledger'
-
-" Lang -> Liquid (Jekyll Templates)
-Plug 'tpope/vim-liquid'
-
-" Lang -> Lisp (Regardles of wich dialect)
+Plug 'elixir-editors/vim-elixir', {'for': 'elixir'}
+Plug 'mhinz/vim-mix-format', {'for': 'elixir'}
+Plug 'ledger/vim-ledger', {'for': 'ledger'}
+Plug 'tpope/vim-liquid', {'for': 'liquid'}
 let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
 Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : g:lisp_fts }
 Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : g:lisp_fts }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for' : g:lisp_fts }
-
-" Lang -> Mermaid
-Plug 'mracos/mermaid.vim'
-
-" Lang -> Nix
-Plug 'LnL7/vim-nix'
-
-" Lang -> Rust
+Plug 'mracos/mermaid.vim', {'for': 'mermaid'}
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
-" Lang -> TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Themes
