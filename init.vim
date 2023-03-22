@@ -170,31 +170,23 @@ call plug#end()
 " LSP:
 " ------------------------------------------------------------------------------
 
-lua require("lsp")
+if !exists('g:vscode')
+  lua require("lsp")
+endif
 
 " ------------------------------------------------------------------------------
 " Aesthetics:
 " ------------------------------------------------------------------------------
 
+" Prevent syntax highlighting from breaking after very long lines.
+set synmaxcol=0
+
 " Make the sign gutter fixed width.
 set signcolumn=yes:1
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-set t_Co=256
-
-
-set background=dark
-let g:everforest_background = 'medium'
-let g:everforest_better_performance = 1
-let g:airline_theme = 'everforest'
-colorscheme everforest
+colorscheme dim
 
 set cursorline
-
 
 function! SynGroup()                                                            
     let l:s = synID(line('.'), col('.'), 1)                                       
