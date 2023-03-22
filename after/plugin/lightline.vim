@@ -23,7 +23,7 @@ let g:lightline['mode_map']["\<C-s>"] = 'SB'
 let g:lightline['mode_map']['t'] = 'T'
 
 " Simplify the line information displayed:
-let s:left_status_components = [['mode', 'paste'], ['readonly', 'filetype', 'filename', 'modified']]
+let s:left_status_components = [['mode', 'paste'], ['readonly', 'filetype', 'relativepath', 'modified']]
 let s:right_status_components = [['lineinfo']]
 
 let g:lightline.active = {}
