@@ -80,13 +80,24 @@ autocmd VimEnter *
   \|   PlugInstall --sync | q
   \| endif
 
+" See: https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+function! NoVSCode(...)
+  let opts = get(a:000, 0, {})
+  return Cond(!exists('g:vscode'), opts)
+endfunction
+
 call plug#begin()
 
 " Utilities:
 
 " This plugin provides tools for running async commands from vim.
 " - ⚠️  `vim-jack-in` depends on this package.
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 
 " Register `vim-plug` as a plugin in order to get its documentation.
@@ -98,67 +109,61 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
 
+Plug 'AdamWhittingham/vim-copy-filename'
+
 " Align
 Plug 'junegunn/vim-easy-align'
 
 " LSP
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim', NoVSCode()
+Plug 'williamboman/mason-lspconfig.nvim', NoVSCode()
+Plug 'neovim/nvim-lspconfig', NoVSCode()
 
 " LSP -> LSP Wrapper for non-lsp tools
-Plug 'nvim-lua/plenary.nvim' " Required by null-ls
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-lua/plenary.nvim', NoVSCode() " Required by null-ls
+Plug 'jose-elias-alvarez/null-ls.nvim', NoVSCode()
 
 " LSP -> Diagnostics (Errors, Warnings, etc)
-Plug 'kyazdani42/nvim-web-devicons' " Required by `Trouble`.
-Plug 'folke/trouble.nvim'
+Plug 'kyazdani42/nvim-web-devicons', NoVSCode() " Required by `Trouble`.
+Plug 'folke/trouble.nvim', NoVSCode()
 
 " LSP -> Auto complete
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp', NoVSCode()
+Plug 'hrsh7th/cmp-buffer', NoVSCode()
+Plug 'hrsh7th/cmp-path', NoVSCode()
+Plug 'hrsh7th/cmp-cmdline', NoVSCode()
+Plug 'quangnguyen30192/cmp-nvim-ultisnips', NoVSCode()
+Plug 'hrsh7th/nvim-cmp', NoVSCode()
 
 " Programming Language specific:
-Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
-Plug 'elixir-editors/vim-elixir', {'for': 'elixir'}
-Plug 'mhinz/vim-mix-format', {'for': 'elixir'}
-Plug 'ledger/vim-ledger', {'for': 'ledger'}
-Plug 'tpope/vim-liquid', {'for': 'liquid'}
+" Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
+Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
+Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
+Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
+Plug 'tpope/vim-liquid', NoVSCode({'for': 'liquid'})
 let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
-Plug 'Olical/conjure', { 'tag': 'v4.23.0', 'for' : g:lisp_fts }
+Plug 'Olical/conjure', NoVSCode({ 'tag': 'v4.23.0', 'for' : g:lisp_fts })
 Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for' : g:lisp_fts }
-Plug 'junegunn/rainbow_parentheses.vim', { 'for' : g:lisp_fts }
-Plug 'mracos/mermaid.vim', {'for': 'mermaid'}
-Plug 'LnL7/vim-nix', { 'for': 'nix' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', NoVSCode({ 'for' : g:lisp_fts })
+Plug 'junegunn/rainbow_parentheses.vim', NoVSCode({ 'for' : g:lisp_fts })
+Plug 'mracos/mermaid.vim', NoVSCode({'for': 'mermaid'})
+Plug 'LnL7/vim-nix', NoVSCode({ 'for': 'nix' })
+Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
+Plug 'cespare/vim-toml', NoVSCode({ 'for': 'toml' })
 
-" Themes
-Plug 'rose-pine/neovim'
-Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rakr/vim-one'
-Plug 'altercation/vim-colors-solarized'
-Plug 'junegunn/seoul256.vim'
-Plug 'sainnhe/everforest'
-
-Plug 'itchyny/lightline.vim'
-
-Plug 'ryanoasis/vim-devicons'
+" Aesthetics
+Plug 'sainnhe/everforest', NoVSCode()
+Plug 'jeffkreeftmeijer/vim-dim', NoVSCode()
+Plug 'itchyny/lightline.vim', NoVSCode()
+Plug 'ryanoasis/vim-devicons', NoVSCode()
 
 " Navigation
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', NoVSCode({ 'do': { -> fzf#install() } })
+Plug 'junegunn/fzf.vim', NoVSCode()
 
-Plug 'preservim/nerdtree'
-
-Plug 'liuchengxu/vim-which-key'
+Plug 'preservim/nerdtree', NoVSCode()
+Plug 'liuchengxu/vim-which-key', NoVSCode()
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -189,6 +194,6 @@ colorscheme dim
 set cursorline
 
 function! SynGroup()                                                            
-    let l:s = synID(line('.'), col('.'), 1)                                       
-    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+  let l:s = synID(line('.'), col('.'), 1)                                       
+  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
