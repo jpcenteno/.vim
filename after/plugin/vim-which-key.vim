@@ -7,8 +7,13 @@ let g:which_key_map = {}
 let g:which_key_map["b"] = { 'name' : '+buffers' }
 let g:which_key_map['b']['n'] = [ ':bn',      'Next Buffer' ]
 let g:which_key_map['b']['p'] = [ ':bp',      'Prev Buffer' ]
-let g:which_key_map['b']['d'] = [ ':bd',      'Delete Buffer' ]
+let g:which_key_map['b']['d'] = [ ':bp|bd#',  'Delete Buffer' ] " See (1)
 let g:which_key_map['b']['b'] = [ ':Buffers', 'Select Buffer' ] " Requires `fzf` plugin.
+
+" (1) I'm using this command instead of `:bd` to prevent the current window
+" from being closed. There is a known bug for `:bp|bd#` in which it will close
+" any other window that's currently displaying the target buffer, but it works
+" well on most cases.
 
 " ------------------------------------------------------------------------------
 "  [f] Filesystem mappings:
