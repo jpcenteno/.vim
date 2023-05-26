@@ -108,6 +108,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
+Plug 'jpcenteno/boxed-comments.vim'
 
 Plug 'AdamWhittingham/vim-copy-filename'
 
