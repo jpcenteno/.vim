@@ -126,27 +126,6 @@ Plug 'junegunn/vim-easy-align'
 "      unnecessary overhead. VSCode uses it's own tree parser.
 Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim') && !exists('g:vscode'), {'do': ':TSUpdate'})
 
-" LSP
-Plug 'williamboman/mason.nvim', NoVSCode()
-Plug 'williamboman/mason-lspconfig.nvim', NoVSCode()
-Plug 'neovim/nvim-lspconfig', NoVSCode()
-
-" LSP -> LSP Wrapper for non-lsp tools
-Plug 'nvim-lua/plenary.nvim', NoVSCode() " Required by null-ls
-Plug 'jose-elias-alvarez/null-ls.nvim', NoVSCode()
-
-" LSP -> Diagnostics (Errors, Warnings, etc)
-Plug 'kyazdani42/nvim-web-devicons', NoVSCode() " Required by `Trouble`.
-Plug 'folke/trouble.nvim', NoVSCode()
-
-" LSP -> Auto complete
-Plug 'hrsh7th/cmp-nvim-lsp', NoVSCode()
-Plug 'hrsh7th/cmp-buffer', NoVSCode()
-Plug 'hrsh7th/cmp-path', NoVSCode()
-Plug 'hrsh7th/cmp-cmdline', NoVSCode()
-Plug 'quangnguyen30192/cmp-nvim-ultisnips', NoVSCode()
-Plug 'hrsh7th/nvim-cmp', NoVSCode()
-
 " Programming Language specific:
 " Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
@@ -184,12 +163,8 @@ Plug 'honza/vim-snippets'
 call plug#end()
 
 " ------------------------------------------------------------------------------
-" LSP:
 " ------------------------------------------------------------------------------
 
-if !exists('g:vscode')
-  lua require("lsp")
-endif
 
 " ------------------------------------------------------------------------------
 " Aesthetics:
