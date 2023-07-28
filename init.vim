@@ -115,6 +115,17 @@ Plug 'AdamWhittingham/vim-copy-filename'
 " Align
 Plug 'junegunn/vim-easy-align'
 
+" The `nvim-treesitter` plugin provides a better source code parser for NeoVim.
+"
+" About the options:
+" - The `:TSUpdate` command ensures that installed language parsers match the
+"   versions supported by `nvim-treesitter`.
+"  - Conditional usage:
+"    - This plugin requires NeoVim to work.
+"    - This plugin should be ignored when used within _VSCode Neovim_ to prevent
+"      unnecessary overhead. VSCode uses it's own tree parser.
+Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim') && !exists('g:vscode'), {'do': ':TSUpdate'})
+
 " LSP
 Plug 'williamboman/mason.nvim', NoVSCode()
 Plug 'williamboman/mason-lspconfig.nvim', NoVSCode()
