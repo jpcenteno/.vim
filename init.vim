@@ -145,7 +145,34 @@ Plug 'junegunn/vim-easy-align'
 "      unnecessary overhead. VSCode uses it's own tree parser.
 Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim') && !exists('g:vscode'), {'do': ':TSUpdate'})
 
-" Programming Language specific:
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ LSP                                                                    ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
+" The plugin `lsp-zero` provides a no-brainer setup for LSP on neovim.
+"
+" All the settings related to LSP should be set together at
+" `after/plugin/lsp.lua`.
+"
+" Troubleshooting:
+" ----------------
+"
+" On a buffer, use `:LspInfo` to check if pertinent LSP server is actually
+" running.
+
+Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()             " Required by `lsp-zero`
+Plug 'williamboman/mason.nvim', NeoVimButNoNoVSCode()           " Required by `lsp-zero` (Optional)
+Plug 'williamboman/mason-lspconfig.nvim', NeoVimButNoNoVSCode() " Required by `lsp-zero` (Optional)
+Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()                  " Required by `lsp-zero`
+Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()              " Required by `lsp-zero`
+Plug 'rafamadriz/friendly-snippets', NeoVimButNoNoVSCode()      " Provides snippets for `LuaSnip` (optional)
+Plug 'L3MON4D3/LuaSnip', NeoVimButNoNoVSCode()                  " Required by `lsp-zero`
+Plug 'VonHeikemen/lsp-zero.nvim', NeoVimButNoNoVSCode({'branch': 'v2.x'})
+
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ Programming language specific plugins:                                 ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
 " Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
 Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
