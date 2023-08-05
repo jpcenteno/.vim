@@ -86,9 +86,28 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+" This helper function prevents a plugin from being activated when NeoVim is
+" used as a backend for the VSCode NeoVim plugin. Use it to reduce the overhead
+" when there it's functionality is being replaced by another VSCode plugin.
+"
+" Rationale:
+" ----------
+"
+" - Prevents `:PlugClean` from removing this plugin when ran from VSCode.
+" - Reduces overhead when this plugin functionality is replaced by another
+"   VSCode plugin.
 function! NoVSCode(...)
   let opts = get(a:000, 0, {})
   return Cond(!exists('g:vscode'), opts)
+endfunction
+
+" This function prevents a plugin from loading when this config is being run
+" either by plain old Vim or as a backend for VSCode NeoVim.
+"
+" It takes a VimPlug config dictionary and returns a VimPlug config dictionary.
+function! NeoVimButNoNoVSCode(...)
+  let opts = get(a:000, 0, {})
+  return Cond(has('nvim'), NoVSCode(opts))
 endfunction
 
 call plug#begin()
