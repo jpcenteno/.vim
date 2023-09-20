@@ -26,6 +26,8 @@ setlocal spell spelllang=en_us
 
 set completeopt=menu,menuone,noselect
 
+set textwidth=80
+
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
@@ -179,7 +181,7 @@ Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
 Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
 Plug 'tpope/vim-liquid', NoVSCode({'for': 'liquid'})
 let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
-Plug 'Olical/conjure', NoVSCode({ 'tag': 'v4.23.0', 'for' : g:lisp_fts })
+Plug 'Olical/conjure', NoVSCode({ 'tag': 'v4.48.0', 'for' : g:lisp_fts })
 Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', NoVSCode({ 'for' : g:lisp_fts })
 Plug 'junegunn/rainbow_parentheses.vim', NoVSCode({ 'for' : g:lisp_fts })
@@ -206,11 +208,36 @@ Plug 'liuchengxu/vim-which-key', NoVSCode()
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Plugins under development
+Plug '~/Code/zettelkasten.vim'
+
 call plug#end()
 
 " ------------------------------------------------------------------------------
 " ------------------------------------------------------------------------------
 
+
+" ------------------------------------------------------------------------------
+" Tools:
+" ------------------------------------------------------------------------------
+
+function! s:debug_runtime_path() abort
+  " Create a new empty buffer
+  execute 'new'
+
+  " Set the buffer to read-only mode
+  setlocal readonly
+
+  " Get the runtimepath
+  let runtimepath = &runtimepath
+
+  " Split the runtimepath by comma and print each line in the buffer
+  for path in split(runtimepath, ',')
+    call append('$', path)
+  endfor
+endfunction
+
+command! -nargs=0 DebugRuntimePath call s:debug_runtime_path()
 
 " ------------------------------------------------------------------------------
 " Aesthetics:

@@ -1,3 +1,9 @@
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ General settings                                                       ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
+let g:which_key_timeout = 0
+
 let g:which_key_map = {}
 
 " ------------------------------------------------------------------------------
@@ -35,6 +41,15 @@ let g:which_key_map['l'] = { 'name' : '+LSP' }
 nnoremap <silent> <leader>ld :TroubleToggle<CR>
 let g:which_key_map['l']['d'] = [ ':TroubleToggle', 'Diagnostics' ]
 
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ [Z] Zettelkasten mappings                                              ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
+let g:which_key_map['z'] = { 'name' : '+Zettelkasten' }
+let g:which_key_map['z']['n'] = [ ':ZettelkastenNewNote', 'New' ]
+let g:which_key_map['z']['e'] = [ ':ZettelkastenEditNote', 'Edit' ]
+let g:which_key_map['z']['l'] = [ ':ZettelkastenLinkNote', 'Link' ]
+
 " ------------------------------------------------------------------------------
 "  Register the mapings dictionary
 " ------------------------------------------------------------------------------
@@ -45,4 +60,3 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-
