@@ -215,8 +215,26 @@ Plug '~/Code/zettelkasten.vim'
 call plug#end()
 
 " ------------------------------------------------------------------------------
+" Tools:
 " ------------------------------------------------------------------------------
 
+function! s:debug_runtime_path() abort
+  " Create a new empty buffer
+  execute 'new'
+
+  " Set the buffer to read-only mode
+  setlocal readonly
+
+  " Get the runtimepath
+  let runtimepath = &runtimepath
+
+  " Split the runtimepath by comma and print each line in the buffer
+  for path in split(runtimepath, ',')
+    call append('$', path)
+  endfor
+endfunction
+
+command! -nargs=0 DebugRuntimePath call s:debug_runtime_path()
 
 " ------------------------------------------------------------------------------
 " Tools:
