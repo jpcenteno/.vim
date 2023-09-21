@@ -189,6 +189,7 @@ Plug 'mracos/mermaid.vim', NoVSCode({'for': 'mermaid'})
 Plug 'LnL7/vim-nix', NoVSCode({ 'for': 'nix' })
 Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
 Plug 'cespare/vim-toml', NoVSCode({ 'for': 'toml' })
+Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 
 " Aesthetics
 Plug 'sainnhe/everforest', NoVSCode()
