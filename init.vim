@@ -202,6 +202,10 @@ Plug 'ryanoasis/vim-devicons', NoVSCode()
 
 " Navigation
 
+Plug 'nvim-lua/plenary.nvim', NeoVimButNoNoVSCode(), " Telescope dependency.
+Plug 'nvim-telescope/telescope-fzy-native.nvim', NeoVimButNoNoVSCode() " `fzy` based sorter for Telescope.
+Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
+
 Plug 'junegunn/fzf', NoVSCode({ 'do': { -> fzf#install() } })
 Plug 'junegunn/fzf.vim', NoVSCode()
 
