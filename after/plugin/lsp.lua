@@ -47,6 +47,17 @@ lsp.format_on_save({
     }
 })
 
+-- local sign_icon = "△"
+-- local sign_icon = "▲"
+-- local sign_icon = "•"
+local sign_icon = "◆"
+lsp.set_sign_icons({
+    error = sign_icon,
+    warn = sign_icon,
+    hint = sign_icon,
+    info = sign_icon,
+})
+
 lsp.setup()
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗
