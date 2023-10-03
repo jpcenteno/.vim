@@ -175,6 +175,9 @@ Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
 " `conform.nvim` is a framework for setting up autoformatters.
 Plug 'stevearc/conform.nvim', NeoVimButNoNoVSCode()
 
+" Diagnostics display
+Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
+
 " ╔════════════════════════════════════════════════════════════════════════╗
 " ║ Programming language specific plugins:                                 ║
 " ╚════════════════════════════════════════════════════════════════════════╝
