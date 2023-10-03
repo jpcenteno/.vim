@@ -5,7 +5,8 @@ lsp.preset('recommended')
 -- Tip: Execute `:Mason` to get a list of LSP servers.
 lsp.ensure_installed({
     'lua_ls',
-    'vimls'
+    'vimls',
+    'pyright'
 })
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗
