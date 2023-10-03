@@ -272,6 +272,7 @@ set synmaxcol=0
 " Make the sign gutter fixed width.
 set signcolumn=yes:1
 
+set t_Co=16
 colorscheme dim
 
 set cursorline
