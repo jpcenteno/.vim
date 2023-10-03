@@ -171,7 +171,7 @@ Plug 'rafamadriz/friendly-snippets', NeoVimButNoNoVSCode()      " Provides snipp
 Plug 'L3MON4D3/LuaSnip', NeoVimButNoNoVSCode()                  " Required by `lsp-zero`
 Plug 'VonHeikemen/lsp-zero.nvim', NeoVimButNoNoVSCode({'branch': 'v2.x'})
 
-" `conform.nvim` is a framework for autoformatter setup.
+" `conform.nvim` is a framework for setting up autoformatters.
 Plug 'stevearc/conform.nvim', NeoVimButNoNoVSCode()
 
 " ╔════════════════════════════════════════════════════════════════════════╗
