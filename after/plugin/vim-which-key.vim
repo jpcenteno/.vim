@@ -14,7 +14,7 @@ let g:which_key_map["b"] = { 'name' : '+buffers' }
 let g:which_key_map['b']['n'] = [ ':bn',      'Next Buffer' ]
 let g:which_key_map['b']['p'] = [ ':bp',      'Prev Buffer' ]
 let g:which_key_map['b']['d'] = [ ':bp|bd#',  'Delete Buffer' ] " See (1)
-let g:which_key_map['b']['b'] = [ ':Buffers', 'Select Buffer' ] " Requires `fzf` plugin.
+let g:which_key_map['b']['b'] = [ ':Telescope buffers', 'Search buffers' ]
 
 " (1) I'm using this command instead of `:bd` to prevent the current window
 " from being closed. There is a known bug for `:bp|bd#` in which it will close
@@ -27,9 +27,9 @@ let g:which_key_map['b']['b'] = [ ':Buffers', 'Select Buffer' ] " Requires `fzf`
 
 let g:which_key_map['f'] = { 'name' : '+filesystem' }
 let g:which_key_map['f']['t'] = [ ':NERDTreeToggle', 'NerdTree' ]
-let g:which_key_map['f']['f'] = [ ':Files', 'fzf all files' ] " Requires `fzf` plugin.
-let g:which_key_map['f']['g'] = [ ':GFiles', 'fzf git files' ] " Requires `fzf` plugin.
-let g:which_key_map['f']['r'] = [ ':Rg', 'fzf+rg results' ] " Requires `fzf` plugin.
+let g:which_key_map['f']['f'] = [ ':Telescope find_files', 'Search files' ]
+let g:which_key_map['f']['g'] = [ ':Telescope git_files', 'Search git files' ]
+let g:which_key_map['f']['r'] = [ ':Telescope live_grep', 'Ripgrep' ]
 
 " ------------------------------------------------------------------------------
 "  [l] LSP mappings:
