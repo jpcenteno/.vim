@@ -222,9 +222,7 @@ Plug 'liuchengxu/vim-which-key', NoVSCode()
 " how to set that up on Tmux.
 Plug 'christoomey/vim-tmux-navigator', NoVSCode()
 
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+
 
 " Plugins under development
 Plug '~/Code/zettelkasten.vim'
