@@ -1,93 +1,72 @@
-local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
-
--- Tip: Execute `:Mason` to get a list of LSP servers.
-lsp.ensure_installed({
-    'lua_ls',
-    'vimls',
-    'pyright', -- Python LSP
-})
-
 -- ╔═══════════════════════════════════════════════════════════════════════╗
--- ║                                                                       ║
+-- ║ NeoVim LSP setup:                                                     ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
-lsp.on_attach(function(client, bufnr)
+-- LSP-Zero setup guide:
+-- https://github.com/VonHeikemen/lsp-zero.nvim#quickstart-for-the-impatient
+--
+-- Configuration options for LSP servers with official support:
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(_, bufnr) -- Ignored first argument `client`.
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
-    lsp.default_keymaps({ buffer = bufnr })
+    lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
--- Configure format on save using LSP integration:
--- ===============================================
---
--- Why is this config here instead of `ftplugin/<lang>.vim`?
--- ---------------------------------------------------------
---
--- While I prefer to place language-specific settins in the `ftplugin/`
--- directory, I had to place this here because it depends on the LSP server
--- setup.
---
--- While some posts on the internet suggest implementing this as an `autocmd`:
--- ```
--- autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
--- ```
--- This approach might fail on save if the LSP server is not configured.
-lsp.format_on_save({
-    format_opts = {
-        async = false,
-        timeout_ms = 10000,
-    },
-    servers = {
-        ['lua_ls'] = { 'lua' },
-        ['rust_analyzer'] = { 'rust' },
-    }
-})
-
--- local sign_icon = "△"
--- local sign_icon = "▲"
--- local sign_icon = "•"
-local sign_icon = "◆"
-lsp.set_sign_icons({
-    error = sign_icon,
-    warn = sign_icon,
-    hint = sign_icon,
-    info = sign_icon,
-})
-
-lsp.setup()
-
 -- ╔═══════════════════════════════════════════════════════════════════════╗
--- ║ Autocomplete                                                          ║
+-- ║ Per-language LSP setup:                                               ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
--- The `lsp-zero` README recommends to use `nvim-cmp` directly to set its
--- mappings. It is important to setup `cmp` after `lsp-zero`.
+local lspconfig = require('lspconfig')
+
+lsp_zero.setup_servers({
+    'lua_ls',        -- Optionally installed by my NeoVim setup script.
+    'rust_analyzer', -- Installed by my Rust provisioning script.
+    'vimls',         -- Optionally installed by my NeoVim setup script.
+    'eslint',        -- `npm i -g vscode-langservers-extracted` (provided by my sdk_typescript role)
+})
+
+lspconfig.denols.setup {
+    -- Prevent attachment into a Node project.
+    -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+lspconfig.tsserver.setup {
+    -- Prevent attachment into a Deno project.
+    -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    single_file_support = false
+}
+
+-- ╔═══════════════════════════════════════════════════════════════════════╗
+-- ║ Cmp config                                                            ║
+-- ╚═══════════════════════════════════════════════════════════════════════╝
 
 local cmp = require('cmp')
-local cmp_action = lsp.cmp_action()
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-        -- Navigate back and forward throug autocomplete suggestions.
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-
-        -- Navigate between LuaSnip placeholders
+        -- Navigate between snippet placeholder
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-    }
+
+        -- Scroll up and down in the completion documentation
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'async_path' },
+    }, {
+        { name = 'buffer' },
+    })
 })
-
--- ╔═══════════════════════════════════════════════════════════════════════╗
--- ║ Snippets                                                              ║
--- ╚═══════════════════════════════════════════════════════════════════════╝
-
-require('luasnip.loaders.from_vscode').lazy_load()

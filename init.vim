@@ -162,14 +162,17 @@ Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim') && !exists('g:vscode'),
 " On a buffer, use `:LspInfo` to check if pertinent LSP server is actually
 " running.
 
-Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()             " Required by `lsp-zero`
-Plug 'williamboman/mason.nvim', NeoVimButNoNoVSCode()           " Required by `lsp-zero` (Optional)
-Plug 'williamboman/mason-lspconfig.nvim', NeoVimButNoNoVSCode() " Required by `lsp-zero` (Optional)
-Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()                  " Required by `lsp-zero`
-Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()              " Required by `lsp-zero`
-Plug 'rafamadriz/friendly-snippets', NeoVimButNoNoVSCode()      " Provides snippets for `LuaSnip` (optional)
-Plug 'L3MON4D3/LuaSnip', NeoVimButNoNoVSCode()                  " Required by `lsp-zero`
-Plug 'VonHeikemen/lsp-zero.nvim', NeoVimButNoNoVSCode({'branch': 'v2.x'})
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Required by `lsp-zero`
+Plug 'rafamadriz/friendly-snippets' " snippet collection.
+Plug 'benfowler/telescope-luasnip.nvim' " List snippets with Telescope.
+
+Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()                     " Required by `lsp-zero`
+Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()                          " Required by `lsp-zero`
+Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()                      " Required by `lsp-zero`
+Plug 'saadparwaiz1/cmp_luasnip', NeoVimButNoNoVSCode() " Add luasnips to cmp.
+Plug 'FelipeLema/cmp-async-path', NeoVimButNoNoVSCode() " Autocomplete file system paths.
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+
 Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
 
 " `conform.nvim` is a framework for setting up autoformatters.
