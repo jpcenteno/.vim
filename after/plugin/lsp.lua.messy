@@ -1,0 +1,138 @@
+local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config -- FIXME what does this line do?
+
+-- FIXME what does this does?
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
+
+    -- FIXME remove what I don't need or like.
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts) 
+  end
+})
+
+-- FIXME what happens when a LSP is absent?
+
+-- This LSP comes bundled with Deno.
+require'lspconfig'.denols.setup{}
+
+-- Setup is handled by my rust setup script.
+require'lspconfig'.rust_analyzer.setup{}
+
+-- ╔═══════════════════════════════════════════════════════════════════════╗
+-- ║ Autocompletion and snippets.                                          ║
+-- ╚═══════════════════════════════════════════════════════════════════════╝
+
+local cmp = require('cmp')
+-- FIXME what? why?
+local cmp_action = lsp.cmp_action()
+-- FIXME what? why?
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
+    -- Specifies the snippet engine.
+    snippet = {
+        expand = function(args)
+            -- I use `hrsh7th/cmp-vsnip` as my snippet engine. The rationale for
+            -- switching from `SirVer/ultisnips` is that it does not bother me
+            -- with Python issues.
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
+    }, {
+      { name = 'buffer' },
+    }),
+    mapping = {
+        -- `Enter` key to confirm completion.
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+        -- Navigate up and down through autocomplete suggestions.
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+
+        -- FIXME Is this the correct place to configure snippet jumps?
+        -- Navigate between LuaSnip placeholders
+        -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+    }
+})
+-- ╔═══════════════════════════════════════════════════════════════════════╗
+-- ║ FIXME Check the code below this mark.                                 ║
+-- ╚═══════════════════════════════════════════════════════════════════════╝
+
+-- local lsp = require('lsp-zero')
+
+-- lsp.preset('recommended')
+
+-- -- Tip: Execute `:Mason` to get a list of LSP servers.
+-- lsp.ensure_installed({
+--     'lua_ls',
+--     'vimls',
+--     'pyright', -- Python LSP
+-- })
+
+-- ╔═══════════════════════════════════════════════════════════════════════╗
+-- ║                                                                       ║
+-- ╚═══════════════════════════════════════════════════════════════════════╝
+
+-- Configure format on save using LSP integration:
+-- ===============================================
+--
+-- Why is this config here instead of `ftplugin/<lang>.vim`?
+-- ---------------------------------------------------------
+--
+-- While I prefer to place language-specific settins in the `ftplugin/`
+-- directory, I had to place this here because it depends on the LSP server
+-- setup.
+--
+-- While some posts on the internet suggest implementing this as an `autocmd`:
+-- ```
+-- autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+-- ```
+-- This approach might fail on save if the LSP server is not configured.
+-- lsp.format_on_save({
+--     format_opts = {
+--         async = false,
+--         timeout_ms = 10000,
+--     },
+--     servers = {
+--         ['lua_ls'] = { 'lua' },
+--         ['rust_analyzer'] = { 'rust' },
+--     }
+-- })
+-- 
+-- -- local sign_icon = "△"
+-- -- local sign_icon = "▲"
+-- -- local sign_icon = "•"
+-- local sign_icon = "◆"
+-- lsp.set_sign_icons({
+--     error = '🔥',
+--     warn = '⚠️',
+--     hint = '',
+--     info = sign_icon,
+-- })
+-- 
+-- lsp.setup()
