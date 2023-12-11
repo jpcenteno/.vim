@@ -26,7 +26,7 @@ let g:which_key_map['b']['b'] = [ ':Telescope buffers', 'Search buffers' ]
 " ------------------------------------------------------------------------------
 
 let g:which_key_map['f'] = { 'name' : '+filesystem' }
-let g:which_key_map['f']['t'] = [ ':NERDTreeToggle', 'NerdTree' ]
+let g:which_key_map['f']['t'] = [ ':NERDTreeToggle ' . getcwd(), 'NerdTree' ]
 let g:which_key_map['f']['f'] = [ ':Telescope find_files', 'Search files' ]
 let g:which_key_map['f']['g'] = [ ':Telescope git_files', 'Search git files' ]
 let g:which_key_map['f']['r'] = [ ':Telescope live_grep', 'Ripgrep' ]
@@ -49,6 +49,18 @@ let g:which_key_map['z'] = { 'name' : '+Zettelkasten' }
 let g:which_key_map['z']['n'] = [ ':ZettelkastenNewNote', 'New' ]
 let g:which_key_map['z']['e'] = [ ':ZettelkastenEditNote', 'Edit' ]
 let g:which_key_map['z']['l'] = [ ':ZettelkastenLinkNote', 'Link' ]
+
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ [w] Vimwiki mappings                                                   ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
+if exists('g:loaded_vimwiki')
+  let g:which_key_map['w'] = { 'name' : '+Vimwiki' }
+  if exists("g:vimwiki_list[0]['path']")
+    let s:main_vimwiki_path = g:vimwiki_list[0]['path']
+    let g:which_key_map['w']['t'] = [ ':NERDTreeToggle ' . s:main_vimwiki_path, 'Toggle nerdtree' ]
+  endif
+endif
 
 " ------------------------------------------------------------------------------
 "  Register the mapings dictionary

@@ -200,6 +200,7 @@ Plug 'LnL7/vim-nix', NoVSCode({ 'for': 'nix' })
 Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
 Plug 'cespare/vim-toml', NoVSCode({ 'for': 'toml' })
 Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
+Plug 'preservim/vim-markdown', { 'for': [ 'markdown', 'vimwiki' ] }
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
@@ -225,7 +226,8 @@ Plug 'liuchengxu/vim-which-key', NoVSCode()
 " how to set that up on Tmux.
 Plug 'christoomey/vim-tmux-navigator', NoVSCode()
 
-
+Plug 'vimwiki/vimwiki'
+Plug 'ElPiloto/telescope-vimwiki.nvim', NoVSCode()
 
 " Plugins under development
 Plug '~/Code/zettelkasten.vim'
