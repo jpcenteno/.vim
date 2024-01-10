@@ -29,6 +29,10 @@ lsp_zero.setup_servers({
     'eslint',        -- `npm i -g vscode-langservers-extracted` (provided by my sdk_typescript role)
 })
 
+lspconfig.elixirls.setup {
+    cmd = { "elixir-ls" }
+}
+
 lspconfig.denols.setup {
     -- Prevent attachment into a Node project.
     -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
