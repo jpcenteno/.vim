@@ -27,6 +27,7 @@ lsp_zero.setup_servers({
     'rust_analyzer', -- Installed by my Rust provisioning script.
     'vimls',         -- Optionally installed by my NeoVim setup script.
     'eslint',        -- `npm i -g vscode-langservers-extracted` (provided by my sdk_typescript role)
+    'clojure_lsp',   -- Add `clojure-lsp` to Nix development shell.
 })
 
 lspconfig.elixirls.setup {
