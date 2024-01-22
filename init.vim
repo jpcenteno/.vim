@@ -194,7 +194,6 @@ let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
 Plug 'Olical/conjure', NoVSCode({ 'tag': 'v4.48.0', 'for' : g:lisp_fts })
 Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', NoVSCode({ 'for' : g:lisp_fts })
-Plug 'junegunn/rainbow_parentheses.vim', NoVSCode({ 'for' : g:lisp_fts })
 Plug 'mracos/mermaid.vim', NoVSCode({'for': 'mermaid'})
 Plug 'LnL7/vim-nix', NoVSCode({ 'for': 'nix' })
 Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
