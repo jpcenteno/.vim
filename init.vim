@@ -214,10 +214,6 @@ Plug 'liuchengxu/vim-which-key', NoVSCode()
 Plug 'christoomey/vim-tmux-navigator', NoVSCode()
 
 
-
-" Plugins under development
-Plug '~/Code/zettelkasten.vim'
-
 call plug#end()
 
 " ------------------------------------------------------------------------------
