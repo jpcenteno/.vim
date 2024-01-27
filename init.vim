@@ -178,7 +178,6 @@ Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
 Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
 Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
-Plug 'tpope/vim-liquid', NoVSCode({'for': 'liquid'})
 let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
 Plug 'Olical/conjure', { 'tag': 'v4.48.0', 'for' : g:lisp_fts }
 Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
