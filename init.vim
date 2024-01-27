@@ -287,6 +287,8 @@ set signcolumn=yes:1
 
 set t_Co=16
 colorscheme dim
+hi link NormalFloat Normal " Fix conjure HUD unreadability problem.
+hi link WinSeparator Normal " Minimal window separators.
 
 set cursorline
 
