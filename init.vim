@@ -278,6 +278,7 @@ set t_Co=16
 colorscheme dim
 hi link NormalFloat Normal " Fix conjure HUD unreadability problem.
 hi link WinSeparator Normal " Minimal window separators.
+hi ErrorMsg ctermbg=NONE ctermfg=9 " Make errors readable
 
 set cursorline
 
