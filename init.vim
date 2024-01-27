@@ -213,6 +213,7 @@ Plug 'liuchengxu/vim-which-key', NoVSCode()
 " how to set that up on Tmux.
 Plug 'christoomey/vim-tmux-navigator', NoVSCode()
 
+Plug 'epwalsh/obsidian.nvim', { 'for': ['markdown'], 'tag': 'v2.8.0' }
 
 call plug#end()
 
