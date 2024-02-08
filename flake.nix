@@ -14,7 +14,10 @@
     {
       devShells = rec {
         default = pkgs.mkShell {
-          packages = [ pkgs.lua-language-server ];
+          packages = with pkgs; [
+            lua-language-server
+            nodePackages.vim-language-server
+          ];
         };
       };
     }
