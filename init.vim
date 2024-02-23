@@ -190,8 +190,6 @@ Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
-Plug 'sainnhe/everforest', NoVSCode()
-Plug 'jeffkreeftmeijer/vim-dim', NoVSCode()
 Plug 'itchyny/lightline.vim', NoVSCode()
 Plug 'ryanoasis/vim-devicons', NoVSCode()
 Plug 'chriskempson/base16-vim'
