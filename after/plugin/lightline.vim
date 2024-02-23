@@ -58,4 +58,4 @@ let g:lightline.component_function['fileformat'] = 'MyFileformat'
 " Theme:
 " ------------------------------------------------------------------------------
 
-let g:lightline.colorscheme = 'dim'
+let g:lightline.colorscheme = '16color'

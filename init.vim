@@ -190,10 +190,9 @@ Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
-Plug 'sainnhe/everforest', NoVSCode()
-Plug 'jeffkreeftmeijer/vim-dim', NoVSCode()
 Plug 'itchyny/lightline.vim', NoVSCode()
 Plug 'ryanoasis/vim-devicons', NoVSCode()
+Plug 'chriskempson/base16-vim'
 
 " Navigation
 
@@ -267,14 +266,52 @@ command! -nargs=0 DebugRuntimePath call s:debug_runtime_path()
 " Prevent syntax highlighting from breaking after very long lines.
 set synmaxcol=0
 
-" Make the sign gutter fixed width.
-set signcolumn=yes:1
+" Overrides some of the color scheme settings for readability and minimalism.
+function! ColorschemeOverrides() abort
+  " Use default terminal colors for normal text.
+  highlight Normal ctermbg=NONE ctermfg=NONE
+
+  " Make visual mode readable and consistent with the rest of the theme.
+  hi Visual cterm=reverse ctermbg=NONE ctermfg=NONE
+
+  " Make window separators the same color as normal text so they don't stand
+  " out.
+  hi link WinSeparator Normal
+
+  " Make the Sign column the same color as the buffer.
+  hi SignColumn ctermbg=NONE
+
+  " Autocomplete menu.
+  hi Pmenu ctermbg=0 ctermfg=7
+  hi PmenuSbar ctermbg=0 ctermfg=7
+
+  " Fixes the unreadable HUD problem from the Conjure plugin.
+  hi link NormalFloat Normal
+
+  " Don't highlight the cursor line. This made comments unreadable under base-16
+  " themes.
+  hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+
+  " Less intrusive folded lines.
+  hi Folded ctermbg=NONE ctermfg=7
+
+  " Makes error messages readable.
+  hi ErrorMsg ctermbg=NONE ctermfg=9
+
+  hi Search ctermbg=3 ctermfg=0
+
+  hi SpellBad   ctermbg=NONE ctermfg=NONE cterm=underline
+  hi SpellRare  ctermbg=NONE ctermfg=NONE cterm=underline
+  hi SpellLocal ctermbg=NONE ctermfg=NONE cterm=underline
+endfunction
+
+augroup ColorschemeOverrides
+  autocmd!
+  autocmd Colorscheme * call ColorschemeOverrides()
+augroup END
 
 set t_Co=16
-colorscheme dim
-hi link NormalFloat Normal " Fix conjure HUD unreadability problem.
-hi link WinSeparator Normal " Minimal window separators.
-hi ErrorMsg ctermbg=NONE ctermfg=9 " Make errors readable
+colorscheme base16-default-dark
 
 set cursorline
 
