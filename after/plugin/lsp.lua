@@ -42,6 +42,16 @@ lspconfig.denols.setup {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
+lspconfig.nil_ls.setup {
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { "nixfmt" },
+      },
+    },
+  },
+}
+
 lspconfig.tsserver.setup {
   -- Prevent attachment into a Deno project.
   -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
