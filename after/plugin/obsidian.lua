@@ -72,7 +72,7 @@ require("obsidian").setup({
   note_frontmatter_func = function(note)
     -- Set the title as the sole note alias. This is specific to my workflow.
     local aliases = {}
-    if note.metadata.title then
+    if note.metadata and note.metadata.title then
       aliases = { note.metadata.title }
     end
 
