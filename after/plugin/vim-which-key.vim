@@ -48,6 +48,7 @@ let g:which_key_map['l']['d'] = [ ':TroubleToggle', 'Diagnostics' ]
 let g:which_key_map['n'] = { 'name': '+Notes' }
 let g:which_key_map['n']['o'] = [ ':OpenNoteByAlias', 'Open' ]
 let g:which_key_map['n']['n'] = [ ':ObsidianNew', 'New' ]
+let g:which_key_map['n']['s'] = [ ':ObsidianSearch', 'Search' ]
 
 " ------------------------------------------------------------------------------
 "  Register the mapings dictionary
