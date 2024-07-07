@@ -45,10 +45,9 @@ let g:which_key_map['l']['d'] = [ ':TroubleToggle', 'Diagnostics' ]
 " ║ [Z] Zettelkasten mappings                                              ║
 " ╚════════════════════════════════════════════════════════════════════════╝
 
-let g:which_key_map['z'] = { 'name' : '+Zettelkasten' }
-let g:which_key_map['z']['n'] = [ ':ZettelkastenNewNote', 'New' ]
-let g:which_key_map['z']['e'] = [ ':ZettelkastenEditNote', 'Edit' ]
-let g:which_key_map['z']['l'] = [ ':ZettelkastenLinkNote', 'Link' ]
+let g:which_key_map['n'] = { 'name': '+Notes' }
+let g:which_key_map['n']['o'] = [ ':OpenNoteByAlias', 'Open' ]
+let g:which_key_map['n']['n'] = [ ':ObsidianNew', 'New' ]
 
 " ------------------------------------------------------------------------------
 "  Register the mapings dictionary
