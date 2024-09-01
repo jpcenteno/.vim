@@ -33,6 +33,36 @@ local id_words = function()
   return _id_words
 end
 
+--[[
+  Generates a title for a note based on its frontmatter or aliases.
+
+  Parameters:
+    note (table): A table representing the note, which may include:
+      - frontmatter.title (string): The title defined in the note's frontmatter.
+      - aliases (table): A list of alternative titles or headings for the note.
+      - id (string): A unique identifier for the note.
+
+  Returns:
+    string: A title derived from the note's content in the following order of priority:
+      1. The title explicitly defined in the frontmatter.
+      2. The first alias, which may include a heading from the note's content.
+      3. A placeholder title generated from the note's ID.
+]]
+local function generate_title(note)
+  -- I'm being extra defensive here because I'm not sure that my mental model of
+  -- the `note` structure holds 100% of the time.
+
+  if type(note.metadata) == "table" and type(note.metadata.title) == "string" then
+    return note.metadata.title
+  end
+
+  if type(note.aliases) == "table" and type(note.aliases[1]) == "string" then
+    return note.aliases[1]
+  end
+
+  return string.format("Untitled (%s)", note.id)
+end
+
 require("obsidian").setup({
   dir = "~/Documents/Notes/",
 
@@ -67,26 +97,26 @@ require("obsidian").setup({
     end
   end,
 
-  -- Optional, alternatively you can customize the frontmatter data.
+  -- Transforms the frontmatter before writing the buffer to disk.
   ---@return table
   note_frontmatter_func = function(note)
-    -- Set the title as the sole note alias. This is specific to my workflow.
-    local aliases = {}
-    if note.metadata and note.metadata.title then
-      aliases = { note.metadata.title }
-    end
+    local frontmatter = {}
 
-    local out = { id = note.id, aliases = aliases, tags = note.tags }
-
-    -- `note.metadata` contains any manually added fields in the frontmatter.
-    -- So here we just make sure those fields are kept in the frontmatter.
-    if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+    -- Shallow copy `note.metadata` into `frontmatter`.
+    if type(note.metadata) == "table" then
       for k, v in pairs(note.metadata) do
-        out[k] = v
+        frontmatter[k] = v
       end
     end
 
-    return out
+    frontmatter.id = note.id
+    frontmatter.tags = note.tags
+
+    local title = generate_title(note)
+    frontmatter.title = title
+    frontmatter.aliases = { title }
+
+    return frontmatter
   end,
 
 })
