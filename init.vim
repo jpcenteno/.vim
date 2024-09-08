@@ -267,55 +267,50 @@ command! -nargs=0 DebugRuntimePath call s:debug_runtime_path()
 set synmaxcol=0
 
 " Overrides some of the color scheme settings for readability and minimalism.
-function! ColorschemeOverrides() abort
-  " Use default terminal colors for normal text.
-  highlight Normal ctermbg=NONE ctermfg=NONE
-
-  " Make visual mode readable and consistent with the rest of the theme.
-  hi Visual cterm=reverse ctermbg=NONE ctermfg=NONE
-
+function! s:ColorschemeOverrides() abort
   " Make window separators the same color as normal text so they don't stand
-  " out.
+  " out that much.
   hi link WinSeparator Normal
 
   " Make the Sign column the same color as the buffer.
-  hi SignColumn ctermbg=NONE
+  highlight! link SignColumn Normal
 
   " Autocomplete menu.
-  hi Pmenu ctermbg=0 ctermfg=7
-  hi PmenuSbar ctermbg=0 ctermfg=7
+  " hi Pmenu ctermbg=0 ctermfg=7
+  " hi PmenuSbar ctermbg=0 ctermfg=7
 
   " Fixes the unreadable HUD problem from the Conjure plugin.
   hi link NormalFloat Normal
 
-  " Don't highlight the cursor line. This made comments unreadable under base-16
-  " themes.
-  hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
-
   " Less intrusive folded lines.
-  hi Folded ctermbg=NONE ctermfg=7
+  " hi Folded ctermbg=NONE ctermfg=7
 
   " Makes error messages readable.
-  hi ErrorMsg ctermbg=NONE ctermfg=9
+  " hi ErrorMsg ctermbg=NONE ctermfg=9
 
-  hi Search ctermbg=3 ctermfg=0
+  " hi Search ctermbg=3 ctermfg=0
 
-  hi SpellBad   ctermbg=NONE ctermfg=NONE cterm=underline
-  hi SpellRare  ctermbg=NONE ctermfg=NONE cterm=underline
-  hi SpellLocal ctermbg=NONE ctermfg=NONE cterm=underline
+  " hi SpellBad   ctermbg=NONE ctermfg=NONE cterm=underline
+  " hi SpellRare  ctermbg=NONE ctermfg=NONE cterm=underline
+  " hi SpellLocal ctermbg=NONE ctermfg=NONE cterm=underline
+
+  " Highlight trailing whitespace.
+  " hi ExtraWhitespace ctermbg=red guibg=red
+  " match ExtraWhitespace /\s\+$/
 endfunction
 
 augroup ColorschemeOverrides
   autocmd!
-  autocmd Colorscheme * call ColorschemeOverrides()
+  autocmd Colorscheme base16-default-* call s:ColorschemeOverrides()
 augroup END
 
 set t_Co=16
-colorscheme base16-default-dark
+set bg=light
+colorscheme base16-default-light
 
 set cursorline
-
 function! SynGroup()                                                            
   let l:s = synID(line('.'), col('.'), 1)                                       
+
   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
