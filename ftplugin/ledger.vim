@@ -7,6 +7,7 @@ au BufWritePre <buffer> :LedgerAlignBuffer
 " Jump to the end of file
 au BufWinEnter <buffer> normal G$
 
+let b:is_hledger = v:false
 let g:ledger_align_at = 60
 let g:ledger_align_commodity = 0
 let g:ledger_default_commodity = ''
