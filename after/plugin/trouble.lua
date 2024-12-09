@@ -1,19 +1,9 @@
 local trouble = require("trouble")
 
 trouble.setup({
-    -- Don't preview by default (press `P` to change this behavior)
-    auto_preview = false,
-    padding = false, -- Don't add a blank line on top.
-    icons = false,   -- Don't use cringe devicons.
-    signs = {
-        error = "ERRR",
-        warning = "WARN",
-        hint = "HINT",
-        information = "INFO",
-    },
-    fold_open = "▼",
-    fold_closed = "▶",
-    indent_lines = false -- Declutter indent line.
+  auto_close = true, -- auto close when there are no items.
+  focus = true, -- Focus the window when opened
+  open_no_results = true, -- open the trouble window when there are no results
 })
 
 -- Make the fold triangles the same color as the file name.
