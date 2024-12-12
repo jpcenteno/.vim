@@ -60,6 +60,10 @@ endfun
 
 command! InsertDateTime call s:insertDateTime()
 
+" Use the system clipboard register. For example, `<C-c>` with `y2y` ot copy `2`
+" lines to the clipboard, `<C-c>d2d` to cut 2 lines, etc.
+nnoremap <C-c> "+
+vnoremap <C-c> "+
 
 " ------------------------------------------------------------------------------
 " Plugin Declarations:
