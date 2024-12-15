@@ -40,15 +40,17 @@ ls.add_snippets("ledger", {
     "tx",
     fmt(
       [[
-      {date} {description}
+      {year}-{month}-{day} {description}
           ; UUID: {uuid}
           {postings}
       ]],
       {
-        date = i(1, os.date("%Y-%m-%d")),
-        description = i(2, "Description"),
+        year = i(1, os.date("%Y")),
+        month = i(2, os.date("%m")),
+        day = i(3, os.date("%d")),
+        description = i(4, "Description"),
         uuid = f(function (_, _, _) return uuid() end),
-        postings = i(3)
+        postings = i(5)
       }
     )
   ),
