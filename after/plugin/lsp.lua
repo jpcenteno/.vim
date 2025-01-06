@@ -54,7 +54,8 @@ lspconfig.nil_ls.setup {
   },
 }
 
-lspconfig.tsserver.setup {
+-- Typescript
+lspconfig.ts_ls.setup {
   -- Prevent attachment into a Deno project.
   -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
   root_dir = lspconfig.util.root_pattern("package.json"),
