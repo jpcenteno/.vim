@@ -4,7 +4,7 @@
 " ~~ Keep it simple. We don't need a third party plugin for this. ~~
 "
 " See also the `ftplugin` files for JS, JSX, TS and TSX.
-function! EvalPrettierOnBuffer() abort
+function! prettier#format_buffer() abort
   let l:cursor_position = getpos('.')
 
   if executable("prettier")
