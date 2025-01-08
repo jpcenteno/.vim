@@ -194,7 +194,6 @@ Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
-Plug 'itchyny/lightline.vim', NoVSCode()
 Plug 'ryanoasis/vim-devicons', NoVSCode()
 Plug 'chriskempson/base16-vim'
 
@@ -312,7 +311,20 @@ set t_Co=16
 set bg=light
 colorscheme base16-default-light
 
+hi StatusLine ctermbg=10 ctermfg=12
+hi statusLineNc ctermbg=10 ctermfg=14
+
+" Reset the status line.
+set statusline=
+" Append the mode symbol to the status line.
+set statusline+=%{mode()}
+" Append the filename to the status line.
+set statusline+=\ -\ %{expand('%')}
+" Append cursor coordinates to the status line.
+set statusline+=\ -\ %{line('.')}:%{col('.')}
+
 set cursorline
+
 function! SynGroup()                                                            
   let l:s = synID(line('.'), col('.'), 1)                                       
 
