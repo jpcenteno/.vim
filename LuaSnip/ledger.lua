@@ -56,6 +56,28 @@ ls.add_snippets("ledger", {
   ),
 
   s(
+    "tx-cash-expense",
+    fmt(
+      [[
+      {year}-{month}-{day} {description}
+          ; UUID: {uuid}
+          activo:caja      -{amount_1}
+          {account}         {amount_2}
+      ]],
+      {
+        year = i(1, os.date("%Y")),
+        month = i(2, os.date("%m")),
+        day = i(3, os.date("%d")),
+        description = i(4, "Description"),
+        uuid = f(function (_, _, _) return uuid() end),
+        amount_1 = i(5, "0 XXX"),
+        amount_2 = rep(5),
+        account = i(6, "account"),
+      }
+    )
+  ),
+
+  s(
     "metadata",
     fmt(
       [[
