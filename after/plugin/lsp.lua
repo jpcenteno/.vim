@@ -35,11 +35,14 @@ lspconfig.elixirls.setup {
   cmd = { "elixir-ls" }
 }
 
-lspconfig.denols.setup {
-  -- Prevent attachment into a Node project.
-  -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-}
+if vim.fn.executable("deno") == 1 then -- Skip if deno is not on the dev env.
+  lspconfig.denols.setup {
+    -- Prevent attachment into a Node project.
+    -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  }
+end
+
 
 require 'lspconfig'.gopls.setup {}
 
