@@ -2,9 +2,6 @@
 -- ║ NeoVim LSP setup:                                                     ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
--- Adds a border to the `:LspInfo` and other windows.
-require('lspconfig.ui.windows').default_options.border = 'single'
-
 -- ╔═══════════════════════════════════════════════════════════════════════╗
 -- ║ Per-language LSP setup:                                               ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
