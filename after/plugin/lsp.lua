@@ -2,20 +2,6 @@
 -- ║ NeoVim LSP setup:                                                     ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
--- LSP-Zero setup guide:
--- https://github.com/VonHeikemen/lsp-zero.nvim#quickstart-for-the-impatient
---
--- Configuration options for LSP servers with official support:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(_, bufnr) -- Ignored first argument `client`.
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
 -- Adds a border to the `:LspInfo` and other windows.
 require('lspconfig.ui.windows').default_options.border = 'single'
 
@@ -24,12 +10,6 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
 local lspconfig = require('lspconfig')
-
-lsp_zero.setup_servers({
-  'rust_analyzer', -- Installed by my Rust provisioning script.
-  'vimls',         -- Optionally installed by my NeoVim setup script.
-  'clojure_lsp',   -- Add `clojure-lsp` to Nix development shell.
-})
 
 lspconfig.elixirls.setup {
   cmd = { "elixir-ls" }
@@ -111,16 +91,11 @@ lspconfig.lua_ls.setup {
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
-    -- Navigate between snippet placeholder
-    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
     -- Scroll up and down in the completion documentation
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),

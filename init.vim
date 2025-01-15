@@ -144,27 +144,15 @@ Plug 'junegunn/vim-easy-align'
 " ║ LSP                                                                    ║
 " ╚════════════════════════════════════════════════════════════════════════╝
 
-" The plugin `lsp-zero` provides a no-brainer setup for LSP on neovim.
-"
-" All the settings related to LSP should be set together at
-" `after/plugin/lsp.lua`.
-"
-" Troubleshooting:
-" ----------------
-"
-" On a buffer, use `:LspInfo` to check if pertinent LSP server is actually
-" running.
-
-Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Required by `lsp-zero`
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'rafamadriz/friendly-snippets' " snippet collection.
 Plug 'benfowler/telescope-luasnip.nvim' " List snippets with Telescope.
 
-Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()                     " Required by `lsp-zero`
-Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()                          " Required by `lsp-zero`
-Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()                      " Required by `lsp-zero`
+Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()
+Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()
+Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()
 Plug 'saadparwaiz1/cmp_luasnip', NeoVimButNoNoVSCode() " Add luasnips to cmp.
 Plug 'FelipeLema/cmp-async-path', NeoVimButNoNoVSCode() " Autocomplete file system paths.
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
 
 Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
 
