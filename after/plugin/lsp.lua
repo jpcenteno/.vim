@@ -56,6 +56,9 @@ lspconfig.nil_ls.setup {
   },
 }
 
+-- Python
+lspconfig.pyright.setup{}
+
 -- Typescript
 lspconfig.ts_ls.setup {
   -- Prevent attachment into a Deno project.
