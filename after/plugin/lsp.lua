@@ -2,6 +2,25 @@
 -- ║ NeoVim LSP setup:                                                     ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
+-- BEFORE WE CONFIGURE ANY LANGUAGE SERVER, we have to patch the default
+-- capabilities table from NeoVim's LSP with the extended completion
+-- capabilities that `cmp_nvim_lsp` has to offer.
+--
+-- > Language servers provide different completion results depending on the
+-- > capabilities of the client. Neovim's default omnifunc has basic support
+-- > for serving completion candidates. nvim-cmp supports more types of
+-- > completion candidates, so users must override the capabilities sent to
+-- > the server such that it can provide these candidates during a completion
+-- > request.
+-- >
+-- > Source: https://github.com/hrsh7th/cmp-nvim-lsp
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
 -- ╔═══════════════════════════════════════════════════════════════════════╗
 -- ║ Per-language LSP setup:                                               ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
