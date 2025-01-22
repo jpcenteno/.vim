@@ -2,22 +2,50 @@
 -- ║ NeoVim LSP setup:                                                     ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
--- LSP-Zero setup guide:
--- https://github.com/VonHeikemen/lsp-zero.nvim#quickstart-for-the-impatient
+-- BEFORE WE CONFIGURE ANY LANGUAGE SERVER, we have to patch the default
+-- capabilities table from NeoVim's LSP with the extended completion
+-- capabilities that `cmp_nvim_lsp` has to offer.
 --
--- Configuration options for LSP servers with official support:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- > Language servers provide different completion results depending on the
+-- > capabilities of the client. Neovim's default omnifunc has basic support
+-- > for serving completion candidates. nvim-cmp supports more types of
+-- > completion candidates, so users must override the capabilities sent to
+-- > the server such that it can provide these candidates during a completion
+-- > request.
+-- >
+-- > Source: https://github.com/hrsh7th/cmp-nvim-lsp
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
 
-local lsp_zero = require('lsp-zero')
 
-lsp_zero.on_attach(function(_, bufnr) -- Ignored first argument `client`.
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+-- These configurations only apply to buffers where there is an active language
+-- server.
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = { buffer = event.buf }
 
--- Adds a border to the `:LspInfo` and other windows.
-require('lspconfig.ui.windows').default_options.border = 'single'
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  end,
+})
+
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗
 -- ║ Per-language LSP setup:                                               ║
@@ -25,22 +53,18 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 
 local lspconfig = require('lspconfig')
 
-lsp_zero.setup_servers({
-  'rust_analyzer', -- Installed by my Rust provisioning script.
-  'vimls',         -- Optionally installed by my NeoVim setup script.
-  'eslint',        -- `npm i -g vscode-langservers-extracted` (provided by my sdk_typescript role)
-  'clojure_lsp',   -- Add `clojure-lsp` to Nix development shell.
-})
-
 lspconfig.elixirls.setup {
   cmd = { "elixir-ls" }
 }
 
-lspconfig.denols.setup {
-  -- Prevent attachment into a Node project.
-  -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-}
+if vim.fn.executable("deno") == 1 then -- Skip if deno is not on the dev env.
+  lspconfig.denols.setup {
+    -- Prevent attachment into a Node project.
+    -- See https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  }
+end
+
 
 require 'lspconfig'.gopls.setup {}
 
@@ -53,6 +77,13 @@ lspconfig.nil_ls.setup {
     },
   },
 }
+
+-- Python
+lspconfig.pyright.setup {}
+
+-- Tailwind
+require 'lspconfig'.tailwindcss.setup {}
+
 
 -- Typescript
 lspconfig.ts_ls.setup {
@@ -80,13 +111,13 @@ lspconfig.lua_ls.setup {
           -- Make the server aware of Neovim runtime files
           workspace = {
             checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME
-              -- "${3rd}/luv/library"
-              -- "${3rd}/busted/library",
-            }
+            -- library = {
+            --   vim.env.VIMRUNTIME
+            --   -- "${3rd}/luv/library"
+            --   -- "${3rd}/busted/library",
+            -- }
             -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-            -- library = vim.api.nvim_get_runtime_file("", true)
+            library = vim.api.nvim_get_runtime_file("", true)
           }
         }
       })
@@ -102,16 +133,11 @@ lspconfig.lua_ls.setup {
 -- ╚═══════════════════════════════════════════════════════════════════════╝
 
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
-    -- Navigate between snippet placeholder
-    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
     -- Scroll up and down in the completion documentation
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),

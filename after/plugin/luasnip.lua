@@ -20,7 +20,9 @@ luasnip.add_snippets("nix", {
   let
     cfg = config.{};
   in {{
-    options.{} = {{ enable = lib.mkEnableOption "{}"; }};
+    options.{} = {{
+      enable = lib.mkEnableOption "{}";
+    }};
 
     config = lib.mkIf cfg.enable {{
       {}
