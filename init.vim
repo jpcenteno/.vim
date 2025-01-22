@@ -291,7 +291,7 @@ augroup ColorschemeOverrides
   autocmd Colorscheme base16-default-* call s:ColorschemeOverrides()
 augroup END
 
-set t_Co=16
+set notermguicolors
 set bg=dark
 colorscheme base16-default-dark
 
