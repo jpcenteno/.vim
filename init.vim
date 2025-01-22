@@ -266,10 +266,6 @@ function! s:ColorschemeOverrides() abort
   " Make the Sign column the same color as the buffer.
   highlight! link SignColumn Normal
 
-  " Autocomplete menu.
-  " hi Pmenu ctermbg=0 ctermfg=7
-  " hi PmenuSbar ctermbg=0 ctermfg=7
-
   " Fixes the unreadable HUD problem from the Conjure plugin.
   hi link NormalFloat Normal
 
