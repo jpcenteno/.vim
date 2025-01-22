@@ -308,8 +308,8 @@ augroup ColorschemeOverrides
 augroup END
 
 set t_Co=16
-set bg=light
-colorscheme base16-default-light
+set bg=dark
+colorscheme base16-default-dark
 
 hi StatusLine ctermbg=10 ctermfg=12
 hi statusLineNc ctermbg=10 ctermfg=14
