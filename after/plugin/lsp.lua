@@ -82,7 +82,9 @@ lspconfig.nil_ls.setup {
 lspconfig.pyright.setup {}
 
 -- Tailwind
-require 'lspconfig'.tailwindcss.setup {}
+if vim.fn.executable("tailwindcss-language-server") == 1 then
+  require 'lspconfig'.tailwindcss.setup {}
+end
 
 
 -- Typescript
