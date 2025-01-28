@@ -204,6 +204,8 @@ Plug 'christoomey/vim-tmux-navigator', NoVSCode()
 
 Plug 'epwalsh/obsidian.nvim', { 'for': ['markdown'], 'tag': 'v2.8.0' }
 
+Plug '~/.config/nvim/myplugins/kasten'
+
 call plug#end()
 
 " ------------------------------------------------------------------------------
