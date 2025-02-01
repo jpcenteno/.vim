@@ -16,7 +16,7 @@ function! kasten#notes#new() abort
     return
   endif
 
-  let l:cmd = 'kasten-cli note new -d ~/Documents/Notes -t' . shellescape(l:title)
+  let l:cmd = 'kasten-cli note new -t' . shellescape(l:title)
   let l:path = system(l:cmd)
 
   if v:shell_error
