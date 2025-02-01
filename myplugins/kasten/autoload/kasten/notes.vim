@@ -25,5 +25,3 @@ function! kasten#notes#new() abort
 
   execute 'edit' fnameescape(trim(l:path)) 
 endfunction
-
-call kasten#notes#new()
