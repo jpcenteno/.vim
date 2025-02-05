@@ -6,6 +6,27 @@ local telescope_config = require("telescope.config")
 
 local cli = require("kasten.cli")
 
+--- Ask user for confirmation using the native `vim.ui.input`.
+---
+--- @param prompt string
+--- @return boolean
+local function confirm(prompt)
+  local ans = nil
+
+  while ans ~= "y" and ans ~= "n" do
+    vim.ui.input({
+        prompt = prompt .. " (y/n) ",
+        cancelreturn = "n"
+      },
+      function(input)
+        ans = string.lower(input)
+      end
+    )
+  end
+
+  return ans == "y"
+end
+
 local M = {}
 
 M.find_notes = function(opts)
@@ -54,6 +75,12 @@ function M.insert_link()
     if selection then
       local relativePath = "./" .. selection.value.relativePath
       require("kasten.link").insert_link_to_note_visual(relativePath)
+    else
+      local current_line = action_state.get_current_line()
+      if confirm("Create new note '" .. current_line .. "'?") then
+        local note = cli.note_new({ title = current_line })
+        require("kasten.link").insert_link_to_note_visual(note.relativePath)
+      end
     end
   end
 
