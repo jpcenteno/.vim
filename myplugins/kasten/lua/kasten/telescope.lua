@@ -4,26 +4,7 @@ local finders = require('telescope.finders')
 local pickers = require('telescope.pickers')
 local telescope_config = require("telescope.config")
 
-local function list_notes()
-  local handle = io.popen("kasten-cli note list --json", "r")
-  if not handle then
-    error("Failed to execute `kasten-cli note list`")
-  end
-
-  local result = handle:read("*a")
-  handle:close()
-
-  local success, notes = pcall(vim.json.decode, result)
-  if not success then
-    error("Failed to parse JSON output from `kasten-cli note list`")
-  end
-
-  if #notes == 0 then
-    error("No notes found")
-  end
-
-  return notes
-end
+local cli = require("kasten.cli")
 
 local M = {}
 
@@ -31,7 +12,7 @@ M.find_notes = function(opts)
   pickers.new({}, {
     prompt_title = opts.prompt_title or "Notes",
     finder = finders.new_table({
-      results = list_notes(),
+      results = cli.note_list({}),
       entry_maker = function(entry)
         return {
           value = entry,
