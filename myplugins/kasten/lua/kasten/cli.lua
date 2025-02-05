@@ -1,6 +1,4 @@
--- [[
--- This module provides a wrapper around the Kasten CLI.
--- ]]
+local NoteMetadata = require("kasten.types.note-metadata")
 
 local M = {}
 
@@ -33,13 +31,8 @@ end
 --- @field directory string | nil
 --- @field title string
 ---
---- @class NoteNewResult
---- @field absolutePath string The absolute path of the new note.
---- @field relativePath string The filename of the new note.
---- @field title string The parsed title of the new note.
----
 --- @param arguments NoteNewArguments
---- @return NoteNewResult
+--- @return Kasten.NoteMetadata
 M.note_new = function(arguments)
   local command = { "note", "new", "--json" }
 
@@ -51,7 +44,7 @@ M.note_new = function(arguments)
   table.insert(command, "-t")
   table.insert(command, vim.fn.shellescape(arguments.title))
 
-  return M._run_command(command)
+  return NoteMetadata.new(M._run_command(command))
 end
 
 --- Runs the `note list` subcommand.
@@ -59,13 +52,8 @@ end
 --- @class NoteListArguments
 --- @field directory string | nil
 ---
---- @class NoteListResultItem
---- @field absolutePath string The absolute path of the new note.
---- @field relativePath string The filename of the new note.
---- @field title string The parsed title of the new note.
----
 --- @param arguments NoteListArguments
---- @return NoteListResultItem[]
+--- @return Kasten.NoteMetadata[]
 M.note_list = function(arguments)
   local command = { "note", "list", "--json" }
 
@@ -74,7 +62,11 @@ M.note_list = function(arguments)
     table.insert(command, vim.fn.shellescape(arguments.directory))
   end
 
-  return M._run_command(command)
+  local note_metadatas = {}
+  for _, tbl in ipairs(M._run_command(command)) do
+    note_metadatas[#note_metadatas + 1] = NoteMetadata.new(tbl)
+  end
+  return note_metadatas
 end
 
 return M
