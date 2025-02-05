@@ -1,5 +1,40 @@
 local M = {}
 
+M.insert_link = function()
+  local opts = { title = "I want to insert a link to ..." }
+  local strategies = {
+    {
+      name = "An external URL",
+      f = function(_)
+        vim.ui.input({ prompt = "Link URL: " }, function(url)
+          if url then
+            M.insert_link_to_note_visual(url)
+          end
+        end)
+      end
+    },
+    {
+      name = "A new note",
+      f = function(_)
+        vim.ui.input({ prompt = "New note title: " }, function(title)
+          if title then
+            local nm = require("kasten.cli").note_new({ title = title })
+            M.insert_link_to_note_visual("./" .. nm.relativePath)
+          end
+        end)
+      end
+    },
+    {
+      name = "An existing note",
+      f = function(_)
+        require("kasten.telescope").insert_link()
+      end
+    },
+  }
+
+  require("kasten.telescope.strategy_picker").strategy_picker(opts, strategies, nil)
+end
+
 M.insert_link_to_note_visual = function(url)
   -- Get the range of the visual selection.
   local _, start_row, start_col = unpack(vim.fn.getpos("'<"))
