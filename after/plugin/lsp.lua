@@ -133,6 +133,11 @@ lspconfig.lua_ls.setup {
   }
 }
 
+-- Vimscript
+if vim.fn.executable("vim-language-server") == 1 then
+  require 'lspconfig'.vimls.setup {}
+end
+
 -- ╔═══════════════════════════════════════════════════════════════════════╗
 -- ║ Cmp config                                                            ║
 -- ╚═══════════════════════════════════════════════════════════════════════╝
