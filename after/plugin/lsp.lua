@@ -53,6 +53,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local lspconfig = require('lspconfig')
 
+if vim.fn.executable("clojure-lsp") == 1 then
+  lspconfig.clojure_lsp.setup {}
+end
+
 lspconfig.elixirls.setup {
   cmd = { "elixir-ls" }
 }
