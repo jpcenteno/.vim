@@ -170,10 +170,15 @@ Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
 Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
 Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
-let g:lisp_fts = [ 'clojure', 'lisp', 'scheme', 'racket' ]
-Plug 'Olical/conjure', { 'tag': 'v4.48.0', 'for' : g:lisp_fts }
-Plug 'guns/vim-sexp', { 'for' : g:lisp_fts }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', NoVSCode({ 'for' : g:lisp_fts })
+
+" Note: Don't add a `'for': [ ... Lisps ... ]` configuration to Conjure,
+" Vim-Sexp or `vim-sexp-mappings-for-regular-people`. They implement
+" lazy-loading internally and doing this causes the plugin to ignore the first
+" Lisp buffer.
+Plug 'Olical/conjure'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 Plug 'mracos/mermaid.vim', NoVSCode({'for': 'mermaid'})
 Plug 'LnL7/vim-nix', NoVSCode({ 'for': 'nix' })
 Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
