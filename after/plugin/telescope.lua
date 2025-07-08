@@ -1,6 +1,15 @@
 local telescope = require("telescope")
 
-telescope.setup()
+telescope.setup({
+  defaults = {
+    -- You need the `nvim-tree/nvim-web-devicons` package, not the
+    -- `ryanoasis/vim-devicons` package for devicons to appear.
+    --
+    -- I'm disabling the default colors because they conflict with my
+    -- colorscheme.
+    color_devicons = false,
+  },
+})
 
 -- Use the `fzy_native` sorter for better performance.
 --
