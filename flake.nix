@@ -25,6 +25,10 @@
       };
     });
 
+    # Run with `$ nix fmt`.
+    formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+
+    # Run with `$ nix flake check`.
     checks = eachSystem (pkgs: {
       formatting = treefmtEval.${pkgs.system}.config.build.check self;
     });
