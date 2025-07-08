@@ -1,5 +1,5 @@
 local luasnip = require("luasnip")
-local snippet = luasnip.snippet;
+local snippet = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
 local rep = require("luasnip.extras").rep
@@ -15,7 +15,10 @@ luasnip.add_snippets("clojure", {
 })
 
 luasnip.add_snippets("nix", {
-  snippet("module", fmt([[
+  snippet(
+    "module",
+    fmt(
+      [[
   {{ config, lib, ... }}:
   let
     cfg = config.{};
@@ -29,5 +32,7 @@ luasnip.add_snippets("nix", {
     }};
   }}
   ]],
-    { i(1), rep(1), i(2), i(3) }))
+      { i(1), rep(1), i(2), i(3) }
+    )
+  ),
 })

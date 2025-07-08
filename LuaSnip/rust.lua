@@ -10,9 +10,10 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-    s({ trig = "modtest", dscr = "Test module" },
-        fmt(
-            [[
+  s(
+    { trig = "modtest", dscr = "Test module" },
+    fmt(
+      [[
                 #[cfg(test)]
                 mod test {
                     use super::*;
@@ -20,18 +21,18 @@ return {
                     <>
                 }
             ]],
-            { i(1) },
-            { delimiters = "<>" }
-        )
-    ),
-    s(
-        { trig = "print_debug", dscr = "Debug print a value" },
-        fmt(
-            [[
+      { i(1) },
+      { delimiters = "<>" }
+    )
+  ),
+  s(
+    { trig = "print_debug", dscr = "Debug print a value" },
+    fmt(
+      [[
                 println!("{:#?}", <>);
             ]],
-            { i(1) },
-            { delimiters = "<>" }
-        )
+      { i(1) },
+      { delimiters = "<>" }
     )
+  ),
 }

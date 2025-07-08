@@ -9,20 +9,20 @@ local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
-math.randomseed( os.time() ) -- Prevent UUID collisions.
+math.randomseed(os.time()) -- Prevent UUID collisions.
 
 local function uuid()
   -- Source: https://gist.github.com/jrus/3197011
-  local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-  return string.gsub(template, '[xy]', function (c)
-    local v = (function ()
-      if c == 'x' then
+  local template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
+  return string.gsub(template, "[xy]", function(c)
+    local v = (function()
+      if c == "x" then
         return math.random(0x0, 0xf)
       else
         return math.random(0x8, 0xb) -- Must start with 0b10
       end
     end)()
-    return string.format('%x', v)
+    return string.format("%x", v)
   end)
 end
 
@@ -32,7 +32,9 @@ end
 
 local metadata_uuid_snippet = fmt_metadata_snippet(
   t("uuid"),
-  f(function (_, _, _) return uuid() end)
+  f(function(_, _, _)
+    return uuid()
+  end)
 )
 
 ls.add_snippets("ledger", {
@@ -49,8 +51,10 @@ ls.add_snippets("ledger", {
         month = i(2, os.date("%m")),
         day = i(3, os.date("%d")),
         description = i(4, "Description"),
-        uuid = f(function (_, _, _) return uuid() end),
-        postings = i(5)
+        uuid = f(function(_, _, _)
+          return uuid()
+        end),
+        postings = i(5),
       }
     )
   ),
@@ -69,7 +73,9 @@ ls.add_snippets("ledger", {
         month = i(2, os.date("%m")),
         day = i(3, os.date("%d")),
         description = i(4, "Description"),
-        uuid = f(function (_, _, _) return uuid() end),
+        uuid = f(function(_, _, _)
+          return uuid()
+        end),
         amount_1 = i(5, "0 XXX"),
         amount_2 = rep(5),
         account = i(6, "account"),
@@ -96,7 +102,9 @@ ls.add_snippets("ledger", {
       [[
         ; UUID: {uuid}
       ]],
-      { uuid = f(function (_, _, _) return uuid() end) }
+      { uuid = f(function(_, _, _)
+        return uuid()
+      end) }
     )
   ),
 })

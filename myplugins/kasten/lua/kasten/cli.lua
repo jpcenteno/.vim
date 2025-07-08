@@ -24,7 +24,6 @@ M._run_command = function(command_parts)
   return decoded
 end
 
-
 --- Runs the `note new` subcommand to create a new note.
 ---
 --- @class NoteNewArguments

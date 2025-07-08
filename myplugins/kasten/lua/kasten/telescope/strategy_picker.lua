@@ -1,8 +1,8 @@
-local action_state = require('telescope.actions.state')
-local actions = require('telescope.actions')
+local action_state = require("telescope.actions.state")
+local actions = require("telescope.actions")
 local conf = require("telescope.config").values
-local finders = require('telescope.finders')
-local pickers = require('telescope.pickers')
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
 
 local M = {}
 
@@ -45,15 +45,17 @@ M.strategy_picker = function(opts, strategies, data)
     return true
   end
 
-  pickers.new(opts, {
-    prompt_title = opts.title or "Select an Option",
-    finder = finders.new_table {
-      results = strategies,
-      entry_maker = entry_maker,
-    },
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = attach_mappings,
-  }):find()
+  pickers
+    .new(opts, {
+      prompt_title = opts.title or "Select an Option",
+      finder = finders.new_table({
+        results = strategies,
+        entry_maker = entry_maker,
+      }),
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = attach_mappings,
+    })
+    :find()
 end
 
 return M
