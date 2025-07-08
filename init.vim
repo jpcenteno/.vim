@@ -188,6 +188,8 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
 Plug 'ryanoasis/vim-devicons', NoVSCode()
+" Required by Lua plugins to get devicon support (i.e. Telescope).
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'chriskempson/base16-vim'
 
 " Navigation
