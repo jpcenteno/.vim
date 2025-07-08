@@ -3,7 +3,7 @@ local luasnip = require("luasnip")
 
 cmp.setup({
   mapping = {
-    ['<CR>'] = cmp.mapping(function(fallback)
+    ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         if luasnip.expandable() then
           luasnip.expand()
@@ -15,7 +15,7 @@ cmp.setup({
       end
     end),
 
-    ["<Tab>"] = cmp.mapping(function (fallback)
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.locally_jumpable(1) then
@@ -23,7 +23,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {"i", "s"}),
+    end, { "i", "s" }),
 
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then

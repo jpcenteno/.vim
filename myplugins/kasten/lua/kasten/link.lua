@@ -11,7 +11,7 @@ M.insert_link = function()
             M.insert_link_to_note_visual(url)
           end
         end)
-      end
+      end,
     },
     {
       name = "A new note",
@@ -22,13 +22,13 @@ M.insert_link = function()
             M.insert_link_to_note_visual("./" .. nm.relativePath)
           end
         end)
-      end
+      end,
     },
     {
       name = "An existing note",
       f = function(_)
         require("kasten.telescope").insert_link()
-      end
+      end,
     },
   }
 

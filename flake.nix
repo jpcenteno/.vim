@@ -3,20 +3,40 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, systems }:
-  let
-    eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
-  in
-  {
-    devShells = eachSystem (pkgs: {
-      default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
-          lua-language-server
-          nodePackages.vim-language-server
-        ];
-      };
-    });
-  };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      systems,
+      treefmt-nix,
+    }:
+    let
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in
+    {
+      devShells = eachSystem (
+        pkgs: {
+          default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              lua-language-server
+              nodePackages.vim-language-server
+            ];
+          };
+        }
+      );
+
+      # Run with `$ nix fmt`.
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+
+      # Run with `$ nix flake check`.
+      checks = eachSystem (pkgs: { formatting = treefmtEval.${pkgs.system}.config.build.check self; });
+    };
 }

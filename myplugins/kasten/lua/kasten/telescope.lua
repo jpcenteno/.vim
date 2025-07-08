@@ -1,7 +1,7 @@
-local action_state = require('telescope.actions.state')
-local actions = require('telescope.actions')
-local finders = require('telescope.finders')
-local pickers = require('telescope.pickers')
+local action_state = require("telescope.actions.state")
+local actions = require("telescope.actions")
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
 local telescope_config = require("telescope.config")
 
 local cli = require("kasten.cli")
@@ -15,13 +15,11 @@ local function confirm(prompt)
 
   while ans ~= "y" and ans ~= "n" do
     vim.ui.input({
-        prompt = prompt .. " (y/n) ",
-        cancelreturn = "n"
-      },
-      function(input)
-        ans = string.lower(input)
-      end
-    )
+      prompt = prompt .. " (y/n) ",
+      cancelreturn = "n",
+    }, function(input)
+      ans = string.lower(input)
+    end)
   end
 
   return ans == "y"
@@ -30,28 +28,30 @@ end
 local M = {}
 
 M.find_notes = function(opts)
-  pickers.new({}, {
-    prompt_title = opts.prompt_title or "Notes",
-    finder = finders.new_table({
-      results = cli.note_list({}),
-      entry_maker = function(entry)
-        return {
-          value = entry,
-          display = entry.title,
-          ordinal = entry.title,
-        }
-      end
-    }),
-    sorter = telescope_config.values.generic_sorter({}),
-    attach_mappings = function(prompt_bufnr, _)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        opts.select_default()
-      end)
+  pickers
+    .new({}, {
+      prompt_title = opts.prompt_title or "Notes",
+      finder = finders.new_table({
+        results = cli.note_list({}),
+        entry_maker = function(entry)
+          return {
+            value = entry,
+            display = entry.title,
+            ordinal = entry.title,
+          }
+        end,
+      }),
+      sorter = telescope_config.values.generic_sorter({}),
+      attach_mappings = function(prompt_bufnr, _)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          opts.select_default()
+        end)
 
-      return true
-    end,
-  }):find()
+        return true
+      end,
+    })
+    :find()
 end
 
 function M.note_open()
@@ -65,7 +65,7 @@ function M.note_open()
 
   M.find_notes({
     prompt_title = "Open note",
-    select_default = select_default
+    select_default = select_default,
   })
 end
 
@@ -86,7 +86,7 @@ function M.insert_link()
 
   M.find_notes({
     prompt_title = "Link to note",
-    select_default = select_default
+    select_default = select_default,
   })
 end
 

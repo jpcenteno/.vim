@@ -16,11 +16,8 @@ local id_words = function()
   -- Lazy load implementation, the `if` statement ensures that the "expensive"
   -- part of this procedure gets evaluated only once.
   if not _id_words then
-    local path = vim.fn.stdpath('config') .. '/etc/bip39-word-list.txt'
-    local file = assert(
-      io.open(path, "r"),
-      "Failed to open note id word list: " .. path
-    )
+    local path = vim.fn.stdpath("config") .. "/etc/bip39-word-list.txt"
+    local file = assert(io.open(path, "r"), "Failed to open note id word list: " .. path)
 
     _id_words = {}
     for line in file:lines() do
@@ -118,5 +115,4 @@ require("obsidian").setup({
 
     return frontmatter
   end,
-
 })
