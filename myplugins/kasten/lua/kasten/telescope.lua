@@ -1,8 +1,10 @@
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 local finders = require("telescope.finders")
+local path = require("plenary.path")
 local pickers = require("telescope.pickers")
 local telescope_config = require("telescope.config")
+local utils_buffer = require("kasten.utils.buffer")
 
 local cli = require("kasten.cli")
 
@@ -88,6 +90,27 @@ function M.insert_link()
     prompt_title = "Link to note",
     select_default = select_default,
   })
+end
+
+-- Set `pickers.buffers.entry_maker` to this function when calling
+-- `require("telescope").setup({...})` to display zettel titles instead of their
+-- file paths.
+function M.buffers_picker_entry_maker(opts)
+  opts = opts or {}
+  opts.bufnr_width = opts.bufnr_width or 4
+
+  local entry_maker = require("telescope.make_entry").gen_from_buffer(opts)
+
+  return function(buffer)
+    local entry = entry_maker(buffer)
+    if utils_buffer.is_zettel(entry.bufnr) then
+      local title = utils_buffer.get_title(entry.bufnr) or "[ Untitled zettel ]"
+      entry.filename = title
+      entry.ordinal = entry.bufnr .. " : " .. title
+    end
+
+    return entry
+  end
 end
 
 return M

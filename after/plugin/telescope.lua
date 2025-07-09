@@ -1,3 +1,4 @@
+local kasten_telescope = require("kasten.telescope")
 local telescope = require("telescope")
 
 telescope.setup({
@@ -8,6 +9,11 @@ telescope.setup({
     -- I'm disabling the default colors because they conflict with my
     -- colorscheme.
     color_devicons = false,
+  },
+  pickers = {
+    buffers = {
+      entry_maker = kasten_telescope.buffers_picker_entry_maker(),
+    },
   },
 })
 
