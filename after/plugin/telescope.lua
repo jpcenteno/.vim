@@ -1,5 +1,5 @@
-local telescope = require("telescope")
 local kasten_telescope = require("kasten.telescope")
+local telescope = require("telescope")
 
 telescope.setup({
   defaults = {
@@ -12,9 +12,9 @@ telescope.setup({
   },
   pickers = {
     buffers = {
-      entry_maker = kasten_telescope.buffers_picker_entry_maker()
-    }
-  }
+      entry_maker = kasten_telescope.buffers_picker_entry_maker(),
+    },
+  },
 })
 
 -- Use the `fzy_native` sorter for better performance.

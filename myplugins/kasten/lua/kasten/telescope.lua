@@ -1,9 +1,9 @@
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 local finders = require("telescope.finders")
+local path = require("plenary.path")
 local pickers = require("telescope.pickers")
 local telescope_config = require("telescope.config")
-local path = require("plenary.path")
 local utils_buffer = require("kasten.utils.buffer")
 
 local cli = require("kasten.cli")
@@ -31,29 +31,29 @@ local M = {}
 
 M.find_notes = function(opts)
   pickers
-      .new({}, {
-        prompt_title = opts.prompt_title or "Notes",
-        finder = finders.new_table({
-          results = cli.note_list({}),
-          entry_maker = function(entry)
-            return {
-              value = entry,
-              display = entry.title,
-              ordinal = entry.title,
-            }
-          end,
-        }),
-        sorter = telescope_config.values.generic_sorter({}),
-        attach_mappings = function(prompt_bufnr, _)
-          actions.select_default:replace(function()
-            actions.close(prompt_bufnr)
-            opts.select_default()
-          end)
-
-          return true
+    .new({}, {
+      prompt_title = opts.prompt_title or "Notes",
+      finder = finders.new_table({
+        results = cli.note_list({}),
+        entry_maker = function(entry)
+          return {
+            value = entry,
+            display = entry.title,
+            ordinal = entry.title,
+          }
         end,
-      })
-      :find()
+      }),
+      sorter = telescope_config.values.generic_sorter({}),
+      attach_mappings = function(prompt_bufnr, _)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          opts.select_default()
+        end)
+
+        return true
+      end,
+    })
+    :find()
 end
 
 function M.note_open()
