@@ -38,7 +38,7 @@ let g:which_key_map['f']['r'] = [ ':Telescope live_grep', 'Ripgrep' ]
 let g:which_key_map['l'] = { 'name' : '+LSP' }
 
 " Failing to map this beforehand resulted in a weird message error.
-nnoremap <silent> <leader>ld :TroubleToggle<CR>
+nnoremap <silent> <leader>ld :Trouble<CR>
 let g:which_key_map['l']['d'] = [ ':TroubleToggle', 'Diagnostics' ]
 
 " ╔════════════════════════════════════════════════════════════════════════╗
