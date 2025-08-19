@@ -48,6 +48,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local lspconfig = require("lspconfig")
 
+if vim.fn.executable("clangd") == 1 then
+  vim.lsp.enable("clangd")
+end
+
 if vim.fn.executable("clojure-lsp") == 1 then
   lspconfig.clojure_lsp.setup({})
 end
