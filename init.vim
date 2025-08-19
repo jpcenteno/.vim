@@ -263,6 +263,8 @@ command! -nargs=0 DebugRuntimePath call s:debug_runtime_path()
 " Aesthetics:
 " ------------------------------------------------------------------------------
 
+set scrolloff=5 " Vertical scroll margin
+
 " Prevent syntax highlighting from breaking after very long lines.
 set synmaxcol=0
 
