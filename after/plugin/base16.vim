@@ -31,6 +31,8 @@ let s:lightest_fg = s:base06
 let s:darkest_gray = s:base01
 let s:search_text_bg = s:base0A
 let s:comment_fg = s:base03
+let s:markup_bold = s:base0A
+let s:markup_italic = s:base0E
 
 function! <sid>hi(group, fg, bg, style)
   execute 'highlight' a:group
@@ -57,6 +59,10 @@ function! s:base16_colorscheme_enhancements() abort
   call <sid>hi("PmenuSel", s:selection_fg, s:selection_bg, "bold")
   hi link PmenuSbar Pmenu
 
+  " Text styled using markup.
+  " Note: Markdown highlight groups should link to the HTML ones.
+  call <sid>hi("HtmlBold", s:markup_bold, "NONE", "bold")
+  call <sid>hi("HtmlItalic", s:markup_italic, "NONE", "italic")
 endfunction
 
 augroup Base16ColorschemeEnhancements
