@@ -194,6 +194,8 @@ Plug 'chriskempson/base16-vim'
 
 " Navigation
 
+Plug 'folke/snacks.nvim', has('nvim') ? { 'tag': 'stable' } : { 'on': [] }
+
 Plug 'nvim-lua/plenary.nvim', NeoVimButNoNoVSCode(), " Telescope dependency.
 Plug 'nvim-telescope/telescope-fzy-native.nvim', NeoVimButNoNoVSCode() " `fzy` based sorter for Telescope.
 Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
