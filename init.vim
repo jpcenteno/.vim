@@ -146,7 +146,6 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'rafamadriz/friendly-snippets' " snippet collection.
-Plug 'benfowler/telescope-luasnip.nvim' " List snippets with Telescope.
 
 Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()
 Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()
@@ -188,17 +187,12 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
 Plug 'ryanoasis/vim-devicons', NoVSCode()
-" Required by Lua plugins to get devicon support (i.e. Telescope).
-Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons' " Used by snacks.nvim (Optional).
 Plug 'chriskempson/base16-vim'
 
 " Navigation
 
 Plug 'folke/snacks.nvim', has('nvim') ? { 'tag': 'stable' } : { 'on': [] }
-
-Plug 'nvim-lua/plenary.nvim', NeoVimButNoNoVSCode(), " Telescope dependency.
-Plug 'nvim-telescope/telescope-fzy-native.nvim', NeoVimButNoNoVSCode() " `fzy` based sorter for Telescope.
-Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
 
 Plug 'preservim/nerdtree', NoVSCode()
 Plug 'liuchengxu/vim-which-key', NoVSCode()
