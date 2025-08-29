@@ -4,7 +4,8 @@ snacks.setup({
   picker = {
     ui_select = true,
   },
-  notifier = {}
+  notifier = {},
+  input = {},
 })
 
 vim.api.nvim_set_keymap('n', '<leader>bb', '', {
