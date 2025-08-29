@@ -161,7 +161,6 @@ Plug 'Olical/conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
-Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
 
 " Aesthetics
