@@ -1,3 +1,3 @@
-command! KastenOpen lua require('kasten.picker').note_open()
+command! KastenTelescopeOpen lua require('kasten.telescope').note_open()
 
 lua require("kasten")
