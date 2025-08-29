@@ -146,7 +146,6 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'rafamadriz/friendly-snippets' " snippet collection.
-Plug 'benfowler/telescope-luasnip.nvim' " List snippets with Telescope.
 
 Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()
 Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()
