@@ -129,9 +129,6 @@ call plug#begin()
 " Register `vim-plug` as a plugin in order to get its documentation.
 Plug 'junegunn/vim-plug'
 
-" Align
-Plug 'junegunn/vim-easy-align'
-
 " ╔════════════════════════════════════════════════════════════════════════╗
 " ║ LSP                                                                    ║
 " ╚════════════════════════════════════════════════════════════════════════╝
