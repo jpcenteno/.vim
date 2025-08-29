@@ -149,7 +149,6 @@ Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 " ╚════════════════════════════════════════════════════════════════════════╝
 
 " Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
-Plug 'elixir-editors/vim-elixir', NoVSCode({'for': 'elixir'})
 Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
 Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
 
