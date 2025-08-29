@@ -131,7 +131,6 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/vim-plug'
 
 " Symbol pair manipulation:
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
