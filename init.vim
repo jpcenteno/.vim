@@ -201,14 +201,6 @@ Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
 Plug 'preservim/nerdtree', NoVSCode()
 Plug 'liuchengxu/vim-which-key', NoVSCode()
 
-" Switch seamlessly between Vim and Tmux splits using `C-{h,j,k,l}`. This plugin
-" requires the same mappings to be set on `tmux.config` so we can use the same
-" keybindings to switch back to vim panes.
-"
-" See: `https://github.com/christoomey/vim-tmux-navigator` for instructions on
-" how to set that up on Tmux.
-Plug 'christoomey/vim-tmux-navigator', NoVSCode()
-
 Plug 'epwalsh/obsidian.nvim', { 'for': ['markdown'], 'tag': 'v2.8.0' }
 
 Plug '~/.config/nvim/myplugins/kasten'
