@@ -129,7 +129,6 @@ call plug#begin()
 " Register `vim-plug` as a plugin in order to get its documentation.
 Plug 'junegunn/vim-plug'
 
-Plug 'tpope/vim-commentary'
 Plug 'jpcenteno/boxed-comments.vim'
 
 Plug 'AdamWhittingham/vim-copy-filename'
