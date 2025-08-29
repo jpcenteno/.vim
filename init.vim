@@ -141,9 +141,6 @@ Plug 'FelipeLema/cmp-async-path', NeoVimButNoNoVSCode() " Autocomplete file syst
 
 Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
 
-" `conform.nvim` is a framework for setting up autoformatters.
-Plug 'stevearc/conform.nvim', NeoVimButNoNoVSCode()
-
 " Diagnostics display
 Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 
