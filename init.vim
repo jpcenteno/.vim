@@ -164,7 +164,6 @@ Plug 'Olical/conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
-Plug 'rust-lang/rust.vim', NoVSCode({ 'for': 'rust' })
 Plug 'cespare/vim-toml', NoVSCode({ 'for': 'toml' })
 Plug 'mattdf/vim-yul', NoVSCode({ 'for': 'yul' }) " Yul syntax highlighting
 Plug 'dhruvasagar/vim-table-mode', { 'for': [ 'markdown' ] }
