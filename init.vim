@@ -149,7 +149,6 @@ Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 " ╚════════════════════════════════════════════════════════════════════════╝
 
 " Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
-Plug 'mhinz/vim-mix-format', NoVSCode({'for': 'elixir'})
 Plug 'ledger/vim-ledger', NoVSCode({'for': 'ledger'})
 
 " Note: Don't add a `'for': [ ... Lisps ... ]` configuration to Conjure,
