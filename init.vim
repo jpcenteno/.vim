@@ -133,9 +133,6 @@ Plug 'junegunn/vim-plug'
 " ║ LSP                                                                    ║
 " ╚════════════════════════════════════════════════════════════════════════╝
 
-Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
-Plug 'rafamadriz/friendly-snippets' " snippet collection.
-
 Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()
 Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()
 Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()
