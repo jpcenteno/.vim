@@ -25,7 +25,6 @@ let g:which_key_map['b']['d'] = [ ':bp|bd#',  'Delete Buffer' ] " See (1)
 " ------------------------------------------------------------------------------
 
 let g:which_key_map['f'] = { 'name' : '+filesystem' }
-let g:which_key_map['f']['t'] = [ ':NERDTreeToggle', 'NerdTree' ]
 
 " ------------------------------------------------------------------------------
 "  [l] LSP mappings:
