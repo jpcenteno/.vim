@@ -69,6 +69,8 @@ vnoremap <C-c> "+
 " Plugin Declarations:
 " ------------------------------------------------------------------------------
 
+lua require("config.lazy")
+
 " Add support for python plugins.
 " Python packages pynvim and neovim must be installed.
 let g:python2_host_prog = exepath('python2')
