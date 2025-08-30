@@ -135,12 +135,6 @@ Plug 'junegunn/vim-plug'
 
 " Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
 
-" Note: Don't add a `'for': [ ... Lisps ... ]` configuration to Conjure,
-" Vim-Sexp or `vim-sexp-mappings-for-regular-people`. They implement
-" lazy-loading internally and doing this causes the plugin to ignore the first
-" Lisp buffer.
-Plug 'Olical/conjure'
-
 " Navigation
 
 call plug#end()
