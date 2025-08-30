@@ -133,12 +133,6 @@ Plug 'junegunn/vim-plug'
 " ║ LSP                                                                    ║
 " ╚════════════════════════════════════════════════════════════════════════╝
 
-Plug 'neovim/nvim-lspconfig', NeoVimButNoNoVSCode()
-Plug 'hrsh7th/nvim-cmp', NeoVimButNoNoVSCode()
-Plug 'hrsh7th/cmp-nvim-lsp', NeoVimButNoNoVSCode()
-Plug 'saadparwaiz1/cmp_luasnip', NeoVimButNoNoVSCode() " Add luasnips to cmp.
-Plug 'FelipeLema/cmp-async-path', NeoVimButNoNoVSCode() " Autocomplete file system paths.
-
 Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
 
 " Diagnostics display
