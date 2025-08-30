@@ -1,0 +1,7 @@
+" ╔════════════════════════════════════════════════════════════════════════╗
+" ║ [Z] Zettelkasten mappings                                              ║
+" ╚════════════════════════════════════════════════════════════════════════╝
+
+let g:which_key_map['n']['o'] = [ ':KastenTelescopeOpen', 'Open' ]
+let g:which_key_map['n']['n'] = [ ':call kasten#notes#new()', 'New' ]
+let g:which_key_map['n']['s'] = [ ':ObsidianSearch', 'Search' ]
