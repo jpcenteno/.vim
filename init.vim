@@ -76,69 +76,6 @@ lua require("config.lazy")
 let g:python2_host_prog = exepath('python2')
 let g:python3_host_prog = exepath('python3')
 
-" Automatically install Vim-Plug if missing:
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Automatically install missing plugins on startup:
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
-
-" See: https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
-function! Cond(cond, ...)
-  let opts = get(a:000, 0, {})
-  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
-
-" This helper function prevents a plugin from being activated when NeoVim is
-" used as a backend for the VSCode NeoVim plugin. Use it to reduce the overhead
-" when there it's functionality is being replaced by another VSCode plugin.
-"
-" Rationale:
-" ----------
-"
-" - Prevents `:PlugClean` from removing this plugin when ran from VSCode.
-" - Reduces overhead when this plugin functionality is replaced by another
-"   VSCode plugin.
-function! NoVSCode(...)
-  let opts = get(a:000, 0, {})
-  return Cond(!exists('g:vscode'), opts)
-endfunction
-
-" This function prevents a plugin from loading when this config is being run
-" either by plain old Vim or as a backend for VSCode NeoVim.
-"
-" It takes a VimPlug config dictionary and returns a VimPlug config dictionary.
-function! NeoVimButNoNoVSCode(...)
-  let opts = get(a:000, 0, {})
-  return Cond(has('nvim'), NoVSCode(opts))
-endfunction
-
-call plug#begin()
-
-" Utilities:
-
-" This plugin provides tools for running async commands from vim.
-" - ⚠️  `vim-jack-in` depends on this package.
-" Plug 'tpope/vim-dispatch'
-
-" Register `vim-plug` as a plugin in order to get its documentation.
-Plug 'junegunn/vim-plug'
-
-" ╔════════════════════════════════════════════════════════════════════════╗
-" ║ Programming language specific plugins:                                 ║
-" ╚════════════════════════════════════════════════════════════════════════╝
-
-" Plug 'clojure-vim/vim-jack-in', { 'for': 'clojure' }
-
-" Navigation
-
-call plug#end()
-
 " ------------------------------------------------------------------------------
 " Tools:
 " ------------------------------------------------------------------------------
