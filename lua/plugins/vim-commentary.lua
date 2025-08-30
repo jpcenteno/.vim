@@ -1,6 +1,6 @@
 return {
-  'tpope/vim-commentary',
+  "tpope/vim-commentary",
   dependencies = {
-    'tpope/vim-repeat',
+    "tpope/vim-repeat",
   },
 }

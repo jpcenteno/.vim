@@ -1,6 +1,6 @@
 return {
-  'tpope/vim-surround',
+  "tpope/vim-surround",
   dependencies = {
-    'tpope/vim-repeat',
+    "tpope/vim-repeat",
   },
 }

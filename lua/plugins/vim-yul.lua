@@ -1,4 +1,4 @@
 return {
-  'mattdf/vim-yul',
-  ft = 'yul',
+  "mattdf/vim-yul",
+  ft = "yul",
 }

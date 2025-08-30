@@ -1,3 +1,3 @@
 return {
-  'AdamWhittingham/vim-copy-filename',
+  "AdamWhittingham/vim-copy-filename",
 }

@@ -1,4 +1,4 @@
 return {
-  'mracos/mermaid.vim',
+  "mracos/mermaid.vim",
   ft = "mermaid",
 }

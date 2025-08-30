@@ -1,3 +1,3 @@
 return {
-  'jpcenteno/boxed-comments.vim',
+  "jpcenteno/boxed-comments.vim",
 }

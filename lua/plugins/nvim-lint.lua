@@ -1,5 +1,5 @@
 return {
-  'mfussenegger/nvim-lint',
+  "mfussenegger/nvim-lint",
   config = function()
     local lint = require("lint")
 
@@ -17,5 +17,5 @@ return {
         -- lint.try_lint("cspell") -- Spellcheck everywhere.
       end,
     })
-  end
+  end,
 }

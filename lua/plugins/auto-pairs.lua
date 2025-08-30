@@ -14,5 +14,5 @@ return {
     --   searchbox).
     -- - Fork/PR the plugin to be compatible with neovim.
     vim.g.AutoPairsMapCR = 0
-  end
+  end,
 }

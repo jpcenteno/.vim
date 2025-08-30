@@ -1,4 +1,4 @@
 return {
-  'cespare/vim-toml',
-  ft = 'toml'
+  "cespare/vim-toml",
+  ft = "toml",
 }

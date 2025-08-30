@@ -5,5 +5,5 @@
 -- See: `https://github.com/christoomey/vim-tmux-navigator` for instructions on
 -- how to set that up on Tmux.
 return {
-  'christoomey/vim-tmux-navigator',
+  "christoomey/vim-tmux-navigator",
 }

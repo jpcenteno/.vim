@@ -15,11 +15,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
 
-    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
+    vim.keymap.set("n", "[d", function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end)
+    vim.keymap.set("n", "]d", function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end)
   end,
 })
-
 
 local original_open_floating_preview = vim.lsp.util.open_floating_preview
 ---@diagnostic disable-next-line duplicate-set-field
