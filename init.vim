@@ -140,8 +140,6 @@ Plug 'junegunn/vim-plug'
 " lazy-loading internally and doing this causes the plugin to ignore the first
 " Lisp buffer.
 Plug 'Olical/conjure'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " Aesthetics
 " Required by Lua plugins to get devicon support (i.e. Telescope).
