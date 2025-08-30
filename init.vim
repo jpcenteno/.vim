@@ -141,19 +141,7 @@ Plug 'junegunn/vim-plug'
 " Lisp buffer.
 Plug 'Olical/conjure'
 
-" Aesthetics
-" Required by Lua plugins to get devicon support (i.e. Telescope).
-Plug 'nvim-tree/nvim-web-devicons'
-
 " Navigation
-
-Plug 'nvim-lua/plenary.nvim', NeoVimButNoNoVSCode(), " Telescope dependency.
-Plug 'nvim-telescope/telescope-fzy-native.nvim', NeoVimButNoNoVSCode() " `fzy` based sorter for Telescope.
-Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
-
-Plug 'epwalsh/obsidian.nvim', { 'for': ['markdown'], 'tag': 'v2.8.0' }
-
-Plug '~/.config/nvim/myplugins/kasten'
 
 call plug#end()
 
