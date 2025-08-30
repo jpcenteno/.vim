@@ -133,8 +133,6 @@ Plug 'junegunn/vim-plug'
 " ║ LSP                                                                    ║
 " ╚════════════════════════════════════════════════════════════════════════╝
 
-Plug 'mfussenegger/nvim-lint', NeoVimButNoNoVSCode()
-
 " Diagnostics display
 Plug 'folke/trouble.nvim', NeoVimButNoNoVSCode()
 
