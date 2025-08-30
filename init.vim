@@ -155,8 +155,6 @@ Plug 'nvim-lua/plenary.nvim', NeoVimButNoNoVSCode(), " Telescope dependency.
 Plug 'nvim-telescope/telescope-fzy-native.nvim', NeoVimButNoNoVSCode() " `fzy` based sorter for Telescope.
 Plug 'nvim-telescope/telescope.nvim', NeoVimButNoNoVSCode({ 'branch': '0.1.x' })
 
-Plug 'liuchengxu/vim-which-key', NoVSCode()
-
 Plug 'epwalsh/obsidian.nvim', { 'for': ['markdown'], 'tag': 'v2.8.0' }
 
 Plug '~/.config/nvim/myplugins/kasten'
