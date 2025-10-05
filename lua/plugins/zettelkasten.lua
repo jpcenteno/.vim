@@ -15,5 +15,14 @@ return {
       end,
       desc = "Open note",
     },
+    {
+      "<localleader>ln",
+      function()
+        require("zettelkasten.edit").surround_visual_selection_with_link_to_note()
+      end,
+      mode = "v",
+      ft = { "markdown" },
+      desc = "Surround with link to note",
+    },
   },
 }

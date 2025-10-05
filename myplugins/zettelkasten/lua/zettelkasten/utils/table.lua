@@ -1,5 +1,22 @@
 local M = {}
 
+--- Returns a shallow copy of table `t`.
+---
+--- @param t table
+M.shallow_copy = function(t)
+  local copy = {}
+
+  for index, value in ipairs(t) do
+    copy[index] = value
+  end
+
+  for key, value in pairs(t) do
+    copy[key] = value
+  end
+
+  return copy
+end
+
 --- Mutates `dst` by appending the elements from `src` in order. Ignores
 --- non-numeric keys.
 ---
