@@ -4,60 +4,6 @@ local pickers = require("zettelkasten.pickers")
 
 local M = {}
 
----Inserts the string `s` at position.
----@param position zettelkasten.utils.nvim.position.Position
----@param s string
-local function insert_at_position(position, s)
-  local line_pre = vim.api.nvim_buf_get_lines(0, position.row - 1, position.row, true)[1]
-  local left = line_pre:sub(1, position.column - 1)
-  local right = line_pre:sub(position.column)
-  local line_post = left .. s .. right
-  vim.api.nvim_buf_set_lines(0, position.row - 1, position.row, true, { line_post })
-end
-
---- Surrounds the text of a single-line visual range.
---- @param visual_range VisualRange
---- @param prefix string
---- @param suffix string
-local function surround_single_line(visual_range, prefix, suffix)
-  assert(visual_range:is_single_line())
-
-  local row = visual_range.from.row
-  local line = vim.api.nvim_buf_get_lines(0, row - 1, row, true)[1]
-
-  local left = line:sub(1, visual_range.from.column - 1)
-  local center = line:sub(visual_range.from.column, visual_range.to.column)
-  local right = line:sub(visual_range.to.column + 1)
-
-  local surrounded = left .. prefix .. center .. suffix .. right
-  vim.api.nvim_buf_set_lines(0, row - 1, row, true, { surrounded })
-end
-
---- Surrounds the text of a multi-line visual range.
---- @param visual_range VisualRange
---- @param prefix string
---- @param suffix string
-local function surround_multi_line(visual_range, prefix, suffix)
-  assert(not visual_range:is_single_line())
-
-  insert_at_position(visual_range.from, prefix)
-  vim.notify(vim.inspect(visual_range.to))
-  insert_at_position(visual_range.to:offset_column(1), suffix)
-end
-
---- Surrounds a range within the buffer with the `left` and `right` srings.
----
---- @param visual_range VisualRange
---- @param left string
---- @param right string
-function M.surround(visual_range, left, right)
-  if visual_range:is_single_line() then
-    surround_single_line(visual_range, left, right)
-  else
-    surround_multi_line(visual_range, left, right)
-  end
-end
-
 M.surround_visual_selection_with_link_to_note = function()
   nvim_utils.assert_visual_mode()
 
