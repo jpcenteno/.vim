@@ -43,11 +43,12 @@ endfunction
 
 function! s:base16_colorscheme_enhancements() abort
   " == General text highlighting ==
+  call <sid>hi("Comment", s:comment_fg, s:default_bg, "italic")
 
-  call <sid>hi("Folded", s:comment_fg, s:default_bg, "italic")
 
   " == General layout ==
 
+  call <sid>hi("Folded", s:comment_fg, s:default_bg, "italic")
   call <sid>hi("WinSeparator", s:darkest_gray, s:default_bg, "none")
 
   " This fixes the unreadable HUD problem from the Conjure plugin.
