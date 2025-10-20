@@ -43,7 +43,7 @@ endfunction
 
 function! s:base16_colorscheme_enhancements() abort
   " == General text highlighting ==
-  call <sid>hi("Comment", s:comment_fg, s:default_bg, "italic")
+  call <sid>hi("Comment", s:comment_fg, "NONE", "italic")
 
 
   " == General layout ==
