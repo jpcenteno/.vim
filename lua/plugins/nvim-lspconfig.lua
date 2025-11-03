@@ -21,7 +21,7 @@ return {
 
     setup_lsp("clangd")
 
-    setup_lsp("clojure-lsp")
+    setup_lsp("clojure_lsp")
 
     setup_lsp("deno", {
       -- Prevent attachment into a Node project.
