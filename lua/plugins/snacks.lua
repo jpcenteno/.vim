@@ -6,6 +6,13 @@ return {
     input = {},
     notifier = {},
     picker = { ui_select = true },
+    styles = {
+      notification = {
+        wo = {
+          winblend = 0, -- Fix notification window transparency problem.
+        },
+      },
+    },
   },
   keys = {
     {
