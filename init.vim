@@ -28,6 +28,8 @@ set completeopt=menu,menuone,noselect
 
 set textwidth=80
 
+set shortmess+=I " Disable intro message.
+
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
