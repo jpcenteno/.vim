@@ -13,34 +13,14 @@ local s = ls.snippet
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-
 return {
   -- Anonymous functions:
 
-  s(
-    "af",
-    fmt(
-      "( {} ) => {{{}}}",
-      { i(1), i(0) }
-    )
-  ),
+  s("af", fmt("( {} ) => {{{}}}", { i(1), i(0) })),
 
-  s(
-    "aaf",
-    fmt(
-      "async ( {} ) => {{{}}}",
-      { i(1), i(0) }
-    )
-  ),
+  s("aaf", fmt("async ( {} ) => {{{}}}", { i(1), i(0) })),
 
-  s(
-    "iife",
-    fmt(
-      "(() => {{{}}})()",
-      { i(1), }
-    )
-  ),
-
+  s("iife", fmt("(() => {{{}}})()", { i(1) })),
 
   -- Development Lifecycle:
 
@@ -71,27 +51,9 @@ return {
 
   -- Testing:
   --
-  s(
-    "describe",
-    fmt(
-      'describe("{}", () => {{\n  {}\n}})',
-      { i(1), i(2) }
-    )
-  ),
+  s("describe", fmt('describe("{}", () => {{\n  {}\n}})', { i(1), i(2) })),
 
-  s(
-    "it",
-    fmt(
-      'it("{}", () => {{\n  {}\n}})',
-      { i(1), i(2) }
-    )
-  ),
+  s("it", fmt('it("{}", () => {{\n  {}\n}})', { i(1), i(2) })),
 
-  s(
-    "ita",
-    fmt(
-      'it("{}", async () => {{\n  {}\n}})',
-      { i(1), i(2) }
-    )
-  ),
+  s("ita", fmt('it("{}", async () => {{\n  {}\n}})', { i(1), i(2) })),
 }
