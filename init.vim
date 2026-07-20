@@ -2,12 +2,7 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-set nocompatible
-filetype plugin on
-syntax on
-
 set tabstop=4 shiftwidth=4 expandtab
-set encoding=utf-8 fileencoding=utf-8
 
 set noswapfile
 
@@ -21,9 +16,6 @@ set nowrap
 " characters.
 set smartcase
 
-" Enable spellcheck
-setlocal spell spelllang=en_us
-
 set completeopt=menu,menuone,noselect
 
 set textwidth=80
@@ -33,8 +25,6 @@ set shortmess+=I " Disable intro message.
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
-
-set mouse=a
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -60,11 +50,6 @@ vnoremap <C-c> "+
 " ------------------------------------------------------------------------------
 
 lua require("config.lazy")
-
-" Add support for python plugins.
-" Python packages pynvim and neovim must be installed.
-let g:python2_host_prog = exepath('python2')
-let g:python3_host_prog = exepath('python3')
 
 " ------------------------------------------------------------------------------
 " Tools:
