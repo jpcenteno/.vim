@@ -161,9 +161,3 @@ hi StatusLine ctermbg=10 ctermfg=12
 hi statusLineNc ctermbg=10 ctermfg=14
 
 set cursorline
-
-function! SynGroup()                                                            
-  let l:s = synID(line('.'), col('.'), 1)                                       
-
-  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
