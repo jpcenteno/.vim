@@ -19,6 +19,8 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
+    setup_lsp("basedpyright")
+
     setup_lsp("clangd")
 
     setup_lsp("clojure_lsp")
