@@ -3,12 +3,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local opts = { buffer = event.buf }
 
+    local references = vim.lsp.buf.references
+    local is_snacks_available, snacks = pcall(require, "snacks")
+    if is_snacks_available then
+      references = snacks.picker.lsp_references
+    end
+
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
     vim.keymap.set({ "n", "x" }, "<F3>", vim.lsp.buf.format, opts)
