@@ -2,12 +2,7 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-set nocompatible
-filetype plugin on
-syntax on
-
 set tabstop=4 shiftwidth=4 expandtab
-set encoding=utf-8 fileencoding=utf-8
 
 set noswapfile
 
@@ -21,9 +16,6 @@ set nowrap
 " characters.
 set smartcase
 
-" Enable spellcheck
-setlocal spell spelllang=en_us
-
 set completeopt=menu,menuone,noselect
 
 set textwidth=80
@@ -33,8 +25,6 @@ set shortmess+=I " Disable intro message.
 " ------------------------------------------------------------------------------
 " Basic Mappings:
 " ------------------------------------------------------------------------------
-
-set mouse=a
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -50,18 +40,6 @@ vnoremap Q @q
 
 nnoremap Y y$
 
-function! s:insertDate()
-  execute ':normal! i ' . strftime('%Y-%m-%d')
-endfun
-
-command! InsertDate call s:insertDate()
-
-function! s:insertDateTime()
-  execute ':normal! i ' . strftime('%Y-%m-%d %H:%M')
-endfun
-
-command! InsertDateTime call s:insertDateTime()
-
 " Use the system clipboard register. For example, `<C-c>` with `y2y` ot copy `2`
 " lines to the clipboard, `<C-c>d2d` to cut 2 lines, etc.
 nnoremap <C-c> "+
@@ -72,11 +50,6 @@ vnoremap <C-c> "+
 " ------------------------------------------------------------------------------
 
 lua require("config.lazy")
-
-" Add support for python plugins.
-" Python packages pynvim and neovim must be installed.
-let g:python2_host_prog = exepath('python2')
-let g:python3_host_prog = exepath('python3')
 
 " ------------------------------------------------------------------------------
 " Tools:
@@ -135,9 +108,3 @@ hi StatusLine ctermbg=10 ctermfg=12
 hi statusLineNc ctermbg=10 ctermfg=14
 
 set cursorline
-
-function! SynGroup()                                                            
-  let l:s = synID(line('.'), col('.'), 1)                                       
-
-  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
