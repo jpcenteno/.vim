@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.setup = function()
+M.setup = function(_)
   vim.g.mapleader = " "
   vim.g.maplocalleader = ","
 

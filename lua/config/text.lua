@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(_)
   vim.opt.tabstop = 4
   vim.opt.shiftwidth = 4
   vim.opt.expandtab = true
