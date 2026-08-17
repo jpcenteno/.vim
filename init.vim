@@ -2,9 +2,6 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-
-set noswapfile
-
 " Perform case-insensitive searches unless the search contains uppercase
 " characters.
 set smartcase
