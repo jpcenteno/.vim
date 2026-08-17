@@ -5,9 +5,6 @@
 
 set noswapfile
 
-" Keep the buffers hidden when closed.
-set hidden
-
 " Perform case-insensitive searches unless the search contains uppercase
 " characters.
 set smartcase
