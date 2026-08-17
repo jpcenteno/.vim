@@ -2,7 +2,7 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-set tabstop=4 shiftwidth=4 expandtab
+lua require("config.text").setup()
 
 set noswapfile
 
@@ -17,8 +17,6 @@ set nowrap
 set smartcase
 
 set completeopt=menu,menuone,noselect
-
-set textwidth=80
 
 set shortmess+=I " Disable intro message.
 
