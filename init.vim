@@ -2,10 +2,6 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-" Perform case-insensitive searches unless the search contains uppercase
-" characters.
-set smartcase
-
 set completeopt=menu,menuone,noselect
 
 lua require("config.text").setup({})
