@@ -9,16 +9,11 @@ set noswapfile
 " Keep the buffers hidden when closed.
 set hidden
 
-" Clip longer lines instead of wrapping
-set nowrap
-
 " Perform case-insensitive searches unless the search contains uppercase
 " characters.
 set smartcase
 
 set completeopt=menu,menuone,noselect
-
-set shortmess+=I " Disable intro message.
 
 " ------------------------------------------------------------------------------
 " Basic Mappings:
@@ -42,10 +37,7 @@ lua require("config.debug")
 " Aesthetics:
 " ------------------------------------------------------------------------------
 
-set scrolloff=5 " Vertical scroll margin
-
-" Prevent syntax highlighting from breaking after very long lines.
-set synmaxcol=0
+lua require("config.aesthetics").setup({})
 
 " Overrides some of the color scheme settings for readability and minimalism.
 function! s:ColorschemeOverrides() abort
@@ -81,11 +73,5 @@ augroup ColorschemeOverrides
   autocmd Colorscheme base16-default-* call s:ColorschemeOverrides()
 augroup END
 
-set notermguicolors
-set bg=dark
-colorscheme base16-default-dark
-
 hi StatusLine ctermbg=10 ctermfg=12
 hi statusLineNc ctermbg=10 ctermfg=14
-
-set cursorline
