@@ -24,24 +24,7 @@ set shortmess+=I " Disable intro message.
 " Basic Mappings:
 " ------------------------------------------------------------------------------
 
-nnoremap <SPACE> <Nop>
-let mapleader=" "
-
-nnoremap , <Nop>
-let maplocalleader=","
-
-nnoremap ; :
-vnoremap ; :
-
-nnoremap Q @q
-vnoremap Q @q
-
-nnoremap Y y$
-
-" Use the system clipboard register. For example, `<C-c>` with `y2y` ot copy `2`
-" lines to the clipboard, `<C-c>d2d` to cut 2 lines, etc.
-nnoremap <C-c> "+
-vnoremap <C-c> "+
+lua require("config.keys").setup()
 
 " ------------------------------------------------------------------------------
 " Plugin Declarations:
