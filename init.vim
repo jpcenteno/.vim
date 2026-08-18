@@ -2,5 +2,4 @@
 " Basic Config:
 " ------------------------------------------------------------------------------
 
-lua require("config.keys").setup({})
 lua require("config.lazy")
