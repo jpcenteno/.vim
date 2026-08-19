@@ -77,4 +77,23 @@ ls.add_snippets("lua", {
       }
     )
   ),
+
+  s(
+    "mod",
+    fmt(
+      [[
+      local M = {{}}
+
+      function M.{}
+        {}
+      end
+
+      return M
+      ]],
+      {
+        i(1, "function_name"),
+        i(2),
+      }
+    )
+  ),
 })
