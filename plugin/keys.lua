@@ -1,11 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- Ensure nothing is mapped to leader keys to prevent triggering an arbitrary
--- event on timeout.
-vim.keymap.del({ "n", "v" }, vim.g.mapleader)
-vim.keymap.del({ "n", "v" }, vim.g.maplocalleader)
-
 -- Shorthand for `:` to save me a shift.
 vim.keymap.set({ "n", "v" }, ";", ":", { remap = false, silent = true, desc = "Enter command-line mode" })
 
