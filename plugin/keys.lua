@@ -1,5 +1,6 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+local keys = require("config.keys")
+
+keys.setup_leader_keys()
 
 -- Shorthand for `:` to save me a shift.
 vim.keymap.set({ "n", "v" }, ";", ":", { remap = false, silent = true, desc = "Enter command-line mode" })
