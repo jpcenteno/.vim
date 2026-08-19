@@ -1,3 +1,8 @@
+-- NOTE: I had to move this file `$XDG_CONFIG_HOME/nvim/plugin/` to vacata
+-- `init.vim` and `init.lua` so that I could start integrating that file with
+-- Home-Manager. Things seem to work fine, but putting this in the `plugin/`
+-- directory may mess up with the loading mechanism that Lazy relies on.
+
 -- Copied from https://lazy.folke.io/installation 2025-08-29
 
 -- Bootstrap lazy.nvim
@@ -8,7 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -20,6 +25,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim
 -- so that mappings are correct. As of 2025-09-27, this is taken care at
 -- `init.vim`.
+vim.print({ context = "lazy.lua", leader = vim.g.mapleader, localleader = vim.g.maplocalleader })
 
 -- Setup lazy.nvim
 require("lazy").setup({
