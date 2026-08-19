@@ -5,6 +5,7 @@ return {
       python = { "isort", "black" }, -- Will run `isort`, then `black`
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
+      clojure = { "cljfmt" },
     },
     format_on_save = {
       -- Attempt to use the LSP formatter if no formatters are specified for the buffer's file-type.
