@@ -1,3 +1,9 @@
 /autoload/plug.vim
 plugged/
 spell/
+
+# NOTE: This is a temporary fix to allow _Stylix_ to tune the colorscheme while
+# avoiding fixing the de-synchronization between my NixOS/Home-Manager
+# config with my Neovim config.
+init.lua
+init.vim
