@@ -1,9 +1,3 @@
-local function setup_colorscheme()
-  vim.opt.termguicolors = false
-  vim.opt.background = "dark"
-  vim.cmd.colorscheme("base16-default-dark")
-end
-
 -- Disable intro message.
 vim.opt.shortmess:append("I")
 
@@ -21,5 +15,3 @@ vim.opt.textwidth = 80
 
 -- Highlight row with cursor.
 vim.opt.cursorline = true
-
-setup_colorscheme()
